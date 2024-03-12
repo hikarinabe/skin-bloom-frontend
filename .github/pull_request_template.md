@@ -7,12 +7,16 @@
 ## CheckList
 
 - [ ] ローカルでの動作確認
-- [ ] CIが通っているかどうか
+- [ ] CIが全てパスしているかどうか
 
-eslint
+lint
+
 ```
+npm run lint
 ```
 
 format
+
 ```
+npx prettier  --write src/ 
 ```
