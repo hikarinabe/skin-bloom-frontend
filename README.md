@@ -2,16 +2,14 @@
 
 ## Getting Started
 
+プロジェクトをcloneした後、一度
+```npm install next```コマンドを打つ必要がある。
+
+## localで挙動を確認したいとき
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -31,7 +29,7 @@ npm run build
 デプロイ
 
 ```
-firebase deploy --only hosting
+npm run deploy
 ```
 
 ## Learn More
