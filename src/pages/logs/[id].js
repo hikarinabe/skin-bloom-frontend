@@ -1,5 +1,3 @@
 export default function Detail() {
-    return (
-        <></>
-    );
-  }
+  return <></>;
+}
