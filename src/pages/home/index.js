@@ -12,7 +12,7 @@ export default function Home() {
     } else {
       router.push("/home/intro");
     }
-  }, []);
+  }, [router]);
 
   return null;
 }
