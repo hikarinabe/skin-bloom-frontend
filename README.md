@@ -1,5 +1,11 @@
 # skin-bloom-frontend
 
+## フォルダの説明
+基本的にsrcフォルダ内を編集する。
+src/pages配下が、クライアントサイドでの各ページに大体対応している。
+ページ間で共通で用いられるような要素（コンポーネント）はsrc/componentsフォルダ配下にある。
+src/componentsフォルダ配下にはjsとscss(便利css)のファイルがある。
+
 ## Getting Started
 
 プロジェクトをcloneした後、一度
