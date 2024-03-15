@@ -1,4 +1,5 @@
 import styles from "./FuncIntroduction.module.scss";
+import Image from "next/image";
 
 export default function FuncIntroduction() {
   return (
@@ -6,7 +7,8 @@ export default function FuncIntroduction() {
       <h2 className={styles.subtitle}>機能紹介</h2>
       <div className={styles.funcWrapper}>
         <div className={styles.funcItem}>
-          <img src="/imgs/image.png" alt="" width="256px" />
+          <img src="/imgs/image.png" alt="" width="256px" /> 
+          {/**詳細は不明だがnext/Imageのタグのままpngファイルを読み込むとruntime errorが出たのでimgタグを使っている。 */}
           <div className={styles.caption}>
             <p className={styles.captionText}>ログをつける</p>
           </div>
