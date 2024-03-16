@@ -9,7 +9,11 @@ export default function Concept() {
         <div className={styles.LeftItem}>
           <h1>あなたにベストなスキンケア</h1>
           <p>納得の化粧品で納得の肌に出会いましょう</p>
-          <button className={buttonStyles.softEdgeButton}>ユーザ登録</button>
+          <a href="/auth/signup">
+            <button className={buttonStyles.softEdgeButton}>
+              新規ユーザ登録
+            </button>
+          </a>
         </div>
         <div className={styles.RightItem}>
           <Image alt="" src="/icons/icon.svg" width={200} height={200} />
