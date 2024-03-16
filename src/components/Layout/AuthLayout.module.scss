@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+.background {
+  padding: 50px;
+  background-color: $primary-color;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 700px;
+  border-radius: 24px;
+  background-color: white;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+}
