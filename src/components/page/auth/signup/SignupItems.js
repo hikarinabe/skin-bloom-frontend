@@ -1,6 +1,6 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../ProgressBar";
 import Image from "next/image";
 
 export default function SignupItems() {
@@ -26,7 +26,9 @@ export default function SignupItems() {
           <p>パスワード再入力</p>
           <input className={authStyles.textBox}></input>
           <p></p>
-          <button className={buttonStyles.pillShapedButton}>次へ</button>
+          <a href="/auth/profileForm">
+            <button className={buttonStyles.pillShapedButton}>次へ</button>
+          </a>
         </div>
         <hr className={authStyles.division}></hr>
         <div>

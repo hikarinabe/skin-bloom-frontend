@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+
+.optionButton,
+.optionButtonSelected {
+  height: 44px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 40px;
+  border: 1px solid $primary-color;
+  background-color: white;
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.optionButtonSelected {
+  background-color: $primary-color;
+  color: white;
+}

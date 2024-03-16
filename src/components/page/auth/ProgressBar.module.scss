@@ -1,4 +1,4 @@
-@import "../../../../styles/variables";
+@import "../../../styles/variables";
 
 .progressBar {
   display: flex;
@@ -20,6 +20,11 @@
   border-color: rgba(102, 102, 102, 0.35);
   width: 30%;
   margin: -40px 0 20px;
+}
+
+.checkIcon {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .circle,
