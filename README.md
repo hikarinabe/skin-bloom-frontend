@@ -6,6 +6,10 @@ src/pages配下が、クライアントサイドでの各ページに大体対�
 ページ間で共通で用いられるような要素（コンポーネント）はsrc/componentsフォルダ配下にある。
 src/componentsフォルダ配下にはjsとscss(便利css)のファイルがある。
 
+### src/components
+- Footer, Header
+- Layout: これで要素を挟むとFooterとHeaderで挟める
+- page/: 配下には、src/pages配下と同様のディレクトリ構造があり、各ページで用いられるcomponentが格納される。
 ## Getting Started
 
 プロジェクトをcloneした後、一度
