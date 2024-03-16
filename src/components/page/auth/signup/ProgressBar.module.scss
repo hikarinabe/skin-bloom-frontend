@@ -1,0 +1,43 @@
+@import "../../../../styles/variables";
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressItem,
+.inactiveProgressItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.inactiveProgressItem {
+  color: $inactive-text-color;
+}
+
+.progressLine {
+  border-color: rgba(102, 102, 102, 0.35);
+  width: 30%;
+  margin: -40px 0 20px;
+}
+
+.circle,
+.inactiveCircle {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  border: 2px solid $primary-color;
+}
+
+.inactiveCircle {
+  border: 1px dashed $inactive-text-color;
+}
