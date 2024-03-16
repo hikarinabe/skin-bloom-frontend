@@ -2,11 +2,12 @@ import authStyles from "@/components/page/auth/auth.module.scss";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import ProgressBar from "../ProgressBar";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SignupItems() {
   return (
     <div className={authStyles.itemsWrapper}>
-      <a href="/home">
+      <Link href="/home">
         <Image
           className={authStyles.backIcon}
           src="/icons/back.svg"
@@ -14,7 +15,7 @@ export default function SignupItems() {
           width={30}
           alt=""
         />
-      </a>
+      </Link>
       <h2 className={authStyles.title}>新規登録</h2>
       <ProgressBar isSignedUp={false} />
       <div className={authStyles.forms}>
@@ -26,9 +27,9 @@ export default function SignupItems() {
           <p>パスワード再入力</p>
           <input className={authStyles.textBox}></input>
           <p></p>
-          <a href="/auth/profileForm">
+          <Link href="/auth/profileForm">
             <button className={buttonStyles.pillShapedButton}>次へ</button>
-          </a>
+          </Link>
         </div>
         <hr className={authStyles.division}></hr>
         <div>
@@ -44,7 +45,7 @@ export default function SignupItems() {
           </button>
         </div>
         <p className={authStyles.caption}>
-          アカウントをお持ちでない方は<a href="/auth/login">こちら</a>
+          アカウントをお持ちでない方は<Link href="/auth/login">こちら</Link>
         </p>
       </div>
     </div>

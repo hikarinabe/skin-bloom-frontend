@@ -4,11 +4,12 @@ import styles from "@/components/page/auth/profileForm/ProfileFormItem.module.sc
 import ProgressBar from "../ProgressBar";
 import OptionButton from "@/components/ui/button/OptionButton";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProfileFormItems() {
   return (
     <div className={authStyles.itemsWrapper}>
-      <a href="/auth/signup">
+      <Link href="/auth/signup">
         <Image
           className={authStyles.backIcon}
           src="/icons/back.svg"
@@ -16,7 +17,7 @@ export default function ProfileFormItems() {
           width={30}
           alt=""
         />
-      </a>
+      </Link>
       <h2 className={authStyles.title}>新規登録</h2>
       <ProgressBar isSignedUp={true} />
       <div className={authStyles.forms}>
@@ -57,7 +58,7 @@ export default function ProfileFormItems() {
           <h4>性別</h4>
           <div className={styles.genderWrapper}>
             {["男性", "女性", "その他", "回答しない"].map((name, index) => (
-              <label>
+              <label key={index}>
                 <input
                   className={styles.radioInput}
                   key={index}
