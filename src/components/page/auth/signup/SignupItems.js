@@ -1,10 +1,23 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
-import ProgressBar from "../ProgressBar";
 import Image from "next/image";
 import Link from "next/link";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ProgressBar from "../ProgressBar";
 
 export default function SignupItems() {
+  const WarnToast = () => toast.warn("Googleログインはサポートされていません", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+  
   return (
     <div className={authStyles.itemsWrapper}>
       <Link href="/home">
@@ -33,7 +46,7 @@ export default function SignupItems() {
         </div>
         <hr className={authStyles.division}></hr>
         <div>
-          <button className={buttonStyles.pillShapedButtonWhite}>
+          <button className={buttonStyles.pillShapedButtonWhite} onClick={WarnToast}>
             <Image
               className={authStyles.snsIcon}
               src="/icons/google.svg"
@@ -43,9 +56,10 @@ export default function SignupItems() {
             />
             Googleで新規登録
           </button>
+          <ToastContainer />
         </div>
         <p className={authStyles.caption}>
-          アカウントをお持ちでない方は<Link href="/auth/login">こちら</Link>
+          アカウントをお持ちの方は<Link href="/auth/login">こちら</Link>
         </p>
       </div>
     </div>

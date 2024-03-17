@@ -2,8 +2,21 @@ import authStyles from "@/components/page/auth/auth.module.scss";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginItems() {
+  const WarnToast = () => toast.warn("Googleログインはサポートされていません", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+
   return (
     <div className={authStyles.itemsWrapper}>
       <Link href="/home">
@@ -27,10 +40,11 @@ export default function LoginItems() {
         </div>
         <hr className={authStyles.division}></hr>
         <div>
-          <button className={buttonStyles.pillShapedButtonWhite}>
+          <button className={buttonStyles.pillShapedButtonWhite} onClick={WarnToast}>
             <Image src="/icons/google.svg" height={25} width={25} alt="" />
             Googleでログイン
           </button>
+          <ToastContainer />
         </div>
         <p className={authStyles.caption}>
           アカウントをお持ちでない方は<Link href="/auth/signup">こちら</Link>
