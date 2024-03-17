@@ -2,10 +2,10 @@ import authStyles from "@/components/page/auth/auth.module.scss";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import { useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
 
 export default function SignupItems() {
@@ -18,13 +18,16 @@ export default function SignupItems() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setRequest(prevState => ({
+    setRequest((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-  }
+  };
 
-  const showToast = (message = "Googleログインはサポートされていません。", type = "error") => {
+  const showToast = (
+    message = "Googleログインはサポートされていません。",
+    type = "error",
+  ) => {
     toast[type](message, {
       position: "top-center",
       autoClose: 5000,
@@ -35,12 +38,12 @@ export default function SignupItems() {
       progress: undefined,
       theme: "light",
     });
-  }
+  };
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,23 +60,28 @@ export default function SignupItems() {
       return;
     }
 
-    const endpoint_url = "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
+    const endpoint_url =
+      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
     const formData = new FormData();
-    formData.append('email', request.email);
-    formData.append('password', request.password);
+    formData.append("email", request.email);
+    formData.append("password", request.password);
     const requestOptions = {
-      method: 'POST',
-      headers: {'Authorization': 'wJ5C9dFcEMB5'}, // TODO: とりあえずこのままコミットする。あとでAPI keyを変えて秘匿する
+      method: "POST",
+      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
+      headers: { Authorization: "wJ5C9dFcEMB5" },
       body: formData,
     };
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
       const data = await res.text();
-      console.log(data)
+      console.log(data);
       if (res.ok) {
         // リクエストが成功した場合の処理
-        await router.push("/auth/profileForm", { user_id: data, ...router.query });
+        await router.push("/auth/profileForm", {
+          user_id: data,
+          ...router.query,
+        });
       } else {
         showToast("リクエストが失敗しました");
       }
@@ -81,7 +89,7 @@ export default function SignupItems() {
       console.error(err);
       showToast("エラーが発生しました");
     }
-  }
+  };
 
   return (
     <div className={authStyles.itemsWrapper}>
@@ -99,17 +107,39 @@ export default function SignupItems() {
       <div className={authStyles.forms}>
         <form onSubmit={handleSubmit}>
           <p>メールアドレス</p>
-          <input name='email' className={authStyles.textBox} value={request.email} onChange={handleChange}></input>
+          <input
+            name="email"
+            className={authStyles.textBox}
+            value={request.email}
+            onChange={handleChange}
+          ></input>
           <p>パスワード</p>
-          <input name='password' className={authStyles.textBox} value={request.password} onChange={handleChange}></input>
+          <input
+            name="password"
+            className={authStyles.textBox}
+            value={request.password}
+            type="password"
+            onChange={handleChange}
+          ></input>
           <p>パスワード再入力</p>
-          <input name='password2' className={authStyles.textBox} value={request.password2} onChange={handleChange}></input>
-          <p></p>          
-          <button className={buttonStyles.pillShapedButton} type="submit">次へ</button>
+          <input
+            name="password2"
+            className={authStyles.textBox}
+            value={request.password2}
+            type="password"
+            onChange={handleChange}
+          ></input>
+          <p></p>
+          <button className={buttonStyles.pillShapedButton} type="submit">
+            次へ
+          </button>
         </form>
         <hr className={authStyles.division}></hr>
         <div>
-          <button className={buttonStyles.pillShapedButtonWhite} onClick={showToast}>
+          <button
+            className={buttonStyles.pillShapedButtonWhite}
+            onClick={showToast}
+          >
             <Image
               className={authStyles.snsIcon}
               src="/icons/google.svg"

@@ -6,7 +6,7 @@ import ProgressBar from "../ProgressBar";
 
 export default function ProfileFormItems() {
   return (
-    <div className={authStyles.itemsWrapper}>g
+    <div className={authStyles.itemsWrapper}>
       <h2 className={authStyles.title}>新規登録</h2>
       <ProgressBar isSignedUp={true} />
       <div className={authStyles.forms}>
