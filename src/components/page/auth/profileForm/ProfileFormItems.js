@@ -1,23 +1,12 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
-import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import styles from "@/components/page/auth/profileForm/ProfileFormItem.module.scss";
-import ProgressBar from "../ProgressBar";
 import OptionButton from "@/components/ui/button/OptionButton";
-import Image from "next/image";
-import Link from "next/link";
+import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
+import ProgressBar from "../ProgressBar";
 
 export default function ProfileFormItems() {
   return (
     <div className={authStyles.itemsWrapper}>
-      <Link href="/auth/signup">
-        <Image
-          className={authStyles.backIcon}
-          src="/icons/back.svg"
-          height={30}
-          width={30}
-          alt=""
-        />
-      </Link>
       <h2 className={authStyles.title}>新規登録</h2>
       <ProgressBar isSignedUp={true} />
       <div className={authStyles.forms}>

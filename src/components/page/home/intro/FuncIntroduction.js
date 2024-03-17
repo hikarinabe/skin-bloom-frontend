@@ -1,5 +1,4 @@
 import styles from "./FuncIntroduction.module.scss";
-import Image from "next/image";
 
 export default function FuncIntroduction() {
   return (
