@@ -72,7 +72,7 @@ export default function LoginItems() {
       console.log(data, data["user_id"]);
       if (res.ok) {
         // リクエストが成功した場合の処理
-        await router.push("/home/mypage", {
+        router.push("/home/mypage", "/home/mypage", {
           user_id: data["user_id"],
           ...router.query,
         });
