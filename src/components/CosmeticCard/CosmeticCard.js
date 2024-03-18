@@ -23,29 +23,39 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
       <div className={styles.horizontalWrapper}>
         <div className={styles.ingredientsWrapper}>
           {majorIngredients.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite}>{value}</button>
+            <button className={tagStyles.softEdgeTagButtonWhite}>
+              {value}
+            </button>
           ))}
         </div>
         {isMyPage ? (
           <div className={styles.matchRateWrapper}>
             <Image src="/icons/heart.svg" height={25} width={25} alt="" />
-            <div>{matchRate*100}%</div>
+            <div>{matchRate * 100}%</div>
           </div>
         ) : null}
       </div>
       <hr className={styles.division}></hr>
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>
-            {majorTags.map((value)=>(
-                <button className={tagStyles.softEdgeTagButtonActive}>{value}</button>
-            ))}
+          {majorTags.map((value) => (
+            <button className={tagStyles.softEdgeTagButtonActive}>
+              {value}
+            </button>
+          ))}
         </div>
-
       </div>
 
       <div className={styles.horizontalWrapper}>
-        <Link href={`/cosmetics/${cosmeticID}`} className={styles.detailButtonWrapper}><button className={styles.detailButton}><h3 className={styles.detailButtonText}>詳しく見る➚</h3></button></Link>
-        
+        <Link
+          href={`/cosmetics/${cosmeticID}`}
+          className={styles.detailButtonWrapper}
+        >
+          <button className={styles.detailButton}>
+            <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
+          </button>
+        </Link>
+
         {isMyPage ? null : (
           <Image
             src="/icons/circular-write.svg/"

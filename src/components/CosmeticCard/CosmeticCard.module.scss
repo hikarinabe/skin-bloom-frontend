@@ -14,40 +14,40 @@
 }
 
 .horizontalWrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .division {
-    border-color: $inactive-text-color;
+  border-color: $inactive-text-color;
 }
 
 .matchRateWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .detailButtonWrapper {
-    width: 80%;
-    margin-top: 1em;
-    text-decoration: none;
+  width: 80%;
+  margin-top: 1em;
+  text-decoration: none;
 }
 
 .detailButton {
-    border: none;
-    background-color: $primary-color;
-    border-radius: 36px;
-    color: white;
-    font-weight: bold;
-    height: 36px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border: none;
+  background-color: $primary-color;
+  border-radius: 36px;
+  color: white;
+  font-weight: bold;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .detailButtonText {
-    text-align: center;
+  text-align: center;
 }
