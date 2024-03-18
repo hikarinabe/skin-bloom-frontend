@@ -10,11 +10,14 @@ export default function Profile() {
         <Layout>
             <ViewCommonElements />
             <main>
-                <div className={styles.contents}>
+                <div className={styles.Button}>
+
                     <div className="form-check form-check-reverse">
                         <Link href="./profile" className="btn btn-outline-primary">Cancel</Link>
                         <button onClick={SaveClick} className="btn btn-primary">Save</button>
                     </div>
+                </div>
+                <div className={styles.contents}>
 
                     <div className="w-75">
                         <div>
