@@ -74,12 +74,7 @@ export default function ProfileFormItems() {
   };
 
   const handleSubmit = async (event) => {
-    console.log("submit");
     event.preventDefault();
-
-
-    console.log(`${date.year}-${date.month}-${date.day} 00:00:00`);
-
     const requestOptions = {
       method: "POST",
       // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する

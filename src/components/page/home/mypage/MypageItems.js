@@ -11,6 +11,8 @@ import Link from "next/link";
 
 export default function MypageItems() {
   useEffect(() => {
+    // TODO: remove this line later
+    // NOTE: ローカルストレージからuser_idを取得するためにDebugで書いている
     console.log(localStorage.getItem("user_id"));
   }, []);
   return (

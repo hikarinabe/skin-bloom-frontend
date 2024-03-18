@@ -72,12 +72,6 @@ export default function SignupItems() {
       body: formData,
     };
 
-    // For debug
-    // // リクエストが成功した場合の処理
-    // router.push("/auth/profileForm", {
-    //   query: {user_id: "123456"},
-    // });
-
     try {
       const res = await fetch(endpoint_url, requestOptions);
       const data = await res.text();
