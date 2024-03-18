@@ -47,13 +47,13 @@ export default function MypageItems() {
                   "リップクリーム",
                   "化粧水",
                 ].map((value) => (
-                  <OptionButton optionName={value} />
+                  <OptionButton optionName={value} key={value}/>
                 ))}
               </div>
             </Accordion>
             <div className={styles.cosmeticsWrapper}>
-              {[].map((cosmetic) => (
-                <CosmeticCard cosmetic={cosmetic} />
+              {[].map((cosmetic, index) => (
+                <CosmeticCard cosmetic={cosmetic} key={index}/> //TODO keyをcosmetic IDに変更する
               ))}
               {/* TODO ↑がうまれば下を削除する */}
               <CosmeticCard cosmetic={[]} />
