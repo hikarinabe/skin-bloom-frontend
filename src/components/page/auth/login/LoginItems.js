@@ -56,31 +56,28 @@ export default function LoginItems() {
 
     const endpoint_url =
       "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/login";
-    const formData = new FormData();
-    formData.append("email", request.email);
-    formData.append("password", request.password);
     const requestOptions = {
       method: "POST",
       // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
       headers: { Authorization: "wJ5C9dFcEMB5" },
-      body: formData,
+      body: JSON.stringify({
+        email: request.email,
+        password: request.password,
+      }),
     };
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
       const data = await res.text();
-      console.log(data, data["user_id"]);
+      const json_data = JSON.parse(data);
       if (res.ok) {
         // リクエストが成功した場合の処理
-        router.push("/home/mypage", "/home/mypage", {
-          user_id: data["user_id"],
-          ...router.query,
-        });
+        localStorage.setItem("user_id", json_data["user_id"]);
+        router.push("/home/mypage", "/home/mypage");
       } else {
         showToast("リクエストが失敗しました");
       }
     } catch (err) {
-      console.error(err);
       showToast("エラーが発生しました");
     }
   };

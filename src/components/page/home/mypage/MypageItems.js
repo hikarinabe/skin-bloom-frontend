@@ -1,15 +1,18 @@
-import styles from "./MypageItems.module.scss";
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
+import { useEffect } from "react";
+import styles from "./MypageItems.module.scss";
 
-import IngredientsRank from "./IngredientsRank";
 import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
 import Accordion from "@/components/ui/Accordion/Accordion";
 import OptionButton from "@/components/ui/button/OptionButton";
+import IngredientsRank from "./IngredientsRank";
 
 import Link from "next/link";
-import Image from "next/image";
 
 export default function MypageItems() {
+  useEffect(() => {
+    console.log(localStorage.getItem("user_id"));
+  }, []);
   return (
     <>
       <div className={styles.mypageItemsWrapper}>

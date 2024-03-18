@@ -72,15 +72,20 @@ export default function SignupItems() {
       body: formData,
     };
 
+    // For debug
+    // // リクエストが成功した場合の処理
+    // router.push("/auth/profileForm", {
+    //   query: {user_id: "123456"},
+    // });
+
     try {
       const res = await fetch(endpoint_url, requestOptions);
       const data = await res.text();
-      console.log(data);
+      const json_data = JSON.parse(data);
       if (res.ok) {
         // リクエストが成功した場合の処理
-        await router.push("/auth/profileForm", {
-          user_id: data,
-          ...router.query,
+        router.push("/auth/profileForm", {
+          query: { user_id: json_data["user_id"] },
         });
       } else {
         showToast("リクエストが失敗しました");
