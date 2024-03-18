@@ -22,7 +22,7 @@ export default function ViewCommonElements() {
                         <ul className="nav nav-underline">
                             <li className="nav-item"><Link href="./profile" className="nav-link text-primary-emphasis">プロフィール</Link></li>
                             <li className="nav-item"><Link href="./password" className="nav-link text-primary-emphasis">パスワード</Link></li>
-                            <li className="nav-item"><Link href="./record" className="nav-link text-primary-emphasis">使用履歴</Link></li>
+                            <li className="nav-item"><Link href="../logs" className="nav-link text-primary-emphasis">使用履歴</Link></li>
                         </ul>
                     </div>
                 </div>
