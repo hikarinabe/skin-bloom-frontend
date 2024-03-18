@@ -1,0 +1,27 @@
+.ingredientsRank {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredientsRankTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ingredientsRankItemsWrapper {
+  justify-content: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ingredientRankItem {
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}

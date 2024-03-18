@@ -1,12 +1,11 @@
 import Layout from "@/components/Layout/Layout";
+import MypageItems from "@/components/page/home/mypage/MypageItems";
 
 export default function MyPage() {
   return (
     <Layout>
       <main>
-        <div>
-          <p>welcome to mypage for logged in user</p>
-        </div>
+        <MypageItems />
       </main>
     </Layout>
   );
