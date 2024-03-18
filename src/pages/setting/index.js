@@ -1,19 +1,18 @@
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export default function Setting() {
-    
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
-        const isLoggedIn = true;
+  useEffect(() => {
+    const isLoggedIn = true;
 
-        if(isLoggedIn) {
-            router.push("/setting/profile");
-        } else {
-            router.push("/home/intro");
-        }
-    }, [router]);
+    if (isLoggedIn) {
+      router.push("/setting/profile");
+    } else {
+      router.push("/home/intro");
+    }
+  }, [router]);
 
-    return null;
+  return null;
 }
