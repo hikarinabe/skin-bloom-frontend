@@ -1,0 +1,47 @@
+.searchPageItemsWrapper {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.inputSectionWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+  gap: 1em;
+}
+
+.categoryButtonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.filterAndResultWrapper {
+  display: flex;
+}
+
+.filtersWrapper {
+  width: 20%;
+}
+
+.filtersTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.resultWrapper {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.textBox {
+  height: 3em;
+  width: 50%;
+  padding-left: 1em;
+  border-radius: 1em;
+  border: 1px solid rgba(102, 102, 102, 0.35);
+}

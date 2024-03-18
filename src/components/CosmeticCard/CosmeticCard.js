@@ -46,7 +46,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
         </div>
       </div>
 
-      <div className={styles.horizontalWrapper}>
+      <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
         <Link
           href={`/cosmetics/${cosmeticID}`}
           className={styles.detailButtonWrapper}
