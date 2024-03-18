@@ -50,7 +50,7 @@ export default function ProfileFormItems() {
 
   const handleDateChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value)
+    console.log(name, value);
     setDate((prevState) => ({
       ...prevState,
       [name]: value,
@@ -83,7 +83,7 @@ export default function ProfileFormItems() {
         user_id: request.user_id,
         account_name: request.account_name,
         sex: request.sex,
-        birthday:  `${date.year}-${date.month}-${date.day} 00:00:00`,
+        birthday: `${date.year}-${date.month}-${date.day} 00:00:00`,
         nayami: nayami,
       }),
     };
@@ -119,7 +119,12 @@ export default function ProfileFormItems() {
             onChange={handleChange}
           ></input>
           <h4>生年月日</h4>
-          <select name="year" className={styles.selectBox} value={date.year} onChange={handleDateChange}>
+          <select
+            name="year"
+            className={styles.selectBox}
+            value={date.year}
+            onChange={handleDateChange}
+          >
             <option value=""></option>
             {Array.from(
               { length: 100 },
@@ -131,7 +136,12 @@ export default function ProfileFormItems() {
             ))}
           </select>
           <span>年</span>
-          <select name="month" className={styles.selectBox} value={date.month} onChange={handleDateChange}>
+          <select
+            name="month"
+            className={styles.selectBox}
+            value={date.month}
+            onChange={handleDateChange}
+          >
             <option value=""></option>
             {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
               <option key={month} value={month}>
@@ -140,7 +150,12 @@ export default function ProfileFormItems() {
             ))}
           </select>
           <span>月</span>
-          <select name="day" className={styles.selectBox} value={date.day} onChange={handleDateChange}>
+          <select
+            name="day"
+            className={styles.selectBox}
+            value={date.day}
+            onChange={handleDateChange}
+          >
             <option value=""></option>
             {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
               <option key={day} value={day}>
