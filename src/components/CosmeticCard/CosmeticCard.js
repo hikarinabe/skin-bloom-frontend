@@ -23,7 +23,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
       <div className={styles.horizontalWrapper}>
         <div className={styles.ingredientsWrapper}>
           {majorIngredients.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite}>
+            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
               {value}
             </button>
           ))}
@@ -39,7 +39,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>
           {majorTags.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonActive}>
+            <button className={tagStyles.softEdgeTagButtonActive} key={value}>
               {value}
             </button>
           ))}
