@@ -1,0 +1,193 @@
+@import "../../../styles/variables";
+
+.logTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.logTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+  border-bottom: 1px solid #a7a7a7;
+  width: fit-content;
+
+  // // ソート中のカラムにインジケーターを追加
+  // &.sorted-asc:before {
+  //     content: url("/icons/sort-asc.svg");
+  //     display: inline-block;
+  //     margin-right: 1em;
+  // }
+  // &.sorted-desc:before {
+  //     content: url("/icons/sort-desc.svg");
+  //     display: inline-block;
+  //     margin-right: 1em;
+  // }
+}
+
+.productNameTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.categoryTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.ratingTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.positiveTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.positiveTableHeader:before {
+  content: url("/icons/tag.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+}
+
+.negativeTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.negativeTableHeader:before {
+  content: url("/icons/tag.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+}
+
+.dateTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.dateTableHeader:before {
+  content: url("/icons/time.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+}
+
+.cell {
+  text-align: center;
+  border-bottom: 1px solid #a7a7a7;
+}
+
+.date {
+  font-family: "Poppins", sans-serif;
+  font-weight: medium;
+  font-size: 1em;
+  color: $text-color;
+  text-align: center;
+}
+
+.comment {
+  font-family: "Poppins", sans-serif;
+  font-weight: medium;
+  font-size: 1em;
+  color: $text-color;
+  text-align: center;
+}
+
+.icon {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: white;
+  margin-right: 0.5em;
+}
+
+.imageContainer {
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+  clip-path: circle(50%);
+}
+
+.productName {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: $text-color;
+}
+
+.productSubName {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+  color: #808080;
+}
+
+// .checkbox {
+//     cursor: pointer;
+// }
+
+// .checkbox input {
+//     display: none;
+// }
+
+// .checkbox span {
+//     position: relative; /* 相対位置指定を行います。 */
+//     display: block; /* ボックスをブロックレベル要素として表示します。 */
+//     width: 1em; /* ボックスの幅を指定します。 */
+//     height: 1em; /* ボックスの高さを指定します。 */
+//     border: 1px solid $text-color; /* ボックスの境界線を緑色の実線で指定します。 */
+// }
+
+// .checkbox input:checked + span::before {
+//     content: ''; /* 要素の内容を指定します。 */
+//     position: absolute; /* 絶対位置指定を行います。 */
+//     top: 2px; /* 要素の上端の位置を指定します。 */
+//     left: 1px; /* 要素の左端の位置を指定します。 */
+//     display: block; /* チェックマークを表示します。 */
+//     width: 12px; /* チェックマークの幅を指定します。 */
+//     height: 7px; /* チェックマークの高さを指定します。 */
+//     border-left-width: 2px; /* チェックマークの左端の境界線の幅を指定します。 */
+//     border-bottom-width: 2px; /* チェックマークの下端の境界線の幅を指定します。 */
+//     border-color: $text-color; /* チェックマークの色を緑色にします。 */
+//     transform: rotate(-45deg); /* チェックマークを45度反時計回りに回転させます。 */
+// }
