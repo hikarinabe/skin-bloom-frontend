@@ -53,7 +53,7 @@ export default function PasswordItems() {
       if (res.ok) {
         alert("登録しました");
         // リクエストが成功した場合の処理
-        router.push("/setting/password");
+        router.push("/setting/profile");
       } else {
         alert("リクエストが失敗しました");
       }
