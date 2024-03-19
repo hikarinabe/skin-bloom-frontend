@@ -51,7 +51,6 @@ export default function CosmeticItems() {
   };
 
   useEffect(() => {
-    console.log(router.isReady);
     if (router.isReady) {
       getClients();
     }
