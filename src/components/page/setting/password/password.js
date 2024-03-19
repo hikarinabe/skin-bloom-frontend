@@ -1,4 +1,4 @@
-import { password_checker } from "@/share/password_checker";
+import { password_checker } from "@/pkg/password_checker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useRouter } from "next/router";

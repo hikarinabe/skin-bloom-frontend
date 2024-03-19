@@ -1,5 +1,5 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
-import { password_checker } from "@/share/password_checker";
+import { password_checker } from "@/pkg/password_checker";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
