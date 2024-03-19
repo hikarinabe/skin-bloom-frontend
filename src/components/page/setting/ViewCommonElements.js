@@ -1,10 +1,6 @@
-import Image from "next/image";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import styles from "./ViewCommonElements.module.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-import EditClick from "./EditClick";
-import CancelClick from "./CancelClick";
-import SaveClick from "./SaveClick";
 
 export default function ViewCommonElements() {
   return (
@@ -32,7 +28,7 @@ export default function ViewCommonElements() {
                   href="./password"
                   className="nav-link text-primary-emphasis"
                 >
-                  パスワード
+                  パスワード変更
                 </Link>
               </li>
               <li className="nav-item">

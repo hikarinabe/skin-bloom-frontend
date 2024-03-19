@@ -1,27 +1,19 @@
-import Layout from "@/components/Layout/Layout";
-import Link from "next/link";
-import ViewCommonElements from "./profile/ViewCommonElements";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./Profile.module.scss";
-import SaveClick from "./profile/SaveClick";
+import Link from "next/link";
+import styles from "../Profile.module.scss";
 
-export default function Profile() {
-  return (
-    <Layout>
-      <ViewCommonElements />
-      <main>
+export default function ProfileItems() {
+    return (
+        <main>
         <div className={styles.Button}>
-          <div className="form-check form-check-reverse">
-            <Link href="./profile" className="btn btn-outline-primary">
-              Cancel
+          <div className="form-check form-check-reverse" id="editor">
+            <Link href="/setting/edit_profile" class="btn btn-outline-primary">
+              Edit
             </Link>
-            <button onClick={SaveClick} className="btn btn-primary">
-              Save
-            </button>
           </div>
         </div>
         <div className={styles.contents}>
-          <div className="w-75">
+          <div className="w-75" id="contents">
             <div>
               <label>アカウント名</label>
               <div className="input-group">
@@ -32,6 +24,7 @@ export default function Profile() {
                   id="account"
                   className="form-control bg-white"
                   placeholder="account_name"
+                  disabled
                 />
               </div>
             </div>
@@ -45,48 +38,25 @@ export default function Profile() {
                   id="mail"
                   placeholder="@gmail.com"
                   className="form-control bg-white"
+                  disabled
                 />
               </div>
             </div>
             <div>
-              <label>生年月日</label>
+              <label>誕生日</label>
               <div className="input-group">
-                {/* <span className="input-group-text"><img src="/icons/calendar-event.svg"></img></span>
-                                <input id="birthday" className="form-control bg-white" placeholder="2022年02月03日" /> */}
-                {/* <h4>生年月日</h4> */}
-                <select className="form-control">
-                  <option value=""></option>
-                  {Array.from(
-                    { length: 100 },
-                    (_, i) => new Date().getFullYear() - i,
-                  ).map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-                <span className="input-group-text">年</span>
-                <select className="form-control">
-                  <option value=""></option>
-                  {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
-                    <option key={month} value={month}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-                <span className="input-group-text">月</span>
-                <select className="form-control">
-                  <option value=""></option>
-                  {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
-                    <option key={day} value={day}>
-                      {day}
-                    </option>
-                  ))}
-                </select>
-                <span className="input-group-text">日</span>
+                <span className="input-group-text">
+                  <img src="/icons/calendar-event.svg"></img>
+                </span>
+                <input
+                  id="birthday"
+                  className="form-control bg-white"
+                  placeholder="2022年02月03日"
+                  disabled
+                />
               </div>
             </div>
-            <div>
+            <div id="radio">
               <p>性別</p>
               <div className="form-check form-check-inline">
                 <input
@@ -94,6 +64,7 @@ export default function Profile() {
                   type="radio"
                   name="flexRadioDefault"
                   id="male"
+                  disabled
                 />
                 <label className="form-check-label" htmlFor="male">
                   男性
@@ -105,6 +76,7 @@ export default function Profile() {
                   type="radio"
                   name="flexRadioDefault"
                   id="female"
+                  disabled
                 />
                 <label className="form-check-label" htmlFor="female">
                   女性
@@ -116,6 +88,7 @@ export default function Profile() {
                   type="radio"
                   name="flexRadioDefault"
                   id="other"
+                  disabled
                 />
                 <label className="form-check-label" htmlFor="other">
                   その他
@@ -127,8 +100,13 @@ export default function Profile() {
                   type="radio"
                   name="flexRadioDefault"
                   id="no_answer"
+                  checked
+                  disabled
                 />
-                <label className="form-check-label" htmlFor="no_answer">
+                <label
+                  className="form-check-label text-dark"
+                  htmlFor="no_answer"
+                >
                   回答しない
                 </label>
               </div>
@@ -136,6 +114,5 @@ export default function Profile() {
           </div>
         </div>
       </main>
-    </Layout>
-  );
+    )
 }
