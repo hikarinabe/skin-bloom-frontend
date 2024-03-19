@@ -51,7 +51,6 @@ export default function PasswordItems() {
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
-      const data = await res.text();
       if (res.ok) {
         alert("登録しました");
         // リクエストが成功した場合の処理
