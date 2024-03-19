@@ -1,7 +1,7 @@
 import styles from "./LogTable.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 const Rating = ({ value }) => {
     // 評価値に応じて星の数を生成
@@ -21,24 +21,68 @@ const Rating = ({ value }) => {
   
 
 export default function LogTable() {
-  const data = [
+  //テストデータが入っている
+  const initialData = [
     {
-        id: 1,
+        id: "1",
         productImage: "/imgs/chifure_all_in_one.jpg",
         productName: "美白 うるおい ジェル",
         productSubName: "ちふれ 美白 うるおい ジェル N",
         category: "オールインワン",
-        evaluation: 3,
-        positive: ["うるおい"],
-        negative: ["ニキビに効果感じられず"],
-        date: "2021-10-01"
+        rate: 3,
+        good_tag: [2, 4],
+        bad_tag: [1, 3],
+        date: "2021-10-01",
+        comment: "めちゃくちゃしっとり系かも"
+    },
+    {
+        id: "2",
+        productImage: "/imgs/chifure_all_in_one.jpg",
+        productName: "美白 うるおい ジェル",
+        productSubName: "ちふれ 美白 うるおい ジェル N",
+        category: "オールインワン",
+        rate: 4,
+        good_tag: [2, 4],
+        bad_tag: [1, 3],
+        date: "2021-09-01",
+        comment: "めちゃくちゃしっとり系かも"
     }
   ];
+
+  const [data, setData] = useState(initialData);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+  const sortedData = useMemo(() => {
+    let sortableItems = [...data];
+    if (sortConfig.key !== null) {
+      sortableItems.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+  }, [data, sortConfig]);
+
+  const requestSort = (key) => {
+    let direction = 'ascending';
+    if (
+      sortConfig.key === key &&
+      sortConfig.direction === 'ascending'
+    ) {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+  };
+
   return (
     <table className={styles.logTable}>
         <thead>
             <tr>
-            <th className = {styles.logTableHeader}></th>
+            {/* <th className = {styles.logTableHeader}></th> */}
             <th className = {styles.logTableHeader}></th>
             <th className = {styles.logTableHeader}>
                 <div className={styles.productNameTableHeader}>
@@ -50,7 +94,7 @@ export default function LogTable() {
                     カテゴリ
                 </div>
             </th>
-            <th className = {styles.logTableHeader}>
+            <th className = {styles.logTableHeader} onClick={() => requestSort('rating')}>
                 <div className={styles.ratingTableHeader}>
                     評価
                 </div>
@@ -66,8 +110,13 @@ export default function LogTable() {
                 </div>
             </th>
             <th className = {styles.logTableHeader}>
-                <div className={styles.dateTableHeader}>
+                <div className={styles.dateTableHeader} onClick={() => requestSort('date')}>
                     記録日
+                </div>
+            </th>
+            <th className = {styles.logTableHeader}>
+                <div className={styles.commentTableHeader} onClick={() => requestSort('date')}>
+                    コメント
                 </div>
             </th>
             </tr>
@@ -75,12 +124,12 @@ export default function LogTable() {
         <tbody>
         {data.map((item, index) => (
             <tr key={index}>
-            <td className={styles.cell}>
+            {/* <td className={styles.cell}>
                 <label className={styles.checkbox}>
                     <input type="checkbox" />
                     <span />
                 </label>
-            </td>
+            </td> */}
             <td className={styles.cell}>
                 <div className={styles.imageContainer}>
                     <Image alt="" src={item.productImage} width={60} height={60} />
@@ -98,13 +147,18 @@ export default function LogTable() {
             </td>
             <td className={styles.cell}>{item.category}</td>
             <td className={styles.cell}>
-                <Rating value={item.evaluation} />
+                <Rating value={item.rate} />
             </td>
-            <td className={styles.cell}>{item.positive.join(', ')}</td>
-            <td className={styles.cell}>{item.negative.join(', ')}</td>
+            <td className={styles.cell}>{item.good_tag.join(', ')}</td>
+            <td className={styles.cell}>{item.bad_tag.join(', ')}</td>
             <td className={styles.cell}>
                 <div className={styles.date}>
                     {item.date}
+                </div>
+            </td>
+            <td className={styles.cell}>
+                <div className={styles.comment}>
+                    {item.comment}
                 </div>
             </td>
             </tr>
