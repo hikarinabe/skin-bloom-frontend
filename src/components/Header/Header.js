@@ -20,8 +20,9 @@ export default function Header() {
           <li key="Records" className={styles.navItem}>
           <Link href="/">Records</Link>
           </li>
+          {/* todo: あとでAPI接続する */}
           <li key="Logout" className={styles.navItem}>
-          <Link href="/">Logout</Link>
+          <Link href="/home/intro">Logout</Link>
           </li>
           </ul>
         </nav>
