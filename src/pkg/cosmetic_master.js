@@ -11,7 +11,7 @@ const category_data = {
 };
 
 export function to_str_category(n) {
-  return category_data[n];
+  return category_data[Number(n)];
 }
 
 // https://console.firebase.google.com/project/hikarinabe-741d2/firestore/data/~2Fcosmetic_master~2Fcompany?hl=ja
@@ -22,5 +22,5 @@ const company_data = {
 };
 
 export function to_str_company(n) {
-  return company_data[n];
+  return company_data[Number(n)];
 }

@@ -1,3 +1,4 @@
+import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
 import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
 import Grid from "@mui/material/Grid";
 import ListItem from "@mui/material/ListItem";
@@ -19,7 +20,7 @@ export default function CosmeticItems() {
     ingredients: [],
   });
   const matchRate = 0.8;
-  const majorTags = ["保湿"];
+  const majorTags = ["保湿", "ニキビ"];
 
   const getClients = async () => {
     console.log(id);
@@ -35,11 +36,12 @@ export default function CosmeticItems() {
       const json_data = JSON.parse(data);
 
       console.log(json_data);
+      console.log(to_str_category(json_data["company"]))
       setResponse(() => ({
         name: json_data["name"],
         price: json_data["price"],
-        company: to_str_category(json_data["company"]),
-        category: to_str_company(json_data["category"]),
+        company: to_str_company(json_data["company"]),
+        category: to_str_category(json_data["category"]),
         ingredients: json_data["ingredients"],
       }));
       console.log(response.name);
@@ -89,12 +91,14 @@ export default function CosmeticItems() {
             <div className={styles.tagsWrapper}>
               <p>タグ:</p>
               {majorTags.map((value) => (
+                <p className={styles.tagStyle}>
                 <button
                   className={tagStyles.softEdgeTagButtonActive}
                   key={value}
                 >
                   {value}
                 </button>
+                </p>
               ))}
             </div>
             <button className={styles.pillShapedButtonBlue}>
