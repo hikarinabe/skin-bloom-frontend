@@ -23,10 +23,6 @@ export default function PasswordItems() {
 
   const SubmitClick = async (event) => {
     event.preventDefault();
-    console.log(request.current_password);
-    console.log(request.new_password);
-    console.log(request.new_password2);
-    console.log(localStorage.getItem("user_id"));
     const checker = password_checker(
       request.new_password,
       request.new_password2,

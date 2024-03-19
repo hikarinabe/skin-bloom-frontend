@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../Profile.module.scss";
 
-let dev = true;
+let dev = false;
 
 // あとでエンドポイント経由ではなく直接呼び出せるように修正する。
 export default function ProfileItems() {
@@ -66,7 +66,21 @@ export default function ProfileItems() {
     <main>
       <div className={styles.Button}>
         <div className="form-check form-check-reverse" id="editor">
-          <Link href="/setting/edit_profile" class="btn btn-outline-primary">
+          <Link
+            href={{
+              pathname: "/setting/edit_profile",
+              query: {
+                account_name: request.account_name,
+                sex: request.sex,
+                email: request.email,
+                birthday: request.birthday,
+                year: request.year,
+                month: request.month,
+                day: request.day,
+              },
+            }}
+            class="btn btn-outline-primary"
+          >
             Edit
           </Link>
         </div>
