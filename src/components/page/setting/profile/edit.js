@@ -43,7 +43,6 @@ export default function EditProfileItem() {
         email: request.email,
       }),
     }
-
     try {
       const res = await fetch(endpoint_url, requestOptions);
       if (res.ok) {
