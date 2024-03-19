@@ -1,3 +1,10 @@
+import Layout from "@/components/Layout/Layout";
+
 export default function Search() {
-  return <></>;
+  return (
+    <Layout>
+    <main>
+    </main>
+  </Layout>
+  );
 }
