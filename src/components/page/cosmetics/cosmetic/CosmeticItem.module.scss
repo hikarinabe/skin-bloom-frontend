@@ -1,11 +1,10 @@
 @import "../../../../styles/variables";
 
-
 .cosmeticItemWrapper {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  align-items: center; 
+  align-items: center;
 }
 
 .title {
@@ -14,14 +13,14 @@
   font-weight: bold;
 }
 
-.center{
-  text-align:center;
+.center {
+  text-align: center;
   font-size: 2em;
   margin: -1%;
 }
 
 .contents {
-  padding: 3%;
+  padding: 0.2%;
 }
 
 .horizontalWrapper {
@@ -29,7 +28,8 @@
   justify-content: space-between;
   align-items: center;
 }
-.itemInfo{
+
+.itemInfo {
   font-size: larger;
   margin-top: 1em;
 }
@@ -46,8 +46,7 @@
   margin-top: 0.1em;
 }
 
-
-.ingredientList{
+.ingredientList {
   font-size: medium;
   margin: 0px;
 }
@@ -65,10 +64,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5vh
+  margin-top: 5vh;
 }
-
-
 
 .categoryIcon {
   height: 2em;
