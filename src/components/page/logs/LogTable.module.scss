@@ -1,169 +1,165 @@
 @import "../../../styles/variables";
 
-
 .logTable {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    font-family: "Poppins", sans-serif;
-    font-size: 1em;
-    color: $text-color;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.logTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
-    border-bottom: 1px solid #a7a7a7;
-    width:fit-content;
+.logTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
+  border-bottom: 1px solid #a7a7a7;
+  width: fit-content;
 
-    
-    // // ソート中のカラムにインジケーターを追加
-    // &.sorted-asc:before {
-    //     content: url("/icons/sort-asc.svg");
-    //     display: inline-block;
-    //     margin-right: 1em;
-    // }
-    // &.sorted-desc:before {
-    //     content: url("/icons/sort-desc.svg");
-    //     display: inline-block;
-    //     margin-right: 1em;
-    // }
+  // // ソート中のカラムにインジケーターを追加
+  // &.sorted-asc:before {
+  //     content: url("/icons/sort-asc.svg");
+  //     display: inline-block;
+  //     margin-right: 1em;
+  // }
+  // &.sorted-desc:before {
+  //     content: url("/icons/sort-desc.svg");
+  //     display: inline-block;
+  //     margin-right: 1em;
+  // }
 }
 
-
-.productNameTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.productNameTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
-
-.categoryTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.categoryTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.ratingTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.ratingTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
 .tagContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    align-items: center;
-    gap: 1em; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
-.positiveTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.positiveTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.positiveTableHeader:before{
-    content: url("/icons/tag.svg");
-    margin-right:.5em;
-    width: 1.5em;
-    height: 1.5em;
-    background-color: white;
+.positiveTableHeader:before {
+  content: url("/icons/tag.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
 }
 
-.negativeTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.negativeTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.negativeTableHeader:before{
-    content: url("/icons/tag.svg");
-    margin-right:.5em;
-    width: 1.5em;
-    height: 1.5em;
-    background-color: white;
+.negativeTableHeader:before {
+  content: url("/icons/tag.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
 }
 
-.dateTableHeader{
-    background-color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: $text-color;
+.dateTableHeader {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.dateTableHeader:before{
-    content: url("/icons/time.svg");
-    margin-right:.5em;
-    width: 1.5em;
-    height: 1.5em;
-    background-color: white;
+.dateTableHeader:before {
+  content: url("/icons/time.svg");
+  margin-right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
 }
 
-.cell{
-    text-align: center;
-    border-bottom: 1px solid #a7a7a7;
+.cell {
+  text-align: center;
+  border-bottom: 1px solid #a7a7a7;
 }
 
-.date{
-    font-family: "Poppins", sans-serif;
-    font-weight:medium;
-    font-size: 1em;
-    color: $text-color;
-    text-align: center;
+.date {
+  font-family: "Poppins", sans-serif;
+  font-weight: medium;
+  font-size: 1em;
+  color: $text-color;
+  text-align: center;
 }
 
-.comment{
-    font-family: "Poppins", sans-serif;
-    font-weight:medium;
-    font-size: 1em;
-    color: $text-color;
-    text-align: center;
+.comment {
+  font-family: "Poppins", sans-serif;
+  font-weight: medium;
+  font-size: 1em;
+  color: $text-color;
+  text-align: center;
 }
 
-.icon{
-    width: .5em;
-    height: .5em;
-    background-color: white;
-    margin-right: .5em;
+.icon {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: white;
+  margin-right: 0.5em;
 }
 
 .imageContainer {
-    width: 4em;
-    height: 4em;
-    object-fit: cover;
-    clip-path: circle(50%);
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+  clip-path: circle(50%);
 }
 
-.productName{
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 1em;
-    color: $text-color;
+.productName {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: $text-color;
 }
 
-.productSubName{
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-size: 12px;
-    color: #808080;    
+.productSubName {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+  color: #808080;
 }
 
 // .checkbox {
@@ -195,6 +191,3 @@
 //     border-color: $text-color; /* チェックマークの色を緑色にします。 */
 //     transform: rotate(-45deg); /* チェックマークを45度反時計回りに回転させます。 */
 // }
-  
-
-
