@@ -6,7 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function CosmeticCard({ cosmetic, isMyPage = true }) {
-  const imgsrc = "/imgs/image.png";
+  const cosmetic_id = "b2uUWvgXIekI9oAor9HJ";
+  const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = "美白うるおいジェル";
   const detailName = "ちふれ 美白 うるおい ジェル N";
   const majorIngredients = ["グリセリン"]; // 要素数1,2この文字列配列;
@@ -16,7 +17,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   return (
     <div className={styles.cosmeticCard}>
       <div className={styles.cosmeticImageWrapper}>
-        <Image src={imgsrc} height={130} width={130} alt="" />
+        <Image src={imgsrc} height={250} width={250} alt="" />
       </div>
       <h3>{name}</h3>
       <p>{detailName}</p>
