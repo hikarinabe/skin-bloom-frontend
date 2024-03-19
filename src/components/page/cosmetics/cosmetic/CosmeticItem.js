@@ -32,31 +32,9 @@ export default function CosmeticItems() {
     };
 
     try {
-      // const res = await fetch(endpoint_url, requestOptions);
-      // const data = await res.text();
-      // const json_data = JSON.parse(data);
-
-      const json_data = {
-        id: "7MLO8LrBYv5prBblQEMR",
-        ingredients: [
-          "ミネラルオイル",
-          "イソステアリン酸ＰＥＧ－８グリセリル",
-          "トリ（カプリル酸／カプリン酸）グリセリル",
-          "保湿成分",
-          "グリセリン",
-          "防腐剤",
-          "フェノキシエタノール",
-          "メチルパラベン",
-          "成分の酸化防止剤",
-          "トコフェロール",
-          "基剤",
-          "水",
-        ],
-        name: "クレンジング オイル",
-        price: 880,
-        company: "ちふれ",
-        category: "クレンジング",
-      };
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      const json_data = JSON.parse(data);
 
       console.log(json_data);
       setResponse(() => ({
