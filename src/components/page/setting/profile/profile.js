@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../Profile.module.scss";
 
+let dev = true;
+
 // あとでエンドポイント経由ではなく直接呼び出せるように修正する。
 export default function ProfileItems() {
   const router = useRouter();
@@ -26,15 +28,19 @@ export default function ProfileItems() {
     };
 
     try {
-      const res = await fetch(endpoint_url, requestOptions);
-      const data = await res.text();
-      const json_data = JSON.parse(data);
-      //   const json_data = {
-      //     "account_name": "test_for PR",
-      //     "sex": "男性",
-      //     "birthday": "1982-07-09T09:00:00",
-      //     "email": "test_for_PR@email.com"
-      // }
+      let json_data;
+      if (dev) {
+        json_data = {
+          account_name: "test_for PR",
+          sex: "男性",
+          birthday: "1982-07-09T09:00:00",
+          email: "test_for_PR@email.com",
+        };
+      } else {
+        const res = await fetch(endpoint_url, requestOptions);
+        const data = await res.text();
+        json_data = JSON.parse(data);
+      }
       console.log(json_data);
 
       const btd = new Date(json_data["birthday"]);
