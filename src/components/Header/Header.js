@@ -35,7 +35,7 @@ export default function Header() {
           height={40}
         />
         </Link>
-        <Link href="">
+        <Link href="/setting/profile">
         <Image
           className={styles.icon}
           alt=""
