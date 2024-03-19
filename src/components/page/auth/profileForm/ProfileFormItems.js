@@ -17,7 +17,7 @@ const endpoint_url =
 
 export default function ProfileFormItems() {
   const router = useRouter();
-  const tagList = get_list_cosmetic_tag()
+  const tagList = get_list_cosmetic_tag();
 
   const searchParams = useSearchParams();
   const [date, setDate] = useState({
@@ -35,7 +35,7 @@ export default function ProfileFormItems() {
   });
 
   const handleNayamiToggle = (optionName) => {
-    console.log(nayami, optionName)
+    console.log(nayami, optionName);
     if (nayami.includes(optionName)) {
       setNayami(nayami.filter((nayamiItem) => nayamiItem !== optionName));
     } else {
@@ -90,7 +90,7 @@ export default function ProfileFormItems() {
         nayami: nayami,
       }),
     };
-    console.log(requestOptions['body'])
+    console.log(requestOptions["body"]);
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
@@ -191,7 +191,7 @@ export default function ProfileFormItems() {
                 key={index}
                 optionName={optionName["nayami"]}
                 onClick={() => handleNayamiToggle(optionName["id"])}
-                isSelected={nayami.includes(index+1)}
+                isSelected={nayami.includes(index + 1)}
               />
             ))}
           </div>

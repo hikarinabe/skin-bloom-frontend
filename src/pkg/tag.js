@@ -57,6 +57,6 @@ const tag_list = [
   },
 ];
 
-export function get_list_cosmetic_tag(){
-    return tag_list
+export function get_list_cosmetic_tag() {
+  return tag_list;
 }

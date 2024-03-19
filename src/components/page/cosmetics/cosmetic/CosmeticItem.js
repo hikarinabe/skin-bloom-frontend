@@ -36,7 +36,7 @@ export default function CosmeticItems() {
       const json_data = JSON.parse(data);
 
       console.log(json_data);
-      console.log(to_str_category(json_data["company"]))
+      console.log(to_str_category(json_data["company"]));
       setResponse(() => ({
         name: json_data["name"],
         price: json_data["price"],
@@ -90,13 +90,13 @@ export default function CosmeticItems() {
             <div className={styles.tagsWrapper}>
               <p>タグ:</p>
               {majorTags.map((value) => (
-                <p className={styles.tagStyle}>
-                <button
-                  className={tagStyles.softEdgeTagButtonActive}
-                  key={value}
-                >
-                  {value}
-                </button>
+                <p className={styles.tagStyle} key={value}>
+                  <button
+                    className={tagStyles.softEdgeTagButtonActive}
+                    key={value}
+                  >
+                    {value}
+                  </button>
                 </p>
               ))}
             </div>
