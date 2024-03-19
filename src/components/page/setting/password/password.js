@@ -1,27 +1,79 @@
+import { password_checker } from "@/share/password_checker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import styles from "../Profile.module.scss";
-import SubmitClick from "./SubmitClick";
 
 export default function PasswordItems() {
-  // const [request, setRequest] = useState({
-  //   current: "",
-  //   new_password: "",
-  //   new_password2: "",
-  // });
+  const router = useRouter();
+  const [request, setRequest] = useState({
+    current_password: "",
+    new_password: "",
+    new_password2: "",
+  });
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setRequest((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const SubmitClick = async (event) => {
+    event.preventDefault();
+    console.log(request.current_password);
+    console.log(request.new_password);
+    console.log(request.new_password2);
+    console.log(localStorage.getItem("user_id"))
+    const checker = password_checker(request.new_password, request.new_password2)
+    if (checker !== ""){
+      alert(checker)
+      return
+    }
+
+    const endpoint_url =
+      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
+    const formData = new FormData();
+    formData.append("email", request.email);
+    formData.append("password", request.password);
+    const requestOptions = {
+      method: "PUT",
+      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
+      headers: { Authorization: "wJ5C9dFcEMB5" },
+      body: JSON.stringify({
+        user_id: localStorage.getItem("user_id"),
+        current_password: request.current_password,
+        new_password: request.new_password,
+      }),
+    };
+
+    try {
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      if (res.ok) {
+        alert("登録しました");
+        // リクエストが成功した場合の処理
+        router.push("/setting/password");
+      } else {
+        alert("リクエストが失敗しました");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("エラーが発生しました");
+    }
+  }
+  
   return (
     <main>
+      <form className={styles.form} onSubmit={SubmitClick}>
       <div className={styles.Button}>
         <div className="form-check form-check-reverse">
           <Link href="./profile" className="btn btn-outline-primary">
             Cancel
           </Link>
-          <button
-            type="button"
-            onClick={SubmitClick}
-            className="btn btn-primary"
-          >
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
@@ -37,7 +89,9 @@ export default function PasswordItems() {
               <input
                 type="password"
                 className="form-control"
-                id="current_password"
+                name="current_password"
+                value={request.current_password}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -50,7 +104,9 @@ export default function PasswordItems() {
               <input
                 type="password"
                 className="form-control"
-                id="new_password"
+                name="new_password"
+                value={request.new_password}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -63,12 +119,15 @@ export default function PasswordItems() {
               <input
                 type="password"
                 className="form-control"
-                id="confirm_password"
+                name="new_password2"
+                value={request.new_password2}
+                onChange={handleChange}
               />
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </form>
     </main>
   );
 }
