@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function CosmeticCard({ cosmetic, isMyPage = true }) {
-  const cosmetic_id = "b2uUWvgXIekI9oAor9HJ"
+  const cosmetic_id = "b2uUWvgXIekI9oAor9HJ";
   const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = "美白うるおいジェル";
   const detailName = "ちふれ 美白 うるおい ジェル N";
