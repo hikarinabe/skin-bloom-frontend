@@ -77,6 +77,7 @@ export default function CosmeticItems() {
               height={300}
               width={300}
               alt=""
+              className={styles.cosmeticImage}
             />
           </Grid>
           <Grid item xs={7} sm={6}>
