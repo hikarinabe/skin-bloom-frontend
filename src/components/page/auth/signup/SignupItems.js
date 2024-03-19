@@ -1,4 +1,5 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
+import { password_checker } from "@/share/password_checker";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,12 +52,13 @@ export default function SignupItems() {
       showToast("有効なメールアドレスを入力してください");
       return;
     }
-    if (request.password.length < 4) {
-      showToast("パスワードは4文字以上である必要があります");
-      return;
-    }
-    if (request.password != request.password2) {
-      showToast("パスワードが一致していません");
+
+    const password_error = password_checker(
+      request.password,
+      request.password2,
+    );
+    if (password_error !== "") {
+      showToast(password_error);
       return;
     }
 
