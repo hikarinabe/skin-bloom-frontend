@@ -2,6 +2,8 @@ import styles from "./LogTable.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useMemo } from 'react';
+import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
+
 
 const Rating = ({ value }) => {
     // 評価値に応じて星の数を生成
@@ -30,8 +32,8 @@ export default function LogTable() {
         productSubName: "ちふれ 美白 うるおい ジェル N",
         category: "オールインワン",
         rate: 3,
-        good_tag: [2, 4],
-        bad_tag: [1, 3],
+        good_tag: ["うるおい", "美白"],
+        bad_tag: ["ニキビに効果感じられず"],
         date: "2021-10-01",
         comment: "めちゃくちゃしっとり系かも"
     },
@@ -42,8 +44,8 @@ export default function LogTable() {
         productSubName: "ちふれ 美白 うるおい ジェル N",
         category: "オールインワン",
         rate: 4,
-        good_tag: [2, 4],
-        bad_tag: [1, 3],
+        good_tag: ["うるおい", "美白"],
+        bad_tag: ["ニキビに効果感じられず"],
         date: "2021-09-01",
         comment: "めちゃくちゃしっとり系かも"
     }
@@ -149,8 +151,24 @@ export default function LogTable() {
             <td className={styles.cell}>
                 <Rating value={item.rate} />
             </td>
-            <td className={styles.cell}>{item.good_tag.join(', ')}</td>
-            <td className={styles.cell}>{item.bad_tag.join(', ')}</td>
+            <td className={styles.cell}>
+                <div className={styles.tagContainer}>
+                    {item.good_tag.map((value) => (
+                        <button className={tagStyles.softEdgeTagButtonActive} key={value}>
+                        {value}
+                        </button>
+                    ))}
+                </div>
+            </td>
+            <td className={styles.cell}>
+            <div className={styles.tagContainer}>
+                    {item.bad_tag.map((value) => (
+                        <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
+                        {value}
+                        </button>
+                    ))}
+                </div>
+            </td>
             <td className={styles.cell}>
                 <div className={styles.date}>
                     {item.date}

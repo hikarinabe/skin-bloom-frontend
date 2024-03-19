@@ -21,22 +21,18 @@
     border-bottom: 1px solid #a7a7a7;
     width:fit-content;
 
-    cursor: pointer; // カーソルをポインターに変更
-    &:hover {
-        background-color: lighten($text-color, 40%); // ホバー時に背景色を変更
-    }
     
-    // ソート中のカラムにインジケーターを追加
-    &.sorted-asc:before {
-        content: url("/icons/sort-asc.svg");
-        display: inline-block;
-        margin-right: 1em;
-    }
-    &.sorted-desc:before {
-        content: url("/icons/sort-desc.svg");
-        display: inline-block;
-        margin-right: 1em;
-    }
+    // // ソート中のカラムにインジケーターを追加
+    // &.sorted-asc:before {
+    //     content: url("/icons/sort-asc.svg");
+    //     display: inline-block;
+    //     margin-right: 1em;
+    // }
+    // &.sorted-desc:before {
+    //     content: url("/icons/sort-desc.svg");
+    //     display: inline-block;
+    //     margin-right: 1em;
+    // }
 }
 
 
@@ -63,6 +59,14 @@
     font-weight: 500;
     font-size: 1em;
     color: $text-color;
+}
+
+.tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    gap: 1em; 
 }
 
 .positiveTableHeader{
