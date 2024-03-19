@@ -79,7 +79,7 @@ export default function ProfileItems() {
                 day: request.day,
               },
             }}
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
           >
             Edit
           </Link>
