@@ -1,13 +1,13 @@
 import Layout from "@/components/Layout/Layout";
-import PasswordItems from "@/components/page/setting/password/password";
 import ViewCommonElements from "@/components/page/setting/ViewCommonElements";
+import EditProfileItem from "@/components/page/setting/profile/edit";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Password() {
+export default function EditProfile() {
   return (
     <Layout>
       <ViewCommonElements />
-      <PasswordItems />
+      <EditProfileItem />
     </Layout>
   );
 }
