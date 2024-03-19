@@ -18,17 +18,6 @@ export default function CosmeticItems() {
     category: 0,
     ingredients: [],
   });
-  const company_data = { 120: "ちふれ" };
-  const category_data = {
-    1: "化粧水",
-    2: "乳液",
-    3: "美容液",
-    4: "洗顔フォーム",
-    5: "クレンジング",
-    6: "クリーム",
-    7: "オールインワン",
-    8: "パック・シートマスク",
-  };
   const matchRate = 0.8;
   const majorTags = ["保湿"];
 
@@ -49,8 +38,8 @@ export default function CosmeticItems() {
       setResponse(() => ({
         name: json_data["name"],
         price: json_data["price"],
-        company: company_data[json_data["company"]],
-        category: category_data[json_data["category"]],
+        company: to_str_category(json_data["company"]),
+        category: to_str_company(json_data["category"]),
         ingredients: json_data["ingredients"],
       }));
       console.log(response.name);
