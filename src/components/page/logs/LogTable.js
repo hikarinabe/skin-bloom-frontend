@@ -1,8 +1,8 @@
-import styles from "./LogTable.module.scss";
+import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useMemo } from "react";
-import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
+import { useMemo, useState } from "react";
+import styles from "./LogTable.module.scss";
 
 const Rating = ({ value }) => {
   // 評価値に応じて星の数を生成
@@ -25,7 +25,7 @@ export default function LogTable() {
   const initialData = [
     {
       id: "1",
-      productImage: "/imgs/chifure_all_in_one.jpg",
+      productImage: "/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
       productName: "美白 うるおい ジェル",
       productSubName: "ちふれ 美白 うるおい ジェル N",
       category: "オールインワン",
@@ -37,7 +37,7 @@ export default function LogTable() {
     },
     {
       id: "2",
-      productImage: "/imgs/chifure_all_in_one.jpg",
+      productImage:"/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
       productName: "美白 うるおい ジェル",
       productSubName: "ちふれ 美白 うるおい ジェル N",
       category: "オールインワン",
@@ -82,7 +82,6 @@ export default function LogTable() {
     <table className={styles.logTable}>
       <thead>
         <tr>
-          {/* <th className = {styles.logTableHeader}></th> */}
           <th className={styles.logTableHeader}></th>
           <th className={styles.logTableHeader}>
             <div className={styles.productNameTableHeader}>商品名</div>
@@ -123,12 +122,6 @@ export default function LogTable() {
       <tbody>
         {data.map((item, index) => (
           <tr key={index}>
-            {/* <td className={styles.cell}>
-                <label className={styles.checkbox}>
-                    <input type="checkbox" />
-                    <span />
-                </label>
-            </td> */}
             <td className={styles.cell}>
               <div className={styles.imageContainer}>
                 <Image alt="" src={item.productImage} width={60} height={60} />
