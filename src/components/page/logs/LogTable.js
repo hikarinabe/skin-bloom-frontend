@@ -37,7 +37,7 @@ export default function LogTable() {
     },
     {
       id: "2",
-      productImage:"/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
+      productImage: "/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
       productName: "美白 うるおい ジェル",
       productSubName: "ちふれ 美白 うるおい ジェル N",
       category: "オールインワン",
