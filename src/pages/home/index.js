@@ -5,7 +5,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const isLoggedIn = true; //TODO ログイン判定
+    const isLoggedIn = false; //TODO ログイン判定
 
     if (isLoggedIn) {
       router.push("/home/mypage");

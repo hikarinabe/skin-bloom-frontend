@@ -1,0 +1,33 @@
+@import "../variables";
+
+.pillShapedButton,
+.pillShapedButtonWhite {
+  height: 64px;
+  border-radius: 40px;
+  width: 100%;
+  background-color: lightgrey;
+  border: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pillShapedButton:hover {
+  background-color: #333333;
+}
+
+.pillShapedButtonWhite {
+  border: 1px solid $text-color;
+  background-color: white;
+  color: $text-color;
+}
+
+.pillShapedButtonWhite:hover {
+  border: 2px solid $text-color;
+}

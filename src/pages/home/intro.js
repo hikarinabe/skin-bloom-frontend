@@ -1,13 +1,17 @@
-import Layout from "@/components/Layout/Layout";
+import HeaderBeforeLogin from "@/components/Header/HeaderBeforeLogin";
+import Footer from "@/components/Footer/Footer";
+import Concept from "@/components/page/home/intro/Concept";
+import FuncIntroduction from "@/components/page/home/intro/FuncIntroduction";
 
 export default function Intro() {
   return (
-    <Layout>
+    <>
+      <HeaderBeforeLogin />
       <main>
-        <div>
-          <p>welcome to intro page for not logged in user</p>
-        </div>
+        <Concept />
+        <FuncIntroduction />
       </main>
-    </Layout>
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,16 @@
+@import "../../../../styles/variables";
+
+.sectionWrapper {
+  height: 414px;
+  background-color: $secondary-color;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.conceptWrapper {
+  height: 100%;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

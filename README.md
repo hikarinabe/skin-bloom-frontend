@@ -6,6 +6,10 @@ src/pages配下が、クライアントサイドでの各ページに大体対�
 ページ間で共通で用いられるような要素（コンポーネント）はsrc/componentsフォルダ配下にある。
 src/componentsフォルダ配下にはjsとscss(便利css)のファイルがある。
 
+### src/components
+- Footer, Header
+- Layout: これで要素を挟むとFooterとHeaderで挟める
+- page/: 配下には、src/pages配下と同様のディレクトリ構造があり、各ページで用いられるcomponentが格納される。
 ## Getting Started
 
 プロジェクトをcloneした後、一度
@@ -18,7 +22,7 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/home/intro](http://localhost:3000/home/intro) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 

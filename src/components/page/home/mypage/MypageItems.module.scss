@@ -1,0 +1,58 @@
+@import "../../../../styles/variables";
+
+.mypageItemsWrapper {
+  color: $text-color;
+  padding-top: 30px;
+}
+
+.sectionWrapper {
+  display: flex;
+}
+
+.title {
+  text-align: center;
+}
+
+.leftWrapper,
+.rightWrapper {
+  flex: 1;
+}
+
+.leftWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.buttonWrapper {
+  display: flex;
+  width: 60%;
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 30%;
+}
+
+.rightWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bottomSectionWrapper {
+  padding: 100px;
+}
+
+.categoryButtonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.cosmeticsWrapper {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
