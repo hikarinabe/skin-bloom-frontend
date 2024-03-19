@@ -1,0 +1,33 @@
+$theme-colors: (
+  "primary": #1aced6,
+);
+.topColor {
+  background-color: #1aced6;
+  height: 20vh;
+}
+
+.icon {
+  color: #232360;
+  display: flex;
+  // float: left;
+  margin-top: -5%;
+  margin-left: 7%;
+}
+.title {
+  // float: right;
+  margin-top: 5%;
+  margin-left: 3%;
+  font-size: 3rem;
+}
+
+.img {
+  border-radius: 50%;
+  width: 10rem;
+  border: solid 0.3rem#000;
+}
+
+.tabs {
+  margin-top: 3%;
+  margin-left: 8%;
+  height: 3em;
+}

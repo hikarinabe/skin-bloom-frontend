@@ -1,0 +1,17 @@
+.accordionTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.accordionButton {
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordionButtonWrapper {
+  display: flex;
+  align-items: center;
+}
+.rotated {
+  transform: rotate(90deg);
+}

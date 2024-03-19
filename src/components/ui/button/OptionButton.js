@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./OptionButton.module.scss";
 
-const OptionButton = ({ optionName, onClick, isSelected }) => {
+const OptionButton = ({ optionName, onClick, isSelected = false }) => {
   return (
     <button
       type="button"
