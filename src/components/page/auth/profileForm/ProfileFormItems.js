@@ -1,13 +1,13 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
 import styles from "@/components/page/auth/profileForm/ProfileFormItem.module.scss";
 import OptionButton from "@/components/ui/button/OptionButton";
+import { get_list_cosmetic_tag } from "@/pkg/tag";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import ProgressBar from "../ProgressBar";
 
 const endpoint_url =
@@ -15,6 +15,7 @@ const endpoint_url =
 
 export default function ProfileFormItems() {
   const router = useRouter();
+  const tagList = get_list_cosmetic_tag();
 
   const searchParams = useSearchParams();
   const [date, setDate] = useState({
@@ -29,7 +30,6 @@ export default function ProfileFormItems() {
     user_id: searchParams.get("user_id"),
     account_name: "",
     sex: "",
-    nayami: [],
   });
 
   const handleNayamiToggle = (optionName) => {
@@ -50,7 +50,6 @@ export default function ProfileFormItems() {
 
   const handleDateChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setDate((prevState) => ({
       ...prevState,
       [name]: value,
@@ -182,19 +181,12 @@ export default function ProfileFormItems() {
           </div>
           <h4>気になる項目</h4>
           <div className={styles.tagWrapper}>
-            {[
-              "シミ・くすみ",
-              "シワ・たるみ",
-              "小じわ",
-              "アトピー",
-              "赤み",
-              "あああああ",
-            ].map((optionName, index) => (
+            {tagList.map((optionName, index) => (
               <OptionButton
                 key={index}
-                optionName={optionName}
-                onClick={() => handleNayamiToggle(optionName)}
-                isSelected={nayami.includes(optionName)}
+                optionName={optionName["nayami"]}
+                onClick={() => handleNayamiToggle(optionName["id"])}
+                isSelected={nayami.includes(index + 1)}
               />
             ))}
           </div>

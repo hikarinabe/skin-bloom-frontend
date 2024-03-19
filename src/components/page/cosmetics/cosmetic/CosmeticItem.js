@@ -1,3 +1,4 @@
+import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
 import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
 import Grid from "@mui/material/Grid";
 import ListItem from "@mui/material/ListItem";
@@ -18,19 +19,8 @@ export default function CosmeticItems() {
     category: 0,
     ingredients: [],
   });
-  const company_data = { 120: "ちふれ" };
-  const category_data = {
-    1: "化粧水",
-    2: "乳液",
-    3: "美容液",
-    4: "洗顔フォーム",
-    5: "クレンジング",
-    6: "クリーム",
-    7: "オールインワン",
-    8: "パック・シートマスク",
-  };
   const matchRate = 0.8;
-  const majorTags = ["保湿"];
+  const majorTags = ["保湿", "ニキビ"];
 
   const getClients = async () => {
     console.log(id);
@@ -46,11 +36,12 @@ export default function CosmeticItems() {
       const json_data = JSON.parse(data);
 
       console.log(json_data);
+      console.log(to_str_category(json_data["company"]));
       setResponse(() => ({
         name: json_data["name"],
         price: json_data["price"],
-        company: company_data[json_data["company"]],
-        category: category_data[json_data["category"]],
+        company: to_str_company(json_data["company"]),
+        category: to_str_category(json_data["category"]),
         ingredients: json_data["ingredients"],
       }));
       console.log(response.name);
@@ -60,7 +51,6 @@ export default function CosmeticItems() {
   };
 
   useEffect(() => {
-    console.log(router.isReady);
     if (router.isReady) {
       getClients();
     }
@@ -100,12 +90,14 @@ export default function CosmeticItems() {
             <div className={styles.tagsWrapper}>
               <p>タグ:</p>
               {majorTags.map((value) => (
-                <button
-                  className={tagStyles.softEdgeTagButtonActive}
-                  key={value}
-                >
-                  {value}
-                </button>
+                <p className={styles.tagStyle} key={value}>
+                  <button
+                    className={tagStyles.softEdgeTagButtonActive}
+                    key={value}
+                  >
+                    {value}
+                  </button>
+                </p>
               ))}
             </div>
             <button className={styles.pillShapedButtonBlue}>
