@@ -1,8 +1,61 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import styles from "../Profile.module.scss";
 
+// あとでエンドポイント経由ではなく直接呼び出せるように修正する。
 export default function ProfileItems() {
+  const router = useRouter();
+  const [request, setRequest] = useState({
+    account_name: "",
+    sex: "",
+    email: "",
+    birthday: "",
+    year: "",
+    month: "",
+    day: "",
+  });
+
+  const getClients = async () => {
+    const user_id = localStorage.getItem("user_id");
+    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${user_id}`;
+    const requestOptions = {
+      method: "GET",
+      headers: { Authorization: "wJ5C9dFcEMB5" },
+    };
+
+    try {
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      const json_data = JSON.parse(data);
+      //   const json_data = {
+      //     "account_name": "test_for PR",
+      //     "sex": "男性",
+      //     "birthday": "1982-07-09T09:00:00",
+      //     "email": "test_for_PR@email.com"
+      // }
+      console.log(json_data);
+
+      const btd = new Date(json_data["birthday"]);
+      setRequest(() => ({
+        account_name: json_data["account_name"],
+        email: json_data["email"],
+        sex: json_data["sex"],
+        birthday: json_data["birthday"],
+        year: btd.getFullYear(),
+        month: btd.getMonth(),
+        day: btd.getDate(),
+      }));
+    } catch (err) {
+      alert("エラーが発生しました");
+    }
+  };
+
+  useEffect(() => {
+    getClients();
+  }, []);
+
   return (
     <main>
       <div className={styles.Button}>
@@ -15,97 +68,36 @@ export default function ProfileItems() {
       <div className={styles.contents}>
         <div className="w-75" id="contents">
           <div>
-            <label>アカウント名</label>
+            <label>アカウント名: </label>
             <div className="input-group">
               <span className="input-group-text">
                 <img src="/icons/file-earmark-person.svg"></img>
               </span>
-              <input
-                id="account"
-                className="form-control bg-white"
-                placeholder="account_name"
-                disabled
-              />
+              {request.account_name}
             </div>
           </div>
           <div>
-            <label>現在のメールアドレス</label>
+            <label>現在のメールアドレス: </label>
             <div className="input-group">
               <span className="input-group-text">
                 <img src="/icons/envelope.svg"></img>
               </span>
-              <input
-                id="mail"
-                placeholder="@gmail.com"
-                className="form-control bg-white"
-                disabled
-              />
+              {request.email}
             </div>
           </div>
           <div>
-            <label>誕生日</label>
+            <label>誕生日: </label>
             <div className="input-group">
               <span className="input-group-text">
                 <img src="/icons/calendar-event.svg"></img>
               </span>
-              <input
-                id="birthday"
-                className="form-control bg-white"
-                placeholder="2022年02月03日"
-                disabled
-              />
+              {request.birthday}
             </div>
           </div>
-          <div id="radio">
-            <p>性別</p>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="male"
-                disabled
-              />
-              <label className="form-check-label" htmlFor="male">
-                男性
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="female"
-                disabled
-              />
-              <label className="form-check-label" htmlFor="female">
-                女性
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="other"
-                disabled
-              />
-              <label className="form-check-label" htmlFor="other">
-                その他
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="no_answer"
-                checked
-                disabled
-              />
-              <label className="form-check-label text-dark" htmlFor="no_answer">
-                回答しない
-              </label>
+          <div>
+            <div className="input-group">
+              <label>性別: </label>
+              {request.sex}
             </div>
           </div>
         </div>

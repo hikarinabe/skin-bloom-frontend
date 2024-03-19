@@ -53,12 +53,15 @@ export default function SignupItems() {
       return;
     }
 
-    const password_error = password_checker(request.password, request.password2)
-    if (password_error !== ""){
-      showToast(password_error)
-      return
+    const password_error = password_checker(
+      request.password,
+      request.password2,
+    );
+    if (password_error !== "") {
+      showToast(password_error);
+      return;
     }
-    
+
     const endpoint_url =
       "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
     const formData = new FormData();

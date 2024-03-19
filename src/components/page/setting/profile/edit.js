@@ -13,7 +13,7 @@ export default function EditProfileItem() {
     const femaleDom = document.getElementById("female");
     const otherDom = document.getElementById("other");
     const naDom = document.getElementById("no_answer");
-  
+
     console.log(accountDom);
     console.log(mailDom);
     console.log(birthdayDom);
