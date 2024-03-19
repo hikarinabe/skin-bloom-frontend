@@ -1,15 +1,13 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
 import styles from "@/components/page/auth/profileForm/ProfileFormItem.module.scss";
 import OptionButton from "@/components/ui/button/OptionButton";
+import { get_list_cosmetic_tag } from "@/pkg/tag";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import { get_list_cosmetic_tag } from "@/pkg/tag";
 import ProgressBar from "../ProgressBar";
 
 const endpoint_url =
@@ -35,7 +33,6 @@ export default function ProfileFormItems() {
   });
 
   const handleNayamiToggle = (optionName) => {
-    console.log(nayami, optionName);
     if (nayami.includes(optionName)) {
       setNayami(nayami.filter((nayamiItem) => nayamiItem !== optionName));
     } else {
@@ -53,7 +50,6 @@ export default function ProfileFormItems() {
 
   const handleDateChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setDate((prevState) => ({
       ...prevState,
       [name]: value,
@@ -90,7 +86,6 @@ export default function ProfileFormItems() {
         nayami: nayami,
       }),
     };
-    console.log(requestOptions["body"]);
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
