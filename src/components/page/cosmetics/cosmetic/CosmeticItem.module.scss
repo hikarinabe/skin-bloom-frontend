@@ -17,6 +17,7 @@
 .center{
   text-align:center;
   font-size: 2em;
+  margin: -1%;
 }
 
 .contents {
@@ -45,10 +46,11 @@
   margin-top: 0.1em;
 }
 
-.marginTop {
-  margin-top: 1em;
-}
 
+.ingredientList{
+  font-size: medium;
+  margin: 0px;
+}
 
 .pillShapedButtonBlue {
   height: 52px;

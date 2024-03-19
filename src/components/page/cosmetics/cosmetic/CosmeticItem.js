@@ -1,9 +1,12 @@
 import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
 import Grid from '@mui/material/Grid';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import styles from "./CosmeticCard.module.scss";
+import styles from "./CosmeticItem.module.scss";
 
 export default function CosmeticItems() {
   const router = useRouter();
@@ -113,15 +116,18 @@ export default function CosmeticItems() {
       </Grid>
 
   
-      <div className={styles.horizontalWrapper}>
         <div>
         <p className={styles.center}>成分</p>
+        <ListItem component="div" >
         <ul>
           {response.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+            // <li key={index}>{ingredient}</li>
+            <ListItemButton>
+            <ListItemText primary={ingredient}  className={styles.ingredientList}/>
+            </ListItemButton>
           ))}
         </ul>
-      </div>
+    </ListItem>
       </div>
       </div>
     </div>
