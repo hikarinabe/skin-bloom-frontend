@@ -58,12 +58,19 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
         </Link>
 
         {isMyPage ? null : (
-          <Image
-            src="/icons/circular-write.svg/"
-            height={25}
-            width={25}
-            alt=""
-          />
+          <Link
+            href={{
+              pathname: "/logs/new",
+              query: { cosmetic_id: cosmetic_id },
+            }}
+          >
+            <Image
+              src="/icons/circular-write.svg/"
+              height={25}
+              width={25}
+              alt=""
+            />
+          </Link>
         )}
       </div>
     </div>
