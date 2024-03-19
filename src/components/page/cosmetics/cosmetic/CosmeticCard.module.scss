@@ -1,0 +1,82 @@
+@import "../../../../styles/variables";
+
+
+.cosmeticItemWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center; 
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.center{
+  text-align:center;
+  font-size: 2em;
+}
+
+.contents {
+  padding: 3%;
+}
+
+.horizontalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemInfo{
+  font-size: larger;
+  margin-top: 1em;
+}
+
+.division {
+  border-color: $inactive-text-color;
+}
+
+.matchRateWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 0.1em;
+}
+
+.marginTop {
+  margin-top: 1em;
+}
+
+
+.pillShapedButtonBlue {
+  height: 52px;
+  border-radius: 40px;
+  width: 100%;
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh
+}
+
+
+
+.categoryIcon {
+  height: 2em;
+  width: 7em;
+  font-size: medium;
+  border-radius: 40px;
+  border: 1px solid #1aced6;
+  background-color: white;
+  color: #1aced6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
