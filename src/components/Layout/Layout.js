@@ -1,12 +1,22 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import HeaderBeforeLogin from "../Header/HeaderBeforeLogin";
 
-export default function Layout({ children }) {
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export default function Layout({ children, beforeLogin = false }) {
   return (
-    <div>
-      <Header />
+    <>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
+      {beforeLogin ? <Header /> : <HeaderBeforeLogin />}
       {children}
       <Footer />
-    </div>
+    </>
   );
 }
