@@ -20,11 +20,11 @@ export default function Header() {
               <Link href="/cosmetics/search">Search</Link>
             </li>
             <li key="Records" className={styles.navItem}>
-              <Link href="/">Records</Link>
+              <Link href="/logs">Records</Link>
             </li>
           </ul>
         </nav>
-        <Link href="" className={styles.iconWrapper}>
+        <Link href="/logs/new" className={styles.iconWrapper}>
           <Image
             className={styles.icon}
             alt=""
