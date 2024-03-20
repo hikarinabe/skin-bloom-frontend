@@ -13,7 +13,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const categoryName = to_str_category(cosmetic.category);
   const majorIngredients = cosmetic.ingredients.slice(1, 3); // 要素数1,2この文字列配列;
   const majorTags = to_str_company(cosmetic.company);
-  const matchRate = Math.ceil(Math.random()*100)/100;
+  const matchRate = Math.ceil(Math.random() * 100) / 100;
   return (
     <div className={styles.cosmeticCard}>
       <div className={styles.cosmeticImageWrapper}>
@@ -38,9 +38,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
       </div>
       <hr className={styles.division}></hr>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.tagsWrapper}>
-          {majorTags}
-        </div>
+        <div className={styles.tagsWrapper}>{majorTags}</div>
       </div>
 
       <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>

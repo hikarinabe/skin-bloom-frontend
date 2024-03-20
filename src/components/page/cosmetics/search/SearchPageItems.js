@@ -25,12 +25,12 @@ export default function SearchPageItems() {
     if (optionState[optionName].includes(value)) {
       setOptionState({
         ...optionState,
-        [optionName]: optionState[optionName].filter((item) => item !== value)
+        [optionName]: optionState[optionName].filter((item) => item !== value),
       });
     } else {
       setOptionState({
         ...optionState,
-        [optionName]: [...optionState[optionName], value]
+        [optionName]: [...optionState[optionName], value],
       });
     }
   };
@@ -42,8 +42,8 @@ export default function SearchPageItems() {
       // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
       headers: { Authorization: "wJ5C9dFcEMB5" },
       body: JSON.stringify({
-        'category': optionState.category, // カテゴリーのオプションを追加
-        'company': optionState.company, // ブランドのオプションを追加
+        category: optionState.category, // カテゴリーのオプションを追加
+        company: optionState.company, // ブランドのオプションを追加
       }),
     };
 
@@ -69,7 +69,10 @@ export default function SearchPageItems() {
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
         <input placeholder="商品名" className={styles.textBox} />
-        <button className={softEdgeButtonStyles.softEdgeButton} onClick={handleSearch}>
+        <button
+          className={softEdgeButtonStyles.softEdgeButton}
+          onClick={handleSearch}
+        >
           検索
         </button>
       </div>
@@ -83,30 +86,29 @@ export default function SearchPageItems() {
             <h3>絞り込み</h3>
           </div>
           <Accordion title={"カテゴリから探す"}>
-  <div className={styles.categoryButtonsWrapper} >
-    {category_list.map((value, index) => (
-      <OptionButton
-        optionName={value}
-        key={value}
-        onClick={() => handleToggle("category", index+1)}
-        isSelected={optionState.category.includes(index+1)}
-      />
-    ))}
-  </div>
-</Accordion>
-<Accordion title={"ブランドから探す"}>
-  <div className={styles.categoryButtonsWrapper}>
-    {company_data.map((value) => (
-      <OptionButton
-        optionName={value.name}
-        key={value.id}
-        onClick={() => handleToggle("company", value.id)}
-        isSelected={optionState.company.includes(value.id)}
-      />
-    ))}
-  </div>
-</Accordion>
-
+            <div className={styles.categoryButtonsWrapper}>
+              {category_list.map((value, index) => (
+                <OptionButton
+                  optionName={value}
+                  key={value}
+                  onClick={() => handleToggle("category", index + 1)}
+                  isSelected={optionState.category.includes(index + 1)}
+                />
+              ))}
+            </div>
+          </Accordion>
+          <Accordion title={"ブランドから探す"}>
+            <div className={styles.categoryButtonsWrapper}>
+              {company_data.map((value) => (
+                <OptionButton
+                  optionName={value.name}
+                  key={value.id}
+                  onClick={() => handleToggle("company", value.id)}
+                  isSelected={optionState.company.includes(value.id)}
+                />
+              ))}
+            </div>
+          </Accordion>
         </div>
         <div className={styles.resultWrapper}>
           {searchResults.map((cosmetic, index) => (
