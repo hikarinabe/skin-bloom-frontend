@@ -1,20 +1,18 @@
-$theme-colors: (
-  "primary": #1aced6,
-);
+@import "../../../styles/variables";
+
 .topColor {
-  background-color: #1aced6;
+  background-color: $primary-color;
   height: 20vh;
 }
 
 .icon {
   color: #232360;
   display: flex;
-  // float: left;
   margin-top: -5%;
   margin-left: 7%;
 }
+
 .title {
-  // float: right;
   margin-top: 5%;
   margin-left: 3%;
   font-size: 3rem;
@@ -23,11 +21,27 @@ $theme-colors: (
 .img {
   border-radius: 50%;
   width: 10rem;
-  border: solid 0.3rem#000;
+  box-shadow: 0 10px 25px 0 $inactive-text-color;
 }
 
 .tabs {
   margin-top: 3%;
   margin-left: 8%;
   height: 3em;
+}
+
+.tabsWrapper {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
+
+.tab,
+.activeTab {
+  text-decoration: none;
+  color: $text-color;
+}
+
+.tab {
+  color: $inactive-text-color;
 }

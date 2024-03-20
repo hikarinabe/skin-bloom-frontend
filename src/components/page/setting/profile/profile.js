@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -51,60 +50,51 @@ export default function ProfileItems() {
 
   return (
     <main>
-      <div className={styles.Button}>
-        <div className="form-check form-check-reverse" id="editor">
-          <Link
-            href={{
-              pathname: "/setting/edit_profile",
-              query: {
-                account_name: request.account_name,
-                sex: request.sex,
-                email: request.email,
-                birthday: request.birthday,
-                year: request.year,
-                month: request.month,
-                day: request.day,
-              },
-            }}
-            className="btn btn-outline-primary"
-          >
-            Edit
-          </Link>
-        </div>
-      </div>
-      <div className={styles.contents}>
-        <div className="w-75" id="contents">
-          <div>
-            <label>アカウント名: </label>
-            <div className="input-group">
-              <span className="input-group-text">
-                <img src="/icons/file-earmark-person.svg"></img>
-              </span>
-              {request.account_name}
+      <div className={styles.sectionWrapper}>
+        <div className={styles.formWrapper}>
+          <div className={styles.buttonsWrapper}>
+            <div className="form-check form-check-reverse" id="editor">
+              <Link
+                href={{
+                  pathname: "/setting/edit_profile",
+                  query: {
+                    account_name: request.account_name,
+                    sex: request.sex,
+                    email: request.email,
+                    birthday: request.birthday,
+                    year: request.year,
+                    month: request.month,
+                    day: request.day,
+                  },
+                }}
+                className={styles.noLinkStyle}
+              >
+                <button className={styles.buttonEdit}>編集</button>
+              </Link>
             </div>
           </div>
-          <div>
-            <label>現在のメールアドレス: </label>
-            <div className="input-group">
-              <span className="input-group-text">
-                <img src="/icons/envelope.svg"></img>
-              </span>
-              {request.email}
-            </div>
-          </div>
-          <div>
-            <label>誕生日: </label>
-            <div className="input-group">
-              <span className="input-group-text">
-                <img src="/icons/calendar-event.svg"></img>
-              </span>
-              {request.birthday}
-            </div>
-          </div>
-          <div>
-            <div className="input-group">
-              <label>性別: </label>
-              {request.sex}
+          <div className={styles.contents}>
+            <div className="w-75" id="contents">
+              <div>
+                <h4>アカウント名</h4>
+                <div className={styles.textBox}>{request.account_name}</div>
+              </div>
+              <div>
+                <h4>現在のメールアドレス</h4>
+                <div className={styles.textBox}>{request.email}</div>
+              </div>
+              <div>
+                <h4>誕生日</h4>
+                <div
+                  className={styles.textBox}
+                >{`${request.year}年 ${request.month + 1}月 ${request.day}日`}</div>
+              </div>
+              <div>
+                <div>
+                  <h4>性別</h4>
+                  <div className={styles.textBox}>{request.sex}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

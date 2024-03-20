@@ -1,39 +1,46 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import styles from "./ViewCommonElements.module.scss";
 
-export default function ViewCommonElements() {
+export default function ViewCommonElements({ activeTab }) {
   return (
     <div>
       <div className={styles.topColor}></div>
       <div className="container">
         <div className={styles.icon}>
           <img src="/icons/profile_icon.jpg" className={styles.img}></img>
-          <p className={styles.title}>マイページ</p>
         </div>
         <div></div>
         <div className={styles.tabs}>
           <div className="tabs w-75">
-            <ul className="nav nav-underline">
+            <ul className={styles.tabsWrapper}>
               <li className="nav-item">
                 <Link
                   href="./profile"
-                  className="nav-link text-primary-emphasis"
+                  className={
+                    activeTab === "profile" ? styles.activeTab : styles.tab
+                  }
                 >
-                  プロフィール
+                  <h3>プロフィール</h3>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   href="./password"
-                  className="nav-link text-primary-emphasis"
+                  className={
+                    activeTab === "password" ? styles.activeTab : styles.tab
+                  }
                 >
-                  パスワード変更
+                  <h3>パスワード変更</h3>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="../logs" className="nav-link text-primary-emphasis">
-                  使用履歴
+                <Link
+                  href="../logs"
+                  className={
+                    activeTab === "logs" ? styles.activeTab : styles.tab
+                  }
+                >
+                  <h3>使用履歴</h3>
                 </Link>
               </li>
             </ul>

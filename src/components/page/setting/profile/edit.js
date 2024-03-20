@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
@@ -57,118 +56,122 @@ export default function EditProfileItem() {
 
   return (
     <main>
-      <form className={styles.form} onSubmit={saveChange}>
-        <div className={styles.Button}>
-          <div className="form-check form-check-reverse">
-            <Link href="/setting/profile" className="btn btn-outline-primary">
-              Cancel
+      <div className={styles.sectionWrapper}>
+        <form className={styles.formWrapper} onSubmit={saveChange}>
+          <div className={styles.buttonsWrapper}>
+            <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
+              <button className={styles.buttonCancel}>キャンセル</button>
             </Link>
-            <button type="submit" className="btn btn-primary">
-              Save
+            <button type="submit" className={styles.buttonEnter}>
+              保存
             </button>
           </div>
-        </div>
-        <div className={styles.contents}>
-          <div className="w-75">
-            <div>
-              <label>アカウント名</label>
-              <div className="input-group">
-                <span className="input-group-text">
-                  <img src="/icons/file-earmark-person.svg"></img>
-                </span>
-                <input
-                  name="account_name"
-                  className="form-control bg-white"
-                  placeholder="account_name"
-                  value={request.account_name}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div>
-              <label>現在のメールアドレス</label>
-              <div className="input-group">
-                <span className="input-group-text">
-                  <img src="/icons/envelope.svg"></img>
-                </span>
-                <input
-                  name="email"
-                  placeholder="@gmail.com"
-                  className="form-control bg-white"
-                  value={request.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div>
-              <label>生年月日</label>
-              <div className="input-group">
-                <select
-                  className="form-control"
-                  name="year"
-                  value={request.year}
-                  onChange={handleChange}
-                >
-                  {Array.from(
-                    { length: 100 },
-                    (_, i) => new Date().getFullYear() - i,
-                  ).map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-                <span className="input-group-text">年</span>
-                <select
-                  className="form-control"
-                  name="month"
-                  value={request.month}
-                  onChange={handleChange}
-                >
-                  {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
-                    <option key={month} value={month}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-                <span className="input-group-text">月</span>
-                <select
-                  className="form-control"
-                  name="day"
-                  value={request.day}
-                  onChange={handleChange}
-                >
-                  {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
-                    <option key={day} value={day}>
-                      {day}
-                    </option>
-                  ))}
-                </select>
-
-                <span className="input-group-text">日</span>
-              </div>
-            </div>
-            <div>
-              <p>性別</p>
-              {["男性", "女性", "その他", "回答しない"].map((name, index) => (
-                <div className="form-check form-check-inline" key={index}>
-                  <label className="form-check-label">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="sex"
-                      value={name}
-                      checked={name === request.sex}
-                      onChange={handleChange}
-                    />
-                    {name}
-                  </label>
+          <div className={styles.contents}>
+            <div className="w-75">
+              <div>
+                <h4>アカウント名</h4>
+                <div className="input-group">
+                  <input
+                    name="account_name"
+                    className={styles.textBox}
+                    placeholder="account_name"
+                    value={request.account_name}
+                    onChange={handleChange}
+                  />
                 </div>
-              ))}
+              </div>
+              <div>
+                <h4>現在のメールアドレス</h4>
+                <div className="input-group">
+                  <input
+                    name="email"
+                    placeholder="@gmail.com"
+                    className={styles.textBox}
+                    value={request.email}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div>
+                <h4>生年月日</h4>
+                <div className={styles.birthdayForm}>
+                  <div className={styles.horizontalWrapper}>
+                    <select
+                      className={styles.selectBox}
+                      name="year"
+                      value={request.year}
+                      onChange={handleChange}
+                    >
+                      {Array.from(
+                        { length: 100 },
+                        (_, i) => new Date().getFullYear() - i,
+                      ).map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="input-group-text">年</span>
+                  </div>
+                  <div className={styles.horizontalWrapper}>
+                    <select
+                      className={styles.selectBox}
+                      name="month"
+                      value={request.month}
+                      onChange={handleChange}
+                    >
+                      {Array.from({ length: 12 }, (_, i) => i + 1).map(
+                        (month) => (
+                          <option key={month} value={month}>
+                            {month}
+                          </option>
+                        ),
+                      )}
+                    </select>
+                    <span className="input-group-text">月</span>
+                  </div>
+                  <div className={styles.horizontalWrapper}>
+                    <select
+                      className={styles.selectBox}
+                      name="day"
+                      value={request.day}
+                      onChange={handleChange}
+                    >
+                      {Array.from({ length: 31 }, (_, i) => i + 1).map(
+                        (day) => (
+                          <option key={day} value={day}>
+                            {day}
+                          </option>
+                        ),
+                      )}
+                    </select>
+
+                    <span className="input-group-text">日</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4>性別</h4>
+                {["男性", "女性", "その他", "回答しない"].map((name, index) => (
+                  <div className="form-check form-check-inline" key={index}>
+                    <label className="form-check-label">
+                      <input
+                        className={styles.radioInput}
+                        type="radio"
+                        name="sex"
+                        value={name}
+                        checked={name === request.sex}
+                        onChange={handleChange}
+                      />
+                      {name}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </main>
   );
 }
