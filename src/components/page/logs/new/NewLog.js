@@ -6,6 +6,8 @@ import StarRating from "@/components/StarRating/StarRating";
 import OptionButton from "@/components/ui/button/OptionButton";
 import Accordion from "@/components/ui/Accordion/Accordion";
 
+import { tag_list } from "@/pkg/tag";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -33,23 +35,7 @@ const showToast = (message, type = "error") => {
 export default function NewLog() {
   const router = useRouter();
 
-  const cosmetic_tags = [
-    //TODO APIから取得する。
-    {
-      id: 1,
-      bad_eval: "カサカサ",
-      good_eval: "うるおい",
-      name: "保湿",
-      nayami: "乾燥",
-    },
-    {
-      id: 2,
-      bad_eval: "効果なし",
-      good_eval: "効果あり",
-      name: "ニキビ・ニキビ跡",
-      nayami: "ニキビ・ニキビ跡",
-    },
-  ];
+  const cosmetic_tags = tag_list;
 
   const cosmetic_id = router.query.cosmetic_id;
 
@@ -127,14 +113,14 @@ export default function NewLog() {
     });
     const defaultCriteria = userData
       ? cosmetic_tags
-          .filter((obj) => ["ニキビ・ニキビ跡"].includes(obj.nayami)) // TODO: replace array with userData.nayami
+          .filter((obj) => userData.nayami.includes(obj.nayami))
           .map((obj) => obj.id)
       : []; // ニキビ跡ならid 2の配列
     setChosenCriteria(defaultCriteria);
     setUnChosenCriteria(
       criteria.filter((elem) => !defaultCriteria.includes(elem)),
     );
-  }, [cosmetic_tags, userData]);
+  }, [userData]);
 
   const [request, setRequest] = useState({
     rate: 0,
