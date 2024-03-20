@@ -52,6 +52,7 @@ export default function NewLog() {
   ];
 
   const cosmetic_id = router.query.cosmetic_id;
+
   const [user_id, setUserId] = useState(null);
 
   // ユーザごとの評価軸を取得するためにuserDataを取得する。
@@ -59,7 +60,6 @@ export default function NewLog() {
 
   useEffect(() => {
     setUserId(localStorage.getItem("user_id"));
-
     const fetchData = async () => {
       try {
         const response = await fetch(
