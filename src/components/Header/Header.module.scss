@@ -30,17 +30,18 @@
 .rightAligned {
   margin-left: auto; //右寄せ
   display: flex;
+  gap: 1em;
 }
 
 .navList {
   list-style-type: none;
   padding: 0;
   display: flex;
+  gap: 1em;
 }
 
 .navItem {
   display: flex;
-  margin-right: 20px;
   align-items: center;
 }
 
@@ -50,6 +51,9 @@
   font-size: 15px;
 }
 
-.icon {
-  margin: auto auto auto 20px;
+.iconWrapper,
+.logoutButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
