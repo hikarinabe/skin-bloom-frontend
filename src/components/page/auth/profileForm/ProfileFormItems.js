@@ -1,7 +1,7 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
 import styles from "@/components/page/auth/profileForm/ProfileFormItem.module.scss";
 import OptionButton from "@/components/ui/button/OptionButton";
-import { get_list_cosmetic_tag } from "@/pkg/tag";
+import { tag_list } from "@/pkg/tag";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
@@ -15,7 +15,6 @@ const endpoint_url =
 
 export default function ProfileFormItems() {
   const router = useRouter();
-  const tagList = get_list_cosmetic_tag();
 
   const searchParams = useSearchParams();
   const [date, setDate] = useState({
@@ -181,7 +180,7 @@ export default function ProfileFormItems() {
           </div>
           <h4>気になる項目</h4>
           <div className={styles.tagWrapper}>
-            {tagList.map((optionName, index) => (
+            {tag_list.map((optionName, index) => (
               <OptionButton
                 key={index}
                 optionName={optionName["nayami"]}
