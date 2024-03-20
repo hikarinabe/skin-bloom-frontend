@@ -1,4 +1,4 @@
-import { to_str_category } from "@/pkg/cosmetic_master";
+import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
 import styles from "./CosmeticCard.module.scss";
 
 import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
@@ -12,7 +12,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const name = cosmetic.name;
   const categoryName = to_str_category(cosmetic.category);
   const majorIngredients = cosmetic.ingredients.slice(1, 3); // 要素数1,2この文字列配列;
-  const majorTags = ["保湿"];
+  const majorTags = to_str_company(cosmetic.company);
   const matchRate = Math.ceil(Math.random()*100)/100;
   return (
     <div className={styles.cosmeticCard}>
@@ -39,11 +39,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
       <hr className={styles.division}></hr>
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>
-          {majorTags.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonActive} key={value}>
-              {value}
-            </button>
-          ))}
+          {majorTags}
         </div>
       </div>
 
