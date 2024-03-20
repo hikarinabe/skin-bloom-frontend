@@ -12,6 +12,7 @@ import Image from "next/image";
 export default function SearchPageItems() {
   const [pageState, setPageState] = useState({
     resultStr: "",
+    keyword: "",
   });
 
   const [optionState, setOptionState] = useState({
@@ -20,6 +21,14 @@ export default function SearchPageItems() {
   });
 
   const [searchResults, setSearchResults] = useState([]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPageState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleToggle = (optionName, value) => {
     if (optionState[optionName].includes(value)) {
@@ -36,14 +45,16 @@ export default function SearchPageItems() {
   };
 
   const performSearch = async () => {
+    setSearchResults([]);
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info`;
     const requestOptions = {
       method: "POST",
       // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
       headers: { Authorization: "wJ5C9dFcEMB5" },
       body: JSON.stringify({
-        category: optionState.category, // カテゴリーのオプションを追加
-        company: optionState.company, // ブランドのオプションを追加
+        keyword: pageState.keyword,
+        category: optionState.category, 
+        company: optionState.company,
       }),
     };
 
@@ -68,7 +79,13 @@ export default function SearchPageItems() {
   return (
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
-        <input placeholder="商品名" className={styles.textBox} />
+        <input 
+        placeholder="商品名" 
+        className={styles.textBox} 
+        name="keyword"
+        value={pageState.keyword}
+        onChange={handleChange}
+        />
         <button
           className={softEdgeButtonStyles.softEdgeButton}
           onClick={handleSearch}
