@@ -53,7 +53,7 @@ export default function SearchPageItems() {
       headers: { Authorization: "wJ5C9dFcEMB5" },
       body: JSON.stringify({
         keyword: pageState.keyword,
-        category: optionState.category, 
+        category: optionState.category,
         company: optionState.company,
       }),
     };
@@ -79,12 +79,12 @@ export default function SearchPageItems() {
   return (
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
-        <input 
-        placeholder="商品名" 
-        className={styles.textBox} 
-        name="keyword"
-        value={pageState.keyword}
-        onChange={handleChange}
+        <input
+          placeholder="商品名"
+          className={styles.textBox}
+          name="keyword"
+          value={pageState.keyword}
+          onChange={handleChange}
         />
         <button
           className={softEdgeButtonStyles.softEdgeButton}
