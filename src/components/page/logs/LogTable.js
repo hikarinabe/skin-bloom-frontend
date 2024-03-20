@@ -49,8 +49,7 @@ export default function LogTable() {
       const json_data = JSON.parse(data);
 
       // initialDataにデータを入れる
-      setData(json_data['list_cosmetics'])
-
+      setData(json_data["list_cosmetics"]);
     } catch (err) {
       alert("エラーが発生しました");
     }
@@ -132,7 +131,12 @@ export default function LogTable() {
           <tr key={index}>
             <td className={styles.cell}>
               <div className={styles.imageContainer}>
-                <Image alt="" src={`/item_imgs/${item.id}.jpg`} width={60} height={60} />
+                <Image
+                  alt=""
+                  src={`/item_imgs/${item.id}.jpg`}
+                  width={60}
+                  height={60}
+                />
               </div>
             </td>
             <td className={styles.cell}>
@@ -154,7 +158,7 @@ export default function LogTable() {
                     className={tagStyles.softEdgeTagButtonActive}
                     key={value}
                   >
-                    {tag_list[value-1].name}
+                    {tag_list[value - 1].name}
                   </button>
                 ))}
               </div>
@@ -166,7 +170,7 @@ export default function LogTable() {
                     className={tagStyles.softEdgeTagButtonWhite}
                     key={value}
                   >
-                    {tag_list[value-1].name}
+                    {tag_list[value - 1].name}
                   </button>
                 ))}
               </div>
