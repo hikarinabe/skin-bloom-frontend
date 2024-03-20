@@ -18,5 +18,5 @@ npm run lint
 format
 
 ```
-npx prettier  --write src/ 
+npx prettier  --write src/
 ```
