@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 
+import LogoutButton from "./LogoutButton";
+
 export default function Header() {
   return (
     <header className={styles.header}>
@@ -20,13 +22,9 @@ export default function Header() {
             <li key="Records" className={styles.navItem}>
               <Link href="/">Records</Link>
             </li>
-            {/* todo: あとでAPI接続する */}
-            <li key="Logout" className={styles.navItem}>
-              <Link href="/home/intro">Logout</Link>
-            </li>
           </ul>
         </nav>
-        <Link href="">
+        <Link href="" className={styles.iconWrapper}>
           <Image
             className={styles.icon}
             alt=""
@@ -35,7 +33,7 @@ export default function Header() {
             height={40}
           />
         </Link>
-        <Link href="/setting/profile">
+        <Link href="/setting/profile" className={styles.iconWrapper}>
           <Image
             className={styles.icon}
             alt=""
@@ -44,6 +42,9 @@ export default function Header() {
             height={40}
           />
         </Link>
+        <div className={styles.logoutButtonWrapper}>
+          <LogoutButton />
+        </div>
       </div>
     </header>
   );
