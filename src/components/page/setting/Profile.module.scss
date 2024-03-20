@@ -1,14 +1,86 @@
-.btn-outline-primary {
-  color: #1aced6;
+@import "../../../styles/variables";
+
+.sectionWrapper {
+  display: flex;
+  justify-content: center;
+  color: $text-color;
 }
 
-.contents {
-  margin-top: 9rem;
-  margin-left: 13%;
-  padding-bottom: 3rem;
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-self: center;
+  padding-bottom: 2em;
 }
 
-.Button {
-  margin-top: -11%;
-  color: #1aced6;
+.noLinkStyle {
+  text-decoration: none;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.textBox,
+.selectBox {
+  height: 3em;
+  border-radius: 1em;
+  padding-left: 1em;
+  border: 1px solid rgba(102, 102, 102, 0.35);
+  display: flex;
+  align-items: center;
+}
+.textBox {
+  width: 60%;
+}
+
+.birthdayForm {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.selectBox {
+  appearance: none;
+  min-width: 3em;
+  margin-right: 5px;
+  padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.radioInput:checked {
+  accent-color: #18a1a9;
+}
+
+.buttonCancel,
+.buttonEnter,
+.buttonEdit {
+  height: 3em;
+  border-radius: 0.5em;
+  border: 1px solid $primary-color;
+  background-color: white;
+  color: $primary-color;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.buttonCancel {
+  border: 1px solid $inactive-text-color;
+  color: $text-color;
+}
+
+.buttonEnter {
+  color: white;
+  background-color: $primary-color;
+}
+
+.horizontalWrapper {
+  display: flex;
+  align-items: center;
 }

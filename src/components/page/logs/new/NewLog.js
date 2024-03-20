@@ -57,6 +57,7 @@ export default function NewLog() {
 
   // ユーザごとの評価軸を取得するためにuserDataを取得する。
   const [userData, setUserData] = useState(null);
+
   useEffect(() => {
     setUserId(localStorage.getItem("user_id"));
     const fetchData = async () => {
