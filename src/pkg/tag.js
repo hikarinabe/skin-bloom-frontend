@@ -1,4 +1,4 @@
-const tag_list = [
+export const tag_list = [
   {
     id: 1,
     name: "保湿",
@@ -56,7 +56,3 @@ const tag_list = [
     bad_eval: "効果なし",
   },
 ];
-
-export function get_list_cosmetic_tag() {
-  return tag_list;
-}
