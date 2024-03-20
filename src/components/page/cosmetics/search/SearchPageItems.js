@@ -14,14 +14,26 @@ export default function SearchPageItems() {
     resultStr: "",
   });
 
+  const [optionState, setOptionState] = useState({
+    category: [],
+    company: [],
+  });
+
   const [searchResults, setSearchResults] = useState([]);
 
-  // const handleToggle = (optionName) => {
-  //   if (nayami.includes(optionName)) {
-  //     setNayami(nayami.filter((nayamiItem) => nayamiItem !== optionName));
-  //   } else {
-  //     setNayami([...nayami, optionName]);
-  //   }
+  const handleToggle = (optionName, value) => {
+    if (optionState[optionName].includes(value)) {
+      setOptionState({
+        ...optionState,
+        [optionName]: optionState[optionName].filter((item) => item !== value)
+      });
+    } else {
+      setOptionState({
+        ...optionState,
+        [optionName]: [...optionState[optionName], value]
+      });
+    }
+  };
 
   const performSearch = async () => {
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info`;
@@ -30,18 +42,17 @@ export default function SearchPageItems() {
       // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
       headers: { Authorization: "wJ5C9dFcEMB5" },
       body: JSON.stringify({
-        category: [],
-        company: [],
+        'category': optionState.category, // カテゴリーのオプションを追加
+        'company': optionState.company, // ブランドのオプションを追加
       }),
     };
-    console.log("hoge");
 
     try {
       const res = await fetch(endpoint_url, requestOptions);
       const data = await res.text();
       const json_data = JSON.parse(data);
       console.log(json_data);
-      return json_data
+      return json_data;
     } catch (err) {
       alert("エラーが発生しました");
       return [];
@@ -51,7 +62,6 @@ export default function SearchPageItems() {
   const handleSearch = async () => {
     const results = await performSearch();
     setPageState({ resultStr: `検索結果（${results.length}件）` });
-
     setSearchResults(results);
   };
 
@@ -59,10 +69,7 @@ export default function SearchPageItems() {
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
         <input placeholder="商品名" className={styles.textBox} />
-        <button
-          className={softEdgeButtonStyles.softEdgeButton}
-          onClick={handleSearch}
-        >
+        <button className={softEdgeButtonStyles.softEdgeButton} onClick={handleSearch}>
           検索
         </button>
       </div>
@@ -76,19 +83,30 @@ export default function SearchPageItems() {
             <h3>絞り込み</h3>
           </div>
           <Accordion title={"カテゴリから探す"}>
-            <div className={styles.categoryButtonsWrapper}>
-              {category_list.map((value) => (
-                <OptionButton optionName={value} key={value} />
-              ))}
-            </div>
-          </Accordion>
-          <Accordion title={"ブランドから探す"}>
-            <div className={styles.categoryButtonsWrapper}>
-              {company_data.map((value) => (
-                <OptionButton optionName={value.name} key={value.id} />
-              ))}
-            </div>
-          </Accordion>
+  <div className={styles.categoryButtonsWrapper} >
+    {category_list.map((value, index) => (
+      <OptionButton
+        optionName={value}
+        key={value}
+        onClick={() => handleToggle("category", index+1)}
+        isSelected={optionState.category.includes(index+1)}
+      />
+    ))}
+  </div>
+</Accordion>
+<Accordion title={"ブランドから探す"}>
+  <div className={styles.categoryButtonsWrapper}>
+    {company_data.map((value) => (
+      <OptionButton
+        optionName={value.name}
+        key={value.id}
+        onClick={() => handleToggle("company", value.id)}
+        isSelected={optionState.company.includes(value.id)}
+      />
+    ))}
+  </div>
+</Accordion>
+
         </div>
         <div className={styles.resultWrapper}>
           {searchResults.map((cosmetic, index) => (

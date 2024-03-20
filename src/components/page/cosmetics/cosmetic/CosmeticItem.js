@@ -23,7 +23,6 @@ export default function CosmeticItems() {
   const majorTags = ["保湿", "ニキビ"];
 
   const getClients = async () => {
-    console.log(id);
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${id}`;
     const requestOptions = {
       method: "GET",
@@ -35,8 +34,6 @@ export default function CosmeticItems() {
       const data = await res.text();
       const json_data = JSON.parse(data);
 
-      console.log(json_data);
-      console.log(to_str_category(json_data["company"]));
       setResponse(() => ({
         name: json_data["name"],
         price: json_data["price"],
