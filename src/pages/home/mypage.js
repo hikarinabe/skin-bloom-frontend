@@ -3,7 +3,7 @@ import MypageItems from "@/components/page/home/mypage/MypageItems";
 
 export default function MyPage() {
   return (
-    <Layout>
+    <Layout beforeLogin={false}>
       <main>
         <MypageItems />
       </main>
