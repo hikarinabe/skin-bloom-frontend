@@ -13,7 +13,6 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const majorIngredients = ["グリセリン"]; // 要素数1,2この文字列配列;
   const majorTags = ["保湿"];
   const matchRate = 0.8;
-  const cosmeticID = 1;
   return (
     <div className={styles.cosmeticCard}>
       <div className={styles.cosmeticImageWrapper}>
@@ -49,7 +48,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
 
       <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
         <Link
-          href={`/cosmetics/${cosmeticID}`}
+          href={`/cosmetics/${cosmetic_id}`}
           className={styles.detailButtonWrapper}
         >
           <button className={styles.detailButton}>

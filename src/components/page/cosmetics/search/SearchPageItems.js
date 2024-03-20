@@ -1,9 +1,10 @@
-import styles from "./SearchPageItems.module.scss";
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
+import { useState } from "react";
+import styles from "./SearchPageItems.module.scss";
 
+import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
 import Accordion from "@/components/ui/Accordion/Accordion";
 import OptionButton from "@/components/ui/button/OptionButton";
-import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
 
 import Image from "next/image";
 
@@ -25,13 +26,26 @@ export default function SearchPageItems() {
     "5000〜円",
   ];
 
-  const resultNum = 50;
-  const results = Array.from({ length: resultNum }, (_, index) => []);
+  const resultNum = 24;
+
+  const [searchResults, setSearchResults] = useState([]); 
+
+  const handleSearch = async () => {
+    // 検索ロジックを追加する必要があります。検索結果をsearchResultsに設定します。
+    // 以下はダミーの例です。
+    // const searchResultsData = await performSearch(); // 検索ロジックを呼び出す関数
+    const results = Array.from({ length: resultNum }, (_, index) => []);
+
+    setSearchResults(results);
+  };
+  
   return (
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
         <input placeholder="商品名" className={styles.textBox} />
-        <button className={softEdgeButtonStyles.softEdgeButton}>検索</button>
+        <button className={softEdgeButtonStyles.softEdgeButton} onClick={handleSearch}>
+          検索
+        </button>
       </div>
       <div className={styles.horizontalWrapper}>
         <h3>検索結果（{resultNum}件）</h3>
@@ -65,9 +79,12 @@ export default function SearchPageItems() {
           </Accordion>
         </div>
         <div className={styles.resultWrapper}>
-          {results.map((cosmetic, index) => (
-            <CosmeticCard cosmetic={cosmetic} isMyPage={false} key={index} />
-          ))}
+        <div className={styles.resultWrapper}>
+            {searchResults.map((cosmetic, index) => (
+              <CosmeticCard cosmetic={cosmetic} isMyPage={false} key={index} />
+            ))}
+          </div>
+          
         </div>
       </div>
     </div>
