@@ -8,16 +8,15 @@ export default function Concept() {
     <div className={styles.sectionWrapper}>
       <div className={styles.conceptWrapper}>
         <div className={styles.LeftItem}>
-          <h1>あなたにベストなスキンケア</h1>
-          <p>納得の化粧品で納得の肌に出会いましょう</p>
+          <h1 className={styles.concept}>あなたにベストなスキンケア</h1>
+          <p className={styles.subconcept}>
+            納得の化粧品で納得の肌に出会いましょう
+          </p>
           <Link href="/auth/signup">
             <button className={buttonStyles.softEdgeButton}>
               新規ユーザ登録
             </button>
           </Link>
-        </div>
-        <div className={styles.RightItem}>
-          <Image alt="" src="/icons/icon.svg" width={200} height={200} />
         </div>
       </div>
     </div>
