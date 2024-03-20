@@ -1,7 +1,10 @@
+import { to_str_category } from "@/pkg/cosmetic_master";
+import { tag_list } from "@/pkg/tag";
 import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./LogTable.module.scss";
 
 const Rating = ({ value }) => {
@@ -21,39 +24,44 @@ const Rating = ({ value }) => {
 };
 
 export default function LogTable() {
-  //テストデータが入っている
-  const initialData = [
-    {
-      id: "1",
-      productImage: "/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
-      productName: "美白 うるおい ジェル",
-      productSubName: "ちふれ 美白 うるおい ジェル N",
-      category: "オールインワン",
-      rate: 3,
-      good_tag: ["うるおい", "美白"],
-      bad_tag: ["ニキビに効果感じられず"],
-      date: "2021-10-01",
-      comment: "めちゃくちゃしっとり系かも",
-    },
-    {
-      id: "2",
-      productImage: "/item_imgs/b2uUWvgXIekI9oAor9HJ.jpg",
-      productName: "美白 うるおい ジェル",
-      productSubName: "ちふれ 美白 うるおい ジェル N",
-      category: "オールインワン",
-      rate: 4,
-      good_tag: ["うるおい", "美白"],
-      bad_tag: ["ニキビに効果感じられず"],
-      date: "2021-09-01",
-      comment: "めちゃくちゃしっとり系かも",
-    },
-  ];
-
-  const [data, setData] = useState(initialData);
+  const router = useRouter();
+  const [data, setData] = useState([]);
+  const [tag, setTag] = useState({
+    good_tag: [],
+    bad_tag: [],
+  });
   const [sortConfig, setSortConfig] = useState({
     key: null,
     direction: "ascending",
   });
+
+  const getClients = async () => {
+    const user_id = localStorage.getItem("user_id");
+    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_log/list?user_id=${user_id}`;
+    const requestOptions = {
+      method: "GET",
+      headers: { Authorization: "wJ5C9dFcEMB5" },
+    };
+
+    try {
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      const json_data = JSON.parse(data);
+
+      // initialDataにデータを入れる
+      setData(json_data['list_cosmetics'])
+
+    } catch (err) {
+      alert("エラーが発生しました");
+    }
+  };
+
+  useEffect(() => {
+    if (router.isReady) {
+      getClients();
+    }
+  }, [router]);
+
   const sortedData = useMemo(() => {
     let sortableItems = [...data];
     if (sortConfig.key !== null) {
@@ -124,18 +132,18 @@ export default function LogTable() {
           <tr key={index}>
             <td className={styles.cell}>
               <div className={styles.imageContainer}>
-                <Image alt="" src={item.productImage} width={60} height={60} />
+                <Image alt="" src={`/item_imgs/${item.id}.jpg`} width={60} height={60} />
               </div>
             </td>
             <td className={styles.cell}>
-              <div className={styles.productName}>
+              <div className={styles.name}>
                 <Link href={`/logs/${encodeURIComponent(item.id)}`} passHref>
-                  {item.productName}
+                  {item.item_name}
                 </Link>
               </div>
-              <div className={styles.productSubName}>{item.productSubName}</div>
+              <div className={styles.name}>{item.item_name}</div>
             </td>
-            <td className={styles.cell}>{item.category}</td>
+            <td className={styles.cell}>{to_str_category(item.category)}</td>
             <td className={styles.cell}>
               <Rating value={item.rate} />
             </td>
@@ -146,7 +154,7 @@ export default function LogTable() {
                     className={tagStyles.softEdgeTagButtonActive}
                     key={value}
                   >
-                    {value}
+                    {tag_list[value-1].name}
                   </button>
                 ))}
               </div>
@@ -158,7 +166,7 @@ export default function LogTable() {
                     className={tagStyles.softEdgeTagButtonWhite}
                     key={value}
                   >
-                    {value}
+                    {tag_list[value-1].name}
                   </button>
                 ))}
               </div>
