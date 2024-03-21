@@ -10,7 +10,7 @@ export default function Setting() {
     if (isLoggedIn) {
       router.push("/setting/profile");
     } else {
-      router.push("/home/intro");
+      router.push("/auth/login");
     }
   }, [router]);
 

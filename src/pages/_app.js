@@ -16,11 +16,7 @@ function MyApp({ Component, pageProps }) {
       !router.pathname.startsWith("/auth") &&
       !router.pathname.startsWith("/cosmetics")
     ) {
-      if (router.pathname === "/home/mypage") {
-        router.push("/home/intro");
-      } else {
-        router.push("/auth/login");
-      }
+      router.push("/auth/login");
     }
   }, [router.pathname]);
 
