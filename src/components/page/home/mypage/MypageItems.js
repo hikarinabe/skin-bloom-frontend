@@ -24,27 +24,6 @@ export default function MypageItems() {
     good_ingredient: [],
     bad_ingredient: [],
   });
-  const default_cosmetics = {
-    id: "7MLO8LrBYv5prBblQEMR",
-    ingredients: [
-      "ミネラルオイル",
-      "イソステアリン酸ＰＥＧ－８グリセリル",
-      "トリ（カプリル酸／カプリン酸）グリセリル",
-      "保湿成分",
-      "グリセリン",
-      "防腐剤",
-      "フェノキシエタノール",
-      "メチルパラベン",
-      "成分の酸化防止剤",
-      "トコフェロール",
-      "基剤",
-      "水",
-    ],
-    name: "クレンジング オイル",
-    price: 880,
-    company: 120,
-    category: 5,
-  };
 
   const fetchHome = async () => {
     const user_id = localStorage.getItem("user_id");
@@ -82,11 +61,6 @@ export default function MypageItems() {
           <div className={styles.leftWrapper}>
             <h1 className={styles.title}>あなたにベストなスキンケア</h1>
             <div className={styles.buttonWrapper}>
-              <Link href="/logs/new">
-                <button className={softEdgeButtonStyles.softEdgeButton}>
-                  記録する
-                </button>
-              </Link>
               <Link href="/logs">
                 <button className={softEdgeButtonStyles.softEdgeButton}>
                   過去の記録を見る

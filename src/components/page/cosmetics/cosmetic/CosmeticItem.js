@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./CosmeticItem.module.scss";
 
+import Link from "next/link";
+
 export default function CosmeticItems() {
   const router = useRouter();
   const { id } = router.query;
@@ -97,9 +99,17 @@ export default function CosmeticItems() {
                 </p>
               ))}
             </div>
-            <button className={styles.pillShapedButtonBlue}>
+            <Link
+              href={{
+                pathname: "/logs/new",
+                query: { cosmetic_id: id },
+              }}
+              className={styles.noLinkStyle}
+            >
+              <button className={styles.pillShapedButtonBlue}>
               このアイテムを記録する
-            </button>
+              </button>
+            </Link>
           </Grid>
         </Grid>
 

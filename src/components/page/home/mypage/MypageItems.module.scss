@@ -26,11 +26,9 @@
 }
 .buttonWrapper {
   display: flex;
-  width: 60%;
-  padding-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 30%;
+  width: 80%;
+  padding-top: 3em;
+  justify-content: flex-end;
 }
 
 .rightWrapper {
