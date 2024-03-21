@@ -98,7 +98,7 @@ export default function CosmeticItems() {
               ))}
             </div>
             <button className={styles.pillShapedButtonBlue}>
-              この商品から記録を作成
+              このアイテムを記録する
             </button>
           </Grid>
         </Grid>
