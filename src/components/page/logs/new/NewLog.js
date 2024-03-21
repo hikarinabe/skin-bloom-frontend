@@ -71,6 +71,7 @@ export default function NewLog() {
 
   // 化粧品のカテゴリIDを取得する。
   const [categoryId, setCategoryId] = useState(null);
+  const [cosmeticName, setCosmeticName] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -87,6 +88,7 @@ export default function NewLog() {
         }
         const data = await response.json();
         setCategoryId(data.category);
+        setCosmeticName(data.name);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -230,7 +232,7 @@ export default function NewLog() {
     <div className={styles.sectionWrapper}>
       <div className={styles.form}>
         <div className={styles.formItems}>
-          <Link href="/cosmetics/search">
+          <Link href={`/cosmetics/${cosmetic_id}`}>
             {/* TODO 一つ前のページに戻す */}
             <Image
               className={styles.backIcon}
@@ -242,7 +244,7 @@ export default function NewLog() {
           </Link>
           <h2 className={styles.title}>ログ</h2>
           <h4>商品名</h4>
-          <p className={styles.textarea}>ちふれ　美白　うるおい　ジェル</p>
+          <p className={styles.textarea}>{cosmeticName}</p>
           <h4>評価（どれくらい肌に合うか）</h4>
           <StarRating initialValue={request.rate} onRate={handleRate} />
           {chosenCriteria.map((value) => {
