@@ -1,10 +1,13 @@
 @import "../../../../styles/variables";
 
 .sectionWrapper {
-  height: 414px;
+  height: 30em;
   background-color: $secondary-color;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 4em;
+  padding-right: 4em;
+  background-image: url("/imgs/concept_img.jpg"); /* 画像のパスを指定 */
+  background-size: 150% auto; /* 画像を全体に広げる */
+  background-position: center; /* 画像の位置を中央に配置 */
 }
 
 .conceptWrapper {
@@ -13,4 +16,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.concept {
+  color: white;
+  text-shadow: 2px 2px 4px $text-color;
+}
+
+.subconcept {
+  color: white;
 }

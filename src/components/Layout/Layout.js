@@ -14,7 +14,7 @@ export default function Layout({ children, beforeLogin = false }) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      {beforeLogin ? <Header /> : <HeaderBeforeLogin />}
+      {beforeLogin ? <HeaderBeforeLogin /> : <Header />}
       {children}
       <Footer />
     </>
