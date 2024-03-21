@@ -41,7 +41,7 @@
       },
       {
         "source": "/cosmetics/search",
-        "destination": "/cosmetics/search"
+        "destination": "/cosmetics/search.html"
       },
       
       {
