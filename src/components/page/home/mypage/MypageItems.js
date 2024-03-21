@@ -37,12 +37,6 @@ export default function MypageItems() {
           <div className={styles.leftWrapper}>
             <h1 className={styles.title}>あなたにベストなスキンケア</h1>
             <div className={styles.buttonWrapper}>
-              <Link href="/logs/new">
-                {/* ↑searchへの動線があったほうがいいかも */}
-                <button className={softEdgeButtonStyles.softEdgeButton}>
-                  記録する
-                </button>
-              </Link>
               <Link href="/logs">
                 <button className={softEdgeButtonStyles.softEdgeButton}>
                   過去の記録を見る
