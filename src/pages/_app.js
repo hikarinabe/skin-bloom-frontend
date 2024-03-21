@@ -11,11 +11,16 @@ function MyApp({ Component, pageProps }) {
       typeof localStorage !== "undefined" && localStorage.getItem("user_id");
     if (
       !isLoggedIn &&
+      // 許可されたリンク
       router.pathname !== "/home/intro" &&
       !router.pathname.startsWith("/auth") &&
       !router.pathname.startsWith("/cosmetics")
     ) {
-      router.push("/home/intro");
+      if (router.pathname === "/home/mypage") {
+        router.push("/home/intro");
+      } else {
+        router.push("/auth/login");
+      }
     }
   }, [router.pathname]);
 
