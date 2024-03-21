@@ -67,7 +67,7 @@ export default function NewLog() {
     };
 
     fetchData();
-  }, []);
+  }, [cosmetic_id]);
 
   // 化粧品のカテゴリIDを取得する。
   const [categoryId, setCategoryId] = useState(null);
@@ -94,7 +94,7 @@ export default function NewLog() {
       }
     };
     fetchData();
-  }, [cosmetic_id]);
+  }, []);
 
   // 評価軸を管理する。
   const [isSetFlag, setIsSetFlag] = useState(false); // 無限にcomponentがrenderされてしまうバグをやっつけで対処
@@ -113,11 +113,7 @@ export default function NewLog() {
       tagIdNameHash[tag.id] = tag.name;
       if (!criteria.includes(tag.id)) criteria.push(tag.id);
     });
-    const defaultCriteria = userData
-      ? cosmetic_tags
-          .filter((obj) => userData.nayami.includes(obj.nayami))
-          .map((obj) => obj.id)
-      : []; // ニキビ跡ならid 2の配列
+    const defaultCriteria = userData ? userData.nayami : [];
     setChosenCriteria(defaultCriteria);
     setUnChosenCriteria(
       criteria.filter((elem) => !defaultCriteria.includes(elem)),
