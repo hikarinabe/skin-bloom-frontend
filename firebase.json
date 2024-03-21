@@ -2,10 +2,23 @@
   "hosting": {
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "trailingSlash": true,
     "rewrites": [
       {
-        "source": "/",
+        "source": "**",
+        "destination": "**.html"
+      },
+      {
+        "source": "/home/intro",
         "destination": "/home.html"
+      },
+      {
+        "source": "/setting/profile",
+        "destination": "/setting/profile.html"
+      },
+      {
+        "destination": "/logs/[id].html",
+        "regex": "^/logs/([^/]+?)(?:/)?$"
       }
     ]
   }
