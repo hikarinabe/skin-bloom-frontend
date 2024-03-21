@@ -1,40 +1,100 @@
-import styles from "./SearchPageItems.module.scss";
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
+import { useState } from "react";
+import styles from "./SearchPageItems.module.scss";
 
+import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
 import Accordion from "@/components/ui/Accordion/Accordion";
 import OptionButton from "@/components/ui/button/OptionButton";
-import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
 
+import { category_list, company_data } from "@/pkg/cosmetic_master";
 import Image from "next/image";
 
 export default function SearchPageItems() {
-  const categoryOptions = [
-    "オールインワン",
-    "日焼け止め",
-    "ファンデーション",
-    "リップクリーム",
-    "化粧水",
-  ];
-  const brandOptions = ["ちふれ", "資生堂", "ロート製薬"];
-  const priceOptions = [
-    "〜1000円",
-    "1000〜2000円",
-    "2000〜3000円",
-    "3000〜4000円",
-    "4000〜5000円",
-    "5000〜円",
-  ];
+  const [pageState, setPageState] = useState({
+    resultStr: "",
+    keyword: "",
+  });
 
-  const resultNum = 50;
-  const results = Array.from({ length: resultNum }, (_, index) => []);
+  const [optionState, setOptionState] = useState({
+    category: [],
+    company: [],
+  });
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPageState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleToggle = (optionName, value) => {
+    if (optionState[optionName].includes(value)) {
+      setOptionState({
+        ...optionState,
+        [optionName]: optionState[optionName].filter((item) => item !== value),
+      });
+    } else {
+      setOptionState({
+        ...optionState,
+        [optionName]: [...optionState[optionName], value],
+      });
+    }
+  };
+
+  const performSearch = async () => {
+    setSearchResults([]);
+    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info`;
+    const requestOptions = {
+      method: "POST",
+      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
+      headers: { Authorization: "wJ5C9dFcEMB5" },
+      body: JSON.stringify({
+        keyword: pageState.keyword,
+        category: optionState.category,
+        company: optionState.company,
+      }),
+    };
+
+    try {
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      const json_data = JSON.parse(data);
+      console.log(json_data);
+      return json_data;
+    } catch (err) {
+      alert("エラーが発生しました");
+      return [];
+    }
+  };
+
+  const handleSearch = async () => {
+    const results = await performSearch();
+    setPageState({ resultStr: `検索結果（${results.length}件）` });
+    setSearchResults(results);
+  };
+
   return (
     <div className={styles.searchPageItemsWrapper}>
       <div className={styles.inputSectionWrapper}>
-        <input placeholder="商品名" className={styles.textBox} />
-        <button className={softEdgeButtonStyles.softEdgeButton}>検索</button>
+        <input
+          placeholder="商品名"
+          className={styles.textBox}
+          name="keyword"
+          value={pageState.keyword}
+          onChange={handleChange}
+        />
+        <button
+          className={softEdgeButtonStyles.softEdgeButton}
+          onClick={handleSearch}
+        >
+          検索
+        </button>
       </div>
       <div className={styles.horizontalWrapper}>
-        <h3>検索結果（{resultNum}件）</h3>
+        <h3> {pageState.resultStr}</h3>
       </div>
       <div className={styles.filterAndResultWrapper}>
         <div className={styles.filtersWrapper}>
@@ -44,28 +104,31 @@ export default function SearchPageItems() {
           </div>
           <Accordion title={"カテゴリから探す"}>
             <div className={styles.categoryButtonsWrapper}>
-              {categoryOptions.map((value) => (
-                <OptionButton optionName={value} key={value} />
+              {category_list.map((value, index) => (
+                <OptionButton
+                  optionName={value}
+                  key={value}
+                  onClick={() => handleToggle("category", index + 1)}
+                  isSelected={optionState.category.includes(index + 1)}
+                />
               ))}
             </div>
           </Accordion>
           <Accordion title={"ブランドから探す"}>
             <div className={styles.categoryButtonsWrapper}>
-              {brandOptions.map((value) => (
-                <OptionButton optionName={value} key={value} />
-              ))}
-            </div>
-          </Accordion>
-          <Accordion title={"値段から探す"}>
-            <div className={styles.categoryButtonsWrapper}>
-              {priceOptions.map((value) => (
-                <OptionButton optionName={value} key={value} />
+              {company_data.map((value) => (
+                <OptionButton
+                  optionName={value.name}
+                  key={value.id}
+                  onClick={() => handleToggle("company", value.id)}
+                  isSelected={optionState.company.includes(value.id)}
+                />
               ))}
             </div>
           </Accordion>
         </div>
         <div className={styles.resultWrapper}>
-          {results.map((cosmetic, index) => (
+          {searchResults.map((cosmetic, index) => (
             <CosmeticCard cosmetic={cosmetic} isMyPage={false} key={index} />
           ))}
         </div>
