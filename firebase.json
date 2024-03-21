@@ -2,10 +2,69 @@
   "hosting": {
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "trailingSlash": true,
     "rewrites": [
       {
         "source": "/",
         "destination": "/home.html"
+      },
+      {
+        "source": "/home/intro",
+        "destination": "/home/intro.html"
+      },
+
+      {
+        "source": "/logs",
+        "destination": "/logs.html"
+      },
+      {
+        "source": "/setting",
+        "destination": "/setting.html"
+      },
+
+      {
+        "source": "/auth/login",
+        "destination": "/auth/login.html"
+      },
+      {
+        "source": "/auth/profileForm",
+        "destination": "/auth/profileForm.html"
+      },
+      {
+        "source": "/auth/signup",
+        "destination": "/auth/signup.html"
+      },
+
+      {
+        "source": "/cosmetics/[id]",
+        "destination": "/cosmetics/[id].html"
+      },
+      {
+        "source": "/cosmetics/search",
+        "destination": "/cosmetics/search.html"
+      },
+      
+      {
+        "source": "/home/mypage",
+        "destination": "/home/mypage.html"
+      },
+
+      {
+        "source": "/logs/new",
+        "destination": "/logs/new.html"
+      },
+
+      {
+        "source": "/setting/edit_profile",
+        "destination": "/setting/edit_profile.html"
+      },
+      {
+        "source": "/setting/password",
+        "destination": "/setting/password.html"
+      },
+      {
+        "source": "/setting/profile",
+        "destination": "/setting/profile.html"
       }
     ]
   }
