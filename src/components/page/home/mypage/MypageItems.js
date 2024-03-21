@@ -1,5 +1,4 @@
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
-import { useEffect } from "react";
 import styles from "./MypageItems.module.scss";
 
 import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
@@ -10,11 +9,27 @@ import IngredientsRank from "./IngredientsRank";
 import Link from "next/link";
 
 export default function MypageItems() {
-  useEffect(() => {
-    // TODO: remove this line later
-    // NOTE: ローカルストレージからuser_idを取得するためにDebugで書いている
-    console.log(localStorage.getItem("user_id"));
-  }, []);
+  const default_cosmetics = {
+    "id": "7MLO8LrBYv5prBblQEMR",
+    "ingredients": [
+        "ミネラルオイル",
+        "イソステアリン酸ＰＥＧ－８グリセリル",
+        "トリ（カプリル酸／カプリン酸）グリセリル",
+        "保湿成分",
+        "グリセリン",
+        "防腐剤",
+        "フェノキシエタノール",
+        "メチルパラベン",
+        "成分の酸化防止剤",
+        "トコフェロール",
+        "基剤",
+        "水"
+    ],
+    "name": "クレンジング オイル",
+    "price": 880,
+    "company": 120,
+    "category": 5
+}
   return (
     <>
       <div className={styles.mypageItemsWrapper}>
@@ -57,18 +72,9 @@ export default function MypageItems() {
               </div>
             </Accordion>
             <div className={styles.cosmeticsWrapper}>
-              {[].map((cosmetic, index) => (
-                <CosmeticCard cosmetic={cosmetic} key={index} /> //TODO keyをcosmetic IDに変更する
-              ))}
-              {/* TODO ↑がうまれば下を削除する */}
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
-              <CosmeticCard cosmetic={[]} />
+              {[1,2,3,4].map((cosmetic, index) => (
+                <CosmeticCard cosmetic={default_cosmetics} key={default_cosmetics['id']} /> //TODO keyをcosmetic IDに変更する
+              ))}             
             </div>
           </div>
         </div>
