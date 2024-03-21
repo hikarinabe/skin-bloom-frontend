@@ -5,8 +5,12 @@
     "trailingSlash": true,
     "rewrites": [
       {
-        "source": "/home/intro",
+        "source": "/",
         "destination": "/home.html"
+      },
+      {
+        "source": "/home/intro",
+        "destination": "/home/intro.html"
       },
 
       {
