@@ -60,7 +60,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
             }}
           >
             <Image
-              src="/icons/circular-write.svg/"
+              src="/icons/circular-write.svg"
               height={25}
               width={25}
               alt=""
@@ -126,7 +126,7 @@ export function CosmeticLogCard({ cosmetic, isMyPage = true }) {
             }}
           >
             <Image
-              src="/icons/circular-write.svg/"
+              src="/icons/circular-write.svg"
               height={25}
               width={25}
               alt=""
