@@ -7,21 +7,7 @@ import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./LogTable.module.scss";
 
-const Rating = ({ value }) => {
-  // 評価値に応じて星の数を生成
-  const stars = [];
-  for (let i = 0; i < 5; i++) {
-    stars.push(
-      <Image
-        key={i}
-        src={i < value ? "/icons/yellowstar.svg" : "/icons/graystar.svg"} // 星の色を評価値に基づいて設定
-        width={15}
-        height={15}
-      />,
-    );
-  }
-  return <div className={styles.rating}>{stars}</div>;
-};
+import StarRatingDisplay from "@/components/StarRating/StarRatingDisplay";
 
 export default function LogTable() {
   const router = useRouter();
@@ -153,7 +139,7 @@ export default function LogTable() {
               </td>
               <td className={styles.cell}>{to_str_category(item.category)}</td>
               <td className={styles.cell}>
-                <Rating value={item.rate} />
+                <StarRatingDisplay value={item.rate} />
               </td>
               <td className={styles.cell}>
                 <div className={styles.tagContainer}>

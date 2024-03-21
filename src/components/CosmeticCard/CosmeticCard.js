@@ -7,6 +7,8 @@ import { tag_list } from "@/pkg/tag";
 import Image from "next/image";
 import Link from "next/link";
 
+import StarRatingDisplay from "../StarRating/StarRatingDisplay";
+
 export default function CosmeticCard({
   cosmetic,
   isMyPage = true,
@@ -95,23 +97,22 @@ export function CosmeticLogCard({ cosmetic, isMyPage = true }) {
       <p>{categoryName}</p>
       <h3>{name}</h3>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.ingredientsWrapper}>
-          {good_tag.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
-              {tag_list[value - 1].name}
-            </button>
-          ))}
-        </div>
+        <div></div>
         {isMyPage ? (
           <div className={styles.matchRateWrapper}>
-            <Image src="/icons/heart.svg" height={25} width={25} alt="" />
-            <div>{likeRate} / 5 点</div>
+            <StarRatingDisplay value={likeRate} />
           </div>
         ) : null}
       </div>
       <hr className={styles.division}></hr>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.tagsWrapper}>{comment}</div>
+        <div className={styles.tagsWrapper}>
+          {good_tag.map((value) => (
+            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
+              {tag_list[value - 1].name} に効果
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
