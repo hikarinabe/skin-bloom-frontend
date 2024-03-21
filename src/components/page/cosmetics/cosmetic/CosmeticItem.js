@@ -107,7 +107,7 @@ export default function CosmeticItems() {
               className={styles.noLinkStyle}
             >
               <button className={styles.pillShapedButtonBlue}>
-              このアイテムを記録する
+                このアイテムを記録する
               </button>
             </Link>
           </Grid>
