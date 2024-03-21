@@ -141,7 +141,7 @@ export default function LogTable() {
             </td>
             <td className={styles.cell}>
               <div className={styles.name}>
-                <Link href={`/logs/${encodeURIComponent(item.id)}`} passHref>
+                <Link href={`/cosmetics/${item.id}`} passHref>
                   {item.item_name}
                 </Link>
               </div>
