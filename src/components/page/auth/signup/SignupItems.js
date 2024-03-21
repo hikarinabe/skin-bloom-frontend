@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
 
@@ -26,7 +26,7 @@ export default function SignupItems() {
   };
 
   const showToast = (
-    message = "Googleログインはサポートされていません。",
+    message = "",
     type = "error",
   ) => {
     toast[type](message, {
@@ -135,23 +135,6 @@ export default function SignupItems() {
             次へ
           </button>
         </form>
-        <hr className={authStyles.division}></hr>
-        <div>
-          <button
-            className={buttonStyles.pillShapedButtonWhite}
-            onClick={showToast}
-          >
-            <Image
-              className={authStyles.snsIcon}
-              src="/icons/google.svg"
-              height={25}
-              width={25}
-              alt=""
-            />
-            Googleで新規登録
-          </button>
-          <ToastContainer />
-        </div>
         <p className={authStyles.caption}>
           アカウントをお持ちの方は<Link href="/auth/login">こちら</Link>
         </p>
