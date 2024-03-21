@@ -25,10 +25,7 @@ export default function SignupItems() {
     }));
   };
 
-  const showToast = (
-    message = "",
-    type = "error",
-  ) => {
+  const showToast = (message = "", type = "error") => {
     toast[type](message, {
       position: "top-center",
       autoClose: 5000,
