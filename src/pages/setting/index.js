@@ -5,12 +5,13 @@ export default function Setting() {
   const router = useRouter();
 
   useEffect(() => {
-    const isLoggedIn = true;
+    const isLoggedIn =
+      typeof localStorage !== "undefined" && localStorage.getItem("user_id");
 
     if (isLoggedIn) {
       router.push("/setting/profile");
     } else {
-      router.push("/home/intro");
+      router.push("/auth/login");
     }
   }, [router]);
 

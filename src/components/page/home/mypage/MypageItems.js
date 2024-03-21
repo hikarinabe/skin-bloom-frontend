@@ -1,35 +1,59 @@
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
 import styles from "./MypageItems.module.scss";
 
-import CosmeticCard from "@/components/CosmeticCard/CosmeticCard";
+import CosmeticCard, {
+  CosmeticLogCard,
+} from "@/components/CosmeticCard/CosmeticCard";
 import Accordion from "@/components/ui/Accordion/Accordion";
 import OptionButton from "@/components/ui/button/OptionButton";
 import IngredientsRank from "./IngredientsRank";
 
+import { category_list } from "@/pkg/cosmetic_master";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+import { useRouter } from "next/router";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function MypageItems() {
-  const default_cosmetics = {
-    id: "7MLO8LrBYv5prBblQEMR",
-    ingredients: [
-      "ミネラルオイル",
-      "イソステアリン酸ＰＥＧ－８グリセリル",
-      "トリ（カプリル酸／カプリン酸）グリセリル",
-      "保湿成分",
-      "グリセリン",
-      "防腐剤",
-      "フェノキシエタノール",
-      "メチルパラベン",
-      "成分の酸化防止剤",
-      "トコフェロール",
-      "基剤",
-      "水",
-    ],
-    name: "クレンジング オイル",
-    price: 880,
-    company: 120,
-    category: 5,
+  const router = useRouter();
+
+  const [response, setResponse] = useState({
+    user_logs_cosmetics: [],
+    recommend_cosmetics: [],
+    good_ingredient: [],
+    bad_ingredient: [],
+  });
+
+  const fetchHome = async () => {
+    const user_id = localStorage.getItem("user_id");
+    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/home?user_id=${user_id}`;
+    const requestOptions = {
+      method: "GET",
+      headers: { Authorization: "wJ5C9dFcEMB5" },
+    };
+
+    try {
+      const res = await fetch(endpoint_url, requestOptions);
+      const data = await res.text();
+      const json_data = JSON.parse(data);
+
+      console.log(json_data);
+      setResponse(() => ({
+        user_logs_cosmetics: json_data.list_cosmetics,
+        recommend_cosmetics: json_data.recommend_items,
+        good_ingredient: json_data.good_ingredient,
+        bad_ingredient: json_data.bad_ingredient,
+      }));
+    } catch (err) {
+      alert("エラーが発生しました");
+    }
   };
+
+  useEffect(() => {
+    fetchHome();
+  }, []);
+
   return (
     <>
       <div className={styles.mypageItemsWrapper}>
@@ -45,34 +69,43 @@ export default function MypageItems() {
             </div>
           </div>
           <div className={styles.rightWrapper}>
-            <IngredientsRank right={true} />
-            <IngredientsRank right={false} />
+            <IngredientsRank
+              right={true}
+              ingredients={response.good_ingredient}
+            />
+            <IngredientsRank
+              right={false}
+              ingredients={response.bad_ingredient}
+            />
           </div>
         </div>
-        <div className={styles.bottomSectionWrapper}>
-          <h2>あなたにおすすめの商品</h2>
-          <div>
-            <Accordion title={"カテゴリから探す"}>
-              <div className={styles.categoryButtonsWrapper}>
-                {[
-                  "オールインワン",
-                  "日焼け止め",
-                  "ファンデーション",
-                  "リップクリーム",
-                  "化粧水",
-                ].map((value) => (
-                  <OptionButton optionName={value} key={value} />
+        <div>
+          <div className={styles.bottomSectionWrapper}>
+            <h2>あなたにおすすめのアイテム</h2>
+            <div>
+              <Accordion title={"カテゴリから探す"}>
+                <div className={styles.categoryButtonsWrapper}>
+                  {category_list.map((value) => (
+                    <OptionButton optionName={value} key={value} />
+                  ))}
+                </div>
+              </Accordion>
+              <div className={styles.cosmeticsWrapper}>
+                {response.recommend_cosmetics.map((cosmetic, index) => (
+                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} />
                 ))}
               </div>
-            </Accordion>
-            <div className={styles.cosmeticsWrapper}>
-              {[1, 2, 3, 4].map((cosmetic, index) => (
-                <CosmeticCard
-                  cosmetic={default_cosmetics}
-                  key={default_cosmetics["id"]}
-                /> //TODO keyをcosmetic IDに変更する
-              ))}
             </div>
+            {response.user_logs_cosmetics.length !== 0 && (
+              <>
+                <h2>最近追加したアイテム</h2>
+                <div className={styles.cosmeticsWrapper}>
+                  {response.user_logs_cosmetics.map((cosmetic, index) => (
+                    <CosmeticLogCard cosmetic={cosmetic} key={cosmetic["id"]} />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
