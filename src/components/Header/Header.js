@@ -24,7 +24,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <Link href="" className={styles.iconWrapper}>
+        {/* <Link href="" className={styles.iconWrapper}>
           <Image
             className={styles.icon}
             alt=""
@@ -32,7 +32,7 @@ export default function Header() {
             width={40}
             height={40}
           />
-        </Link>
+        </Link> */}
         <Link href="/setting/profile" className={styles.iconWrapper}>
           <Image
             className={styles.icon}
