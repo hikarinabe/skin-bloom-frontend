@@ -83,16 +83,22 @@ export default function MypageItems() {
           <div className={styles.bottomSectionWrapper}>
             <h2>あなたにおすすめのアイテム</h2>
             <div>
-              <Accordion title={"カテゴリから探す"}>
+              {/* <Accordion title={"カテゴリから探す"}>
                 <div className={styles.categoryButtonsWrapper}>
                   {category_list.map((value) => (
                     <OptionButton optionName={value} key={value} />
                   ))}
                 </div>
-              </Accordion>
+              </Accordion> */}
               <div className={styles.cosmeticsWrapper}>
                 {response.recommend_cosmetics.map((cosmetic, index) => (
-                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} />
+                  <CosmeticCard
+                    cosmetic={cosmetic}
+                    key={cosmetic["id"]}
+                    matchRateFake={
+                      100 - index * 10 - Math.floor(Math.random() * 10)
+                    }
+                  />
                 ))}
               </div>
             </div>
