@@ -10,13 +10,8 @@
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
-  box-shadow: 2px 2px 2px $text-color;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
 }
 
 .softEdgeButton:hover {
-  box-shadow: 1px 1px 1px $text-color;
-  transform: translate(1px, 1px);
+  background-color: $pale-primary-color;
 }
