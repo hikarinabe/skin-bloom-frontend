@@ -17,7 +17,7 @@ export default function CosmeticCard({
   const name = cosmetic.name;
   const categoryName = to_str_category(cosmetic.category);
   const majorIngredients = cosmetic.ingredients.slice(1, 3); // 要素数1,2この文字列配列;
-  const majorTags = to_str_company(cosmetic.company);
+  const companyName = to_str_company(cosmetic.company);
   const matchRate = matchRateFake
     ? matchRateFake
     : Math.round(Math.ceil(Math.random() * 100));
@@ -29,13 +29,7 @@ export default function CosmeticCard({
       <p>{categoryName}</p>
       <h3>{name}</h3>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.ingredientsWrapper}>
-          {majorIngredients.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
-              {value}
-            </button>
-          ))}
-        </div>
+        <div className={styles.tagsWrapper}>{companyName}</div>
         {isMyPage ? (
           <div className={styles.matchRateWrapper}>
             <Image src="/icons/heart.svg" height={25} width={25} alt="" />
@@ -45,7 +39,13 @@ export default function CosmeticCard({
       </div>
       <hr className={styles.division}></hr>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.tagsWrapper}>{majorTags}</div>
+        <div className={styles.ingredientsWrapper}>
+          {majorIngredients.map((value) => (
+            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
+              {value}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
