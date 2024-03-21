@@ -10,26 +10,26 @@ import Link from "next/link";
 
 export default function MypageItems() {
   const default_cosmetics = {
-    "id": "7MLO8LrBYv5prBblQEMR",
-    "ingredients": [
-        "ミネラルオイル",
-        "イソステアリン酸ＰＥＧ－８グリセリル",
-        "トリ（カプリル酸／カプリン酸）グリセリル",
-        "保湿成分",
-        "グリセリン",
-        "防腐剤",
-        "フェノキシエタノール",
-        "メチルパラベン",
-        "成分の酸化防止剤",
-        "トコフェロール",
-        "基剤",
-        "水"
+    id: "7MLO8LrBYv5prBblQEMR",
+    ingredients: [
+      "ミネラルオイル",
+      "イソステアリン酸ＰＥＧ－８グリセリル",
+      "トリ（カプリル酸／カプリン酸）グリセリル",
+      "保湿成分",
+      "グリセリン",
+      "防腐剤",
+      "フェノキシエタノール",
+      "メチルパラベン",
+      "成分の酸化防止剤",
+      "トコフェロール",
+      "基剤",
+      "水",
     ],
-    "name": "クレンジング オイル",
-    "price": 880,
-    "company": 120,
-    "category": 5
-}
+    name: "クレンジング オイル",
+    price: 880,
+    company: 120,
+    category: 5,
+  };
   return (
     <>
       <div className={styles.mypageItemsWrapper}>
@@ -72,9 +72,12 @@ export default function MypageItems() {
               </div>
             </Accordion>
             <div className={styles.cosmeticsWrapper}>
-              {[1,2,3,4].map((cosmetic, index) => (
-                <CosmeticCard cosmetic={default_cosmetics} key={default_cosmetics['id']} /> //TODO keyをcosmetic IDに変更する
-              ))}             
+              {[1, 2, 3, 4].map((cosmetic, index) => (
+                <CosmeticCard
+                  cosmetic={default_cosmetics}
+                  key={default_cosmetics["id"]}
+                /> //TODO keyをcosmetic IDに変更する
+              ))}
             </div>
           </div>
         </div>
