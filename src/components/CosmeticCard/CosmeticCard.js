@@ -7,14 +7,20 @@ import { tag_list } from "@/pkg/tag";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CosmeticCard({ cosmetic, isMyPage = true }) {
+export default function CosmeticCard({
+  cosmetic,
+  isMyPage = true,
+  matchRateFake,
+}) {
   const cosmetic_id = cosmetic.id;
   const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = cosmetic.name;
   const categoryName = to_str_category(cosmetic.category);
   const majorIngredients = cosmetic.ingredients.slice(1, 3); // 要素数1,2この文字列配列;
   const majorTags = to_str_company(cosmetic.company);
-  const matchRate = Math.round(Math.ceil(Math.random() * 100));
+  const matchRate = matchRateFake
+    ? matchRateFake
+    : Math.round(Math.ceil(Math.random() * 100));
   return (
     <div className={styles.cosmeticCard}>
       <div className={styles.cosmeticImageWrapper}>

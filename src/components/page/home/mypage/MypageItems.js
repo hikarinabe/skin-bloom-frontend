@@ -92,7 +92,13 @@ export default function MypageItems() {
               </Accordion>
               <div className={styles.cosmeticsWrapper}>
                 {response.recommend_cosmetics.map((cosmetic, index) => (
-                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} />
+                  <CosmeticCard
+                    cosmetic={cosmetic}
+                    key={cosmetic["id"]}
+                    matchRateFake={
+                      100 - index * 10 - Math.floor(Math.random() * 10)
+                    }
+                  />
                 ))}
               </div>
             </div>
