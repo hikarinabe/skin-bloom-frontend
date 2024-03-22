@@ -63,7 +63,7 @@ export default function ProfileItems() {
                     email: request.email,
                     birthday: request.birthday,
                     year: request.year,
-                    month: request.month,
+                    month: request.month + 1,
                     day: request.day,
                   },
                 }}
