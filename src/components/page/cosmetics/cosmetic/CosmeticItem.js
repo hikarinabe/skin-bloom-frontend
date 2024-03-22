@@ -11,6 +11,14 @@ import styles from "./CosmeticItem.module.scss";
 
 import Link from "next/link";
 
+function calculateValueFromString(str) {
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum += str.charCodeAt(i);
+  }
+  return (sum % 51) + 50;
+}
+
 export default function CosmeticItems() {
   const router = useRouter();
   const { id } = router.query;
@@ -21,8 +29,8 @@ export default function CosmeticItems() {
     category: 0,
     ingredients: [],
   });
-  const matchRate = 0.8;
-  const majorTags = ["保湿", "ニキビ"];
+
+  const [matchRate, setMatchRate] = useState(0);
 
   const getClients = async () => {
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${id}`;
@@ -52,6 +60,7 @@ export default function CosmeticItems() {
   useEffect(() => {
     if (router.isReady) {
       getClients();
+      setMatchRate(calculateValueFromString(id));
     }
   }, [router]);
   return (
@@ -77,7 +86,7 @@ export default function CosmeticItems() {
               <Grid item xs={4}>
                 <div className={styles.matchRateWrapper}>
                   <Image src="/icons/heart.svg" height={25} width={25} alt="" />
-                  <div>{matchRate * 100}%</div>
+                  <div>{matchRate}%</div>
                 </div>
               </Grid>
             </Grid>
