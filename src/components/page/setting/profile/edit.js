@@ -20,9 +20,10 @@ export default function EditProfileItem() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    const newValue = name === 'month' ? String(Number(value) - 1) : value;
     setRequest((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: newValue,
     }));
   };
 
