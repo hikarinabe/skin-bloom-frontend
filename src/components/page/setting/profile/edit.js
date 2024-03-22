@@ -20,10 +20,9 @@ export default function EditProfileItem() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const newValue = name === "month" ? String(Number(value) - 1) : value;
     setRequest((prevState) => ({
       ...prevState,
-      [name]: newValue,
+      [name]: value,
     }));
   };
 
@@ -118,7 +117,7 @@ export default function EditProfileItem() {
                     <select
                       className={styles.selectBox}
                       name="month"
-                      value={(Number(request.month) + 1).toString()}
+                      value={request.month}
                       onChange={handleChange}
                     >
                       {Array.from({ length: 12 }, (_, i) => i + 1).map(
