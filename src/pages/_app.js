@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>SkinBloom</title>
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
       <Component {...pageProps} />
