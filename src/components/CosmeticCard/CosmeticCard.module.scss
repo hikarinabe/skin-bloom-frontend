@@ -50,6 +50,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.detailButton:hover {
+  background-color: $pale-primary-color;
 }
 
 .detailButtonText {

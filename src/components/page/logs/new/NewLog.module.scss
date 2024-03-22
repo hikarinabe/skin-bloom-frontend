@@ -39,7 +39,6 @@
   width: 100%;
   border-radius: 12px;
   padding: 10px;
-  border: 1px solid rgba(102, 102, 102, 0.35);
   display: flex;
   align-items: center;
 }
@@ -53,5 +52,15 @@
 .tagWrapper {
   display: flex;
   flex-wrap: wrap;
+  gap: 1em;
+}
+.removeIcon {
+  cursor: pointer;
+}
+
+.horizontalWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1em;
 }

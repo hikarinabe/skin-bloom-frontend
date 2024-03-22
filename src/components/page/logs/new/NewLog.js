@@ -39,17 +39,16 @@ export default function NewLog() {
 
   const cosmetic_id = router.query.cosmetic_id;
 
-  const [user_id, setUserId] = useState(null);
+  let userId;
 
   // ユーザごとの評価軸を取得するためにuserDataを取得する。
   const [userData, setUserData] = useState(null);
-
   useEffect(() => {
-    setUserId(localStorage.getItem("user_id"));
     const fetchData = async () => {
       try {
+        userId = localStorage.getItem("user_id");
         const response = await fetch(
-          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${user_id}`,
+          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${userId}`,
           {
             headers: {
               Authorization: API_KEY,
@@ -67,7 +66,7 @@ export default function NewLog() {
     };
 
     fetchData();
-  }, [cosmetic_id]);
+  }, []);
 
   // 化粧品のカテゴリIDを取得する。
   const [categoryId, setCategoryId] = useState(null);
@@ -94,7 +93,7 @@ export default function NewLog() {
       }
     };
     fetchData();
-  }, []);
+  }, [cosmetic_id]);
 
   // 評価軸を管理する。
   const [isSetFlag, setIsSetFlag] = useState(false); // 無限にcomponentがrenderされてしまうバグをやっつけで対処
@@ -229,7 +228,6 @@ export default function NewLog() {
       <div className={styles.form}>
         <div className={styles.formItems}>
           <Link href={`/cosmetics/${cosmetic_id}`}>
-            {/* TODO 一つ前のページに戻す */}
             <Image
               className={styles.backIcon}
               src="/icons/back.svg"
@@ -239,9 +237,16 @@ export default function NewLog() {
             />
           </Link>
           <h2 className={styles.title}>ログ</h2>
-          <h4>商品名</h4>
-          <p className={styles.textarea}>{cosmeticName}</p>
-          <h4>評価（どれくらい肌に合うか）</h4>
+          <h4>商品</h4>
+          <div className={styles.horizontalWrapper}>
+            <Image
+              src={`/item_imgs/${cosmetic_id}.jpg`}
+              width={60}
+              height={60}
+            />
+            <p className={styles.textarea}>{cosmeticName}</p>
+          </div>
+          <h4>肌に合う度合い</h4>
           <StarRating initialValue={request.rate} onRate={handleRate} />
           {chosenCriteria.map((value) => {
             return (
@@ -252,7 +257,7 @@ export default function NewLog() {
                     onClick={() => {
                       handleRemoveCriteria(value);
                     }}
-                    className={styles.accordionIcon}
+                    className={styles.removeIcon}
                     src="/icons/minus.svg"
                     height={15}
                     width={15}

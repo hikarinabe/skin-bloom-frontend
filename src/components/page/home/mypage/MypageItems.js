@@ -4,11 +4,10 @@ import styles from "./MypageItems.module.scss";
 import CosmeticCard, {
   CosmeticLogCard,
 } from "@/components/CosmeticCard/CosmeticCard";
-import Accordion from "@/components/ui/Accordion/Accordion";
-import OptionButton from "@/components/ui/button/OptionButton";
+// import Accordion from "@/components/ui/Accordion/Accordion";
+// import OptionButton from "@/components/ui/button/OptionButton";
 import IngredientsRank from "./IngredientsRank";
 
-import { category_list } from "@/pkg/cosmetic_master";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

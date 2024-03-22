@@ -1,9 +1,9 @@
 @import "../variables";
 
-.softEdgeTagButton,
-.softEdgeTagButtonActive,
-.softEdgeTagButtonWhite {
-  //効果あり、効果なしなどのタグに使う
+.tag,
+.tagActive,
+.tagWhite {
+  //効果あり、効果なしなどのタグに使う ユーザインタラクションはなし
   height: 30px;
   border-radius: 5px;
   border: 1px solid $primary-color;
@@ -13,15 +13,14 @@
   padding-left: 10px;
   padding-right: 10px;
   font-family: inherit;
-  cursor: pointer;
 }
 
-.softEdgeTagButtonActive {
+.tagActive {
   background-color: $primary-color;
   color: white;
 }
 
-.softEdgeTagButtonWhite {
+.tagWhite {
   border: 2px solid $text-color;
   color: $text-color;
 }

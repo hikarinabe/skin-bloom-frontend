@@ -1,10 +1,28 @@
 @import "../../../../styles/variables";
 
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+.upperWrapper {
+  margin-top: 2em;
+  display: flex;
+  width: 100%;
+}
+
+.leftWrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cosmeticItemWrapper {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  color: $text-color;
 }
 
 .title {
@@ -15,16 +33,6 @@
 
 .center {
   text-align: center;
-  font-size: 2em;
-  margin: -0.1%;
-}
-
-.contents {
-  padding: 0.2%;
-}
-
-.cosmeticImage {
-  margin: -4%;
 }
 
 .horizontalWrapper {
@@ -74,21 +82,33 @@
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
+  cursor: pointer;
+}
+
+.pillShapedButtonBlue:hover {
+  background-color: $pale-primary-color;
 }
 
 .categoryIcon {
   height: 2em;
-  width: 7em;
-  font-size: medium;
   border-radius: 40px;
-  border: 1px solid #1aced6;
+  border: 1px solid $primary-color;
   background-color: white;
-  color: #1aced6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: $primary-color;
+  display: inline-block;
+  padding: 0 0.5em;
+  height: auto;
+}
+
+.categoryName {
+  line-height: 60%;
 }
 
 .noLinkStyle {
   text-decoration: none;
+}
+
+.ingredientsWrapper {
+  display: flex;
+  justify-content: center;
 }
