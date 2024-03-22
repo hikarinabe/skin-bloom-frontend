@@ -7,7 +7,7 @@ import LogoutButton from "./LogoutButton";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Link href="/home/mypage" passHref legacyBehavior>
+      <Link href="/home/mypage" className={styles.noLinkStyle}>
         <h1 className={styles.logo}>SkinBloom</h1>
       </Link>
       <div className={styles.rightAligned}>
