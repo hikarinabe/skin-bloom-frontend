@@ -146,7 +146,7 @@ export default function NewLog() {
       method: "POST",
       headers: { Authorization: "wJ5C9dFcEMB5" }, // TODO 秘匿
       body: JSON.stringify({
-        user_id: user_id,
+        user_id: userId,
         cosmetic_id: cosmetic_id,
         rate: request.rate,
         category: categoryId,
