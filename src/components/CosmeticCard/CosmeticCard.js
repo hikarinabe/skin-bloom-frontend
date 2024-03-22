@@ -18,7 +18,8 @@ export default function CosmeticCard({
   const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = cosmetic.name;
   const categoryName = to_str_category(cosmetic.category);
-  const majorIngredients = (cosmetic.ingredients) != null ? cosmetic.ingredients.slice(1, 3) : [] ; // 要素数1,2この文字列配列;
+  const majorIngredients =
+    cosmetic.ingredients != null ? cosmetic.ingredients.slice(1, 3) : []; // 要素数1,2この文字列配列;
   const companyName = to_str_company(cosmetic.company);
   const matchRate = matchRateFake
     ? matchRateFake
