@@ -13,11 +13,12 @@
   padding-left: 10px;
   padding-right: 10px;
   font-family: inherit;
+  cursor: pointer;
 }
 
 .softEdgeTagButtonActive {
   background-color: $primary-color;
-  color: $text-color;
+  color: white;
 }
 
 .softEdgeTagButtonWhite {
