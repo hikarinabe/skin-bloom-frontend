@@ -91,15 +91,17 @@
 
 .categoryIcon {
   height: 2em;
-  width: 7em;
-  font-size: medium;
   border-radius: 40px;
-  border: 1px solid #1aced6;
+  border: 1px solid $primary-color;
   background-color: white;
-  color: #1aced6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: $primary-color;
+  display: inline-block;
+  padding: 0 0.5em;
+  height: auto;
+}
+
+.categoryName {
+  line-height: 60%;
 }
 
 .noLinkStyle {
