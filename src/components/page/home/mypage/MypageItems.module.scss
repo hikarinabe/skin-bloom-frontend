@@ -2,15 +2,17 @@
 
 .mypageItemsWrapper {
   color: $text-color;
-  padding-top: 30px;
 }
 
 .sectionWrapper {
+  padding: 3em;
   display: flex;
-}
-
-.title {
-  text-align: center;
+  background-image: url("/imgs/skincare.jpg");
+  background-color: rgba(255, 255, 255, 0.2);
+  background-blend-mode: lighten;
+  align-items: center;
+  background-size: cover; /* 画像を全体に広げる */
+  background-position: 50% 60%; /* 画像の位置を中央に配置 */
 }
 
 .leftWrapper,
@@ -19,19 +21,19 @@
 }
 
 .leftWrapper {
-  display: flex;
-  flex-direction: column;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: 3em;
 }
 .buttonWrapper {
-  display: flex;
-  width: 80%;
   padding-top: 3em;
-  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rightWrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1em;
   display: flex;
   justify-content: center;
   gap: 20px;
