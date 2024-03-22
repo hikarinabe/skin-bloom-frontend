@@ -91,7 +91,7 @@ export default function SignupItems() {
 
   return (
     <div className={authStyles.itemsWrapper}>
-      <Link href="/home">
+      <Link href="/home/intro">
         <Image
           className={authStyles.backIcon}
           src="/icons/back.svg"

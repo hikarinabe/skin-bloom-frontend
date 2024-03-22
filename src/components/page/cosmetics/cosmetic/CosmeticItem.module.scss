@@ -74,6 +74,11 @@
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
+  cursor: pointer;
+}
+
+.pillShapedButtonBlue:hover {
+  background-color: $pale-primary-color;
 }
 
 .categoryIcon {

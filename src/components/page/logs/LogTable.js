@@ -1,6 +1,6 @@
 import { to_str_category } from "@/pkg/cosmetic_master";
 import { tag_list } from "@/pkg/tag";
-import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
+import tagStyles from "@/styles/tag/tag.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -144,10 +144,7 @@ export default function LogTable() {
               <td className={styles.cell}>
                 <div className={styles.tagContainer}>
                   {item.good_tag.map((value) => (
-                    <button
-                      className={tagStyles.softEdgeTagButtonActive}
-                      key={value}
-                    >
+                    <button className={tagStyles.tagActive} key={value}>
                       {tag_list[value - 1].name}
                     </button>
                   ))}
@@ -156,10 +153,7 @@ export default function LogTable() {
               <td className={styles.cell}>
                 <div className={styles.tagContainer}>
                   {item.bad_tag.map((value) => (
-                    <button
-                      className={tagStyles.softEdgeTagButtonWhite}
-                      key={value}
-                    >
+                    <button className={tagStyles.tagWhite} key={value}>
                       {tag_list[value - 1].name}
                     </button>
                   ))}

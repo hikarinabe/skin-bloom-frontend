@@ -1,5 +1,5 @@
 import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
-import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
+import tagStyles from "@/styles/tag/tag.module.scss";
 import Grid from "@mui/material/Grid";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -85,19 +85,6 @@ export default function CosmeticItems() {
               <div>
                 {response.company} {response.price} 円 (税込)
               </div>
-            </div>
-            <div className={styles.tagsWrapper}>
-              <p>タグ:</p>
-              {majorTags.map((value) => (
-                <p className={styles.tagStyle} key={value}>
-                  <button
-                    className={tagStyles.softEdgeTagButtonActive}
-                    key={value}
-                  >
-                    {value}
-                  </button>
-                </p>
-              ))}
             </div>
             <Link
               href={{
