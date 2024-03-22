@@ -1,7 +1,7 @@
 import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
 import styles from "./CosmeticCard.module.scss";
 
-import tagStyles from "@/styles/button/SoftEdgeTagButton.module.scss";
+import tagStyles from "@/styles/tag/tag.module.scss";
 
 import { tag_list } from "@/pkg/tag";
 import Image from "next/image";
@@ -44,7 +44,7 @@ export default function CosmeticCard({
       <div className={styles.horizontalWrapper}>
         <div className={styles.ingredientsWrapper}>
           {majorIngredients.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
+            <button className={tagStyles.tagWhite} key={value}>
               {value}
             </button>
           ))}
@@ -87,7 +87,6 @@ export function CosmeticLogCard({ cosmetic, isMyPage = true }) {
   const name = cosmetic.item_name;
   const categoryName = to_str_category(cosmetic.category);
   const good_tag = cosmetic.good_tag;
-  const comment = cosmetic.comment;
   const likeRate = cosmetic.rate;
 
   return (
@@ -109,7 +108,7 @@ export function CosmeticLogCard({ cosmetic, isMyPage = true }) {
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>
           {good_tag.map((value) => (
-            <button className={tagStyles.softEdgeTagButtonWhite} key={value}>
+            <button className={tagStyles.tagActive} key={value}>
               {tag_list[value - 1].name} に効果
             </button>
           ))}
