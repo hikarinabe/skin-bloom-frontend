@@ -1,5 +1,22 @@
 @import "../../../../styles/variables";
 
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+.upperWrapper {
+  margin-top: 2em;
+  display: flex;
+  width: 100%;
+}
+
+.leftWrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cosmeticItemWrapper {
   display: flex;
   justify-content: center;
@@ -16,16 +33,6 @@
 
 .center {
   text-align: center;
-  font-size: 2em;
-  margin: -0.1%;
-}
-
-.contents {
-  padding: 0.2%;
-}
-
-.cosmeticImage {
-  margin: -4%;
 }
 
 .horizontalWrapper {
@@ -97,4 +104,9 @@
 
 .noLinkStyle {
   text-decoration: none;
+}
+
+.ingredientsWrapper {
+  display: flex;
+  justify-content: center;
 }

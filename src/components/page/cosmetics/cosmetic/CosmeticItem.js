@@ -1,6 +1,4 @@
 import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
-import tagStyles from "@/styles/tag/tag.module.scss";
-import Grid from "@mui/material/Grid";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -66,10 +64,8 @@ export default function CosmeticItems() {
   return (
     <div className={styles.cosmeticItemWrapper}>
       <div className={styles.contents}>
-        <p className={styles.title}>{response.name}</p>
-
-        <Grid container spacing={1}>
-          <Grid item xs={4} sm={6}>
+        <div className={styles.upperWrapper}>
+          <div className={styles.leftWrapper}>
             <Image
               src={`/item_imgs/${id}.jpg`}
               height={300}
@@ -77,22 +73,16 @@ export default function CosmeticItems() {
               alt=""
               className={styles.cosmeticImage}
             />
-          </Grid>
-          <Grid item xs={7} sm={6}>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <div className={styles.categoryIcon}>{response.category}</div>
-              </Grid>
-              <Grid item xs={4}>
-                <div className={styles.matchRateWrapper}>
-                  <Image src="/icons/heart.svg" height={25} width={25} alt="" />
-                  <div>{matchRate}%</div>
-                </div>
-              </Grid>
-            </Grid>
-            <div className={styles.itemInfo}>
-              <div>
-                {response.company} {response.price} 円 (税込)
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.categoryIcon}>{response.category}</div>
+            <h1>{response.name}</h1>
+            <p>{response.company}</p>
+            <div className={styles.horizontalWrapper}>
+              <p>{response.price} 円 (税込)</p>
+              <div className={styles.matchRateWrapper}>
+                <Image src="/icons/heart.svg" height={25} width={25} alt="" />
+                <div>{matchRate}%</div>
               </div>
             </div>
             <Link
@@ -106,12 +96,12 @@ export default function CosmeticItems() {
                 このアイテムを記録する
               </button>
             </Link>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
 
-        <div>
-          <p className={styles.center}>成分</p>
-          <ListItem component="div">
+        <div className={styles.lowerWrapper}>
+          <h2 className={styles.center}>成分</h2>
+          <ListItem component="div" className={styles.ingredientsWrapper}>
             <ul>
               {response.ingredients.map((ingredient, index) => (
                 <ListItemButton key={index}>
