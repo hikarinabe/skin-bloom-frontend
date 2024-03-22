@@ -75,11 +75,16 @@ export default function CosmeticItems() {
             />
           </div>
           <div className={styles.rightWrapper}>
-            <div className={styles.categoryIcon}>{response.category}</div>
+            <div className={styles.categoryIcon}>
+              <p className={styles.categoryName}>{response.category}</p>
+            </div>
             <h1>{response.name}</h1>
             <p>{response.company}</p>
             <div className={styles.horizontalWrapper}>
-              <p>{response.price} 円 (税込)</p>
+              <p>
+                {response.price}
+                {response.price ? " 円 (税込)" : ""}
+              </p>
               <div className={styles.matchRateWrapper}>
                 <Image src="/icons/heart.svg" height={25} width={25} alt="" />
                 <div>{matchRate}%</div>

@@ -237,9 +237,16 @@ export default function NewLog() {
             />
           </Link>
           <h2 className={styles.title}>ログ</h2>
-          <h4>商品名</h4>
-          <p className={styles.textarea}>{cosmeticName}</p>
-          <h4>評価（どれくらい肌に合うか）</h4>
+          <h4>商品</h4>
+          <div className={styles.horizontalWrapper}>
+            <Image
+              src={`/item_imgs/${cosmetic_id}.jpg`}
+              width={60}
+              height={60}
+            />
+            <p className={styles.textarea}>{cosmeticName}</p>
+          </div>
+          <h4>肌に合う度合い</h4>
           <StarRating initialValue={request.rate} onRate={handleRate} />
           {chosenCriteria.map((value) => {
             return (
