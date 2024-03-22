@@ -1,6 +1,4 @@
 import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
-import tagStyles from "@/styles/tag/tag.module.scss";
-import Grid from "@mui/material/Grid";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -10,6 +8,14 @@ import { useEffect, useState } from "react";
 import styles from "./CosmeticItem.module.scss";
 
 import Link from "next/link";
+
+function calculateValueFromString(str) {
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum += str.charCodeAt(i);
+  }
+  return (sum % 51) + 50;
+}
 
 export default function CosmeticItems() {
   const router = useRouter();
@@ -21,8 +27,8 @@ export default function CosmeticItems() {
     category: 0,
     ingredients: [],
   });
-  const matchRate = 0.8;
-  const majorTags = ["保湿", "ニキビ"];
+
+  const [matchRate, setMatchRate] = useState(0);
 
   const getClients = async () => {
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${id}`;
@@ -52,15 +58,14 @@ export default function CosmeticItems() {
   useEffect(() => {
     if (router.isReady) {
       getClients();
+      setMatchRate(calculateValueFromString(id));
     }
   }, [router]);
   return (
     <div className={styles.cosmeticItemWrapper}>
       <div className={styles.contents}>
-        <p className={styles.title}>{response.name}</p>
-
-        <Grid container spacing={1}>
-          <Grid item xs={4} sm={6}>
+        <div className={styles.upperWrapper}>
+          <div className={styles.leftWrapper}>
             <Image
               src={`/item_imgs/${id}.jpg`}
               height={300}
@@ -68,22 +73,16 @@ export default function CosmeticItems() {
               alt=""
               className={styles.cosmeticImage}
             />
-          </Grid>
-          <Grid item xs={7} sm={6}>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <div className={styles.categoryIcon}>{response.category}</div>
-              </Grid>
-              <Grid item xs={4}>
-                <div className={styles.matchRateWrapper}>
-                  <Image src="/icons/heart.svg" height={25} width={25} alt="" />
-                  <div>{matchRate * 100}%</div>
-                </div>
-              </Grid>
-            </Grid>
-            <div className={styles.itemInfo}>
-              <div>
-                {response.company} {response.price} 円 (税込)
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.categoryIcon}>{response.category}</div>
+            <h1>{response.name}</h1>
+            <p>{response.company}</p>
+            <div className={styles.horizontalWrapper}>
+              <p>{response.price} 円 (税込)</p>
+              <div className={styles.matchRateWrapper}>
+                <Image src="/icons/heart.svg" height={25} width={25} alt="" />
+                <div>{matchRate}%</div>
               </div>
             </div>
             <Link
@@ -97,12 +96,12 @@ export default function CosmeticItems() {
                 このアイテムを記録する
               </button>
             </Link>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
 
-        <div>
-          <p className={styles.center}>成分</p>
-          <ListItem component="div">
+        <div className={styles.lowerWrapper}>
+          <h2 className={styles.center}>成分</h2>
+          <ListItem component="div" className={styles.ingredientsWrapper}>
             <ul>
               {response.ingredients.map((ingredient, index) => (
                 <ListItemButton key={index}>
