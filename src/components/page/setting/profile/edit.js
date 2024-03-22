@@ -117,7 +117,7 @@ export default function EditProfileItem() {
                     <select
                       className={styles.selectBox}
                       name="month"
-                      value={request.month}
+                      value={(Number(request.month) + 1).toString()}
                       onChange={handleChange}
                     >
                       {Array.from({ length: 12 }, (_, i) => i + 1).map(
