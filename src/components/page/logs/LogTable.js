@@ -153,7 +153,7 @@ export default function LogTable() {
               <td className={styles.cell}>
                 <div className={styles.tagContainer}>
                   {item.bad_tag.map((value) => (
-                    <button className={tagStyles.tagWhite} key={value}>
+                    <button className={tagStyles.tag} key={value}>
                       {tag_list[value - 1].name}
                     </button>
                   ))}
