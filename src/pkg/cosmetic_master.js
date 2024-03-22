@@ -28,6 +28,10 @@ export const company_data = [
     id: 130,
     name: "ロート製薬",
   },
+  {
+    id: 140,
+    name: "KOSE",
+  },
 ];
 
 export function to_str_company(n) {
