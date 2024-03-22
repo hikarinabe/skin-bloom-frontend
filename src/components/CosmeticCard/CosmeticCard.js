@@ -70,8 +70,8 @@ export default function CosmeticCard({
           >
             <Image
               src="/icons/circular-write.svg"
-              height={25}
-              width={25}
+              height={32}
+              width={32}
               alt=""
             />
           </Link>
