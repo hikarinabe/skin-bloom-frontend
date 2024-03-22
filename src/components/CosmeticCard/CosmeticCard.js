@@ -9,11 +9,7 @@ import Link from "next/link";
 
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 
-export default function CosmeticCard({
-  cosmetic,
-  isMyPage = true,
-  matchRateFake,
-}) {
+export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const cosmetic_id = cosmetic.id;
   const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = cosmetic.name;
@@ -21,9 +17,7 @@ export default function CosmeticCard({
   const majorIngredients =
     cosmetic.ingredients != null ? cosmetic.ingredients.slice(1, 3) : []; // 要素数1,2この文字列配列;
   const companyName = to_str_company(cosmetic.company);
-  const matchRate = matchRateFake
-    ? matchRateFake
-    : Math.round(Math.ceil(Math.random() * 100));
+  const matchRate = cosmetic.match_rate;
   return (
     <div className={styles.cosmeticCard}>
       <div className={styles.cosmeticImageWrapper}>

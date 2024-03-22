@@ -40,7 +40,9 @@ export default function MypageItems() {
       console.log(json_data);
       setResponse(() => ({
         user_logs_cosmetics: json_data.list_cosmetics,
-        recommend_cosmetics: json_data.recommend_items,
+        recommend_cosmetics: json_data.recommend_items.sort(
+          (a, b) => b.match_rate - a.match_rate,
+        ),
         good_ingredient: json_data.good_ingredient,
         bad_ingredient: json_data.bad_ingredient,
       }));
@@ -91,13 +93,7 @@ export default function MypageItems() {
               </Accordion> */}
               <div className={styles.cosmeticsWrapper}>
                 {response.recommend_cosmetics.map((cosmetic, index) => (
-                  <CosmeticCard
-                    cosmetic={cosmetic}
-                    key={cosmetic["id"]}
-                    matchRateFake={
-                      100 - index * 10 - Math.floor(Math.random() * 10)
-                    }
-                  />
+                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} />
                 ))}
               </div>
             </div>
