@@ -39,14 +39,14 @@ export default function NewLog() {
 
   const cosmetic_id = router.query.cosmetic_id;
 
-  let userId;
+  const [userId, setUserId] = useState(null);
 
   // ユーザごとの評価軸を取得するためにuserDataを取得する。
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        userId = localStorage.getItem("user_id");
+        setUserId(localStorage.getItem("user_id"));
         const response = await fetch(
           `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${userId}`,
           {
