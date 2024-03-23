@@ -46,15 +46,15 @@ export default function NewLog() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setUserId(localStorage.getItem("user_id"));
         const response = await fetch(
-          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${userId}`,
+          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${localStorage.getItem("user_id")}`,
           {
             headers: {
               Authorization: API_KEY,
             },
           },
         );
+        setUserId(localStorage.getItem("user_id"));
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
