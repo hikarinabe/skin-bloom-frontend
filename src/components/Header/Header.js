@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { useState } from "react";
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 import styles from "./Header.module.scss";
 import LogoutButton from "./LogoutButton";
 
@@ -29,24 +29,33 @@ export default function Header() {
             : "fixed right-[-100%] md:right-4"
         }
       >
-
-          <ul
+        <ul
           className={
             isOpen
               ? "flex h-screen justify-center items-center flex-col gap-6 text-xl"
               : "block md:flex md:gap-8"
           }
         >
-            <li key="Home" className={styles.navItem}>
-              <Link  onClick={handleMenuClose} href="/home/mypage">Home</Link>
-            </li>
-            <li  onClick={handleMenuClose} key="Search" className={styles.navItem}>
-              <Link href="/cosmetics/search">Search</Link>
-            </li>
-            <li  onClick={handleMenuClose} key="Records" className={styles.navItem}>
-              <Link href="/logs">Records</Link>
-            </li>
-          <Link  onClick={handleMenuClose} href="/setting/profile" className={styles.iconWrapper}>
+          <li key="Home" className={styles.navItem}>
+            <Link onClick={handleMenuClose} href="/home/mypage">
+              Home
+            </Link>
+          </li>
+          <li onClick={handleMenuClose} key="Search" className={styles.navItem}>
+            <Link href="/cosmetics/search">Search</Link>
+          </li>
+          <li
+            onClick={handleMenuClose}
+            key="Records"
+            className={styles.navItem}
+          >
+            <Link href="/logs">Records</Link>
+          </li>
+          <Link
+            onClick={handleMenuClose}
+            href="/setting/profile"
+            className={styles.iconWrapper}
+          >
             <Image
               className={styles.icon}
               alt=""
@@ -55,7 +64,7 @@ export default function Header() {
               height={40}
             />
           </Link>
-          <div  onClick={handleMenuClose} className={styles.logoutButtonWrapper}>
+          <div onClick={handleMenuClose} className={styles.logoutButtonWrapper}>
             <LogoutButton />
           </div>
         </ul>
@@ -70,7 +79,9 @@ export default function Header() {
         />
         <span
           className={
-            isOpen ? "block opacity-0 duration-300" : "block w-8 h-0.5 bg-gray-600 duration-300"
+            isOpen
+              ? "block opacity-0 duration-300"
+              : "block w-8 h-0.5 bg-gray-600 duration-300"
           }
         />
         <span
