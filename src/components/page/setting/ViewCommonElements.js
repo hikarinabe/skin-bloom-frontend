@@ -35,6 +35,16 @@ export default function ViewCommonElements({ activeTab }) {
               </li>
               <li className="nav-item">
                 <Link
+                  href="./subscription"
+                  className={
+                    activeTab === "subscription" ? styles.activeTab : styles.tab
+                  }
+                >
+                  <h3>サブスクリプション管理</h3>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
                   href="../logs"
                   className={
                     activeTab === "logs" ? styles.activeTab : styles.tab
