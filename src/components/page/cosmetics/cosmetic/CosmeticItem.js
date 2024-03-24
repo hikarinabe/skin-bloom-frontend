@@ -31,6 +31,7 @@ export default function CosmeticItems() {
   const [matchRate, setMatchRate] = useState(0);
 
   const getClients = async () => {
+    if(id === undefined) return;
     const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${id}`;
     const requestOptions = {
       method: "GET",
