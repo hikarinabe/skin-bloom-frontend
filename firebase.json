@@ -37,13 +37,13 @@
 
       {
         "destination": "/cosmetics/[id].html",
-	      "regex": "^/cosmetics/([^/]+?)(?:/)?$"
+        "regex": "^/cosmetics/([^/]+?)(?:/)?$"
       },
       {
         "source": "/cosmetics/search",
         "destination": "/cosmetics/search.html"
       },
-      
+
       {
         "source": "/home/mypage",
         "destination": "/home/mypage.html"
