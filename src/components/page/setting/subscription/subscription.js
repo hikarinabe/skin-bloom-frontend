@@ -9,8 +9,7 @@ export default function SubscriptionItems() {
     <main>
       <div className={styles.sectionWrapper}>
         <div className={styles.formWrapper}>
-          <div className={styles.buttonsWrapper}>
-          </div>
+          <div className={styles.buttonsWrapper}></div>
         </div>
       </div>
     </main>
