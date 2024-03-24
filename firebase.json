@@ -36,10 +36,8 @@
       },
 
       {
-        "source": "/cosmetics/[id]",
-        "regex": "^/post/([^/]+?)(?:/)?$",
-        "routeKeys": { "id": "id" },
-        "namedRegex": "^/cosmetics/(?<id>[^/]+?)(?:/)?$"
+        "destination": "/cosmetics/[id].html",
+	      "regex": "^/cosmetics/([^/]+?)(?:/)?$"
       },
       {
         "source": "/cosmetics/search",
