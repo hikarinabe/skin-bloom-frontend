@@ -25,7 +25,7 @@ export default function Header() {
       <nav
         className={
           isOpen
-            ? "z-40 bg-blue-100 fixed top-0 right-0 bottom-0 left-0 h-screen flex flex-col"
+            ? "z-40 bg-slate-50 bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 h-screen flex flex-col"
             : "fixed right-[-100%] md:right-4"
         }
       >
