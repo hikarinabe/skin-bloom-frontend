@@ -52,3 +52,9 @@
   flex-wrap: wrap;
   gap: 1em;
 }
+
+.title {
+  color: $text-color;
+  height: 40px;
+  font-weight: bold;
+}

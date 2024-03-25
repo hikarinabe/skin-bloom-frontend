@@ -1,17 +1,14 @@
-import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
-import "tailwindcss/tailwind.css";
-import styles from "./MypageItems.module.scss";
-
 import CosmeticCard, {
   CosmeticLogCard,
 } from "@/components/CosmeticCard/CosmeticCard";
-import IngredientsRank from "./IngredientsRank";
-
+import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
+import "tailwindcss/tailwind.css";
+import IngredientsRank from "./IngredientsRank";
+import styles from "./MypageItems.module.scss";
 
 export default function MypageItems() {
   const router = useRouter();
@@ -57,10 +54,10 @@ export default function MypageItems() {
   return (
     <>
       <div className={styles.mypageItemsWrapper}>
-        <div className={styles.sectionWrapper}>
-          <div className={styles.leftWrapper}>
+        <div className={`${styles.sectionWrapper} flex justify-center`}>
+          <div className="">
             <h1 className={styles.title}>あなたにベストなスキンケア</h1>
-            <div className={styles.buttonWrapper}>
+            <div className="flex justify-center">
               <Link href="/logs">
                 <button className={softEdgeButtonStyles.softEdgeButton}>
                   過去の記録を見る
@@ -68,7 +65,8 @@ export default function MypageItems() {
               </Link>
             </div>
           </div>
-          <div className={styles.rightWrapper}>
+        </div>
+        <div className={`${styles.rightWrapper} my-5`}>
             <IngredientsRank
               right={true}
               ingredients={response.good_ingredient}
@@ -78,7 +76,7 @@ export default function MypageItems() {
               ingredients={response.bad_ingredient}
             />
           </div>
-        </div>
+
         <div className="sm:flex sm:justify-center">
           <div>
             <p className="text-xl my-2">あなたにおすすめのアイテム</p>
