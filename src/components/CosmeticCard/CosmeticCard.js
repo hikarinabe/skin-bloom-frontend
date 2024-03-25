@@ -89,7 +89,7 @@ export function CosmeticLogCard({ cosmetic }) {
       <p>{categoryName}</p>
       <h3>{name}</h3>
       <div className="flex flex-row-reverse ">
-        <div className={`${styles.matchRateWrapper}`}>
+        <div>
           <StarRatingDisplay value={likeRate} />
         </div>
       </div>
