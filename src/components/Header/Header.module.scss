@@ -5,18 +5,18 @@
   color: $primary-color;
 }
 
-// .header {
-//   background-color: #fff;
-//   box-sizing: border-box;
-//   display: flex;
-//   flex-direction: row;
-//   padding: 40px 37px 38px 59px;
-//   gap: 2px;
-//   max-width: 100%;
-//   text-align: left;
-//   color: $primary-color;
-//   border-bottom: 1px solid $inactive-text-color;
-// }
+.header {
+  background-color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 40px 37px 38px 59px;
+  gap: 2px;
+  max-width: 100%;
+  text-align: left;
+  color: $primary-color;
+  border-bottom: 1px solid $inactive-text-color;
+}
 
 .logo {
   margin: 0;
