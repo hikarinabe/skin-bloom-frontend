@@ -2,7 +2,6 @@ import buttonStyles from "@/styles/button/SoftEdgeButton.module.scss";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 
-
 import { useState } from "react";
 import "tailwindcss/tailwind.css";
 
@@ -17,7 +16,7 @@ export default function HeaderBeforeLogin() {
   };
   return (
     <header className="py-6 px-4 flex justify-between items-center">
-       <h1 className={styles.logo}>SkinBloom</h1>
+      <h1 className={styles.logo}>SkinBloom</h1>
 
       <nav
         className={
@@ -36,11 +35,11 @@ export default function HeaderBeforeLogin() {
           <li onClick={handleMenuClose} key="Search" className={styles.navItem}>
             <Link href="/cosmetics/search">Search</Link>
           </li>
-                    
+
           <li onClick={handleMenuClose} key="Login" className={styles.navItem}>
-          <Link href="/auth/login">
-            <button  className={buttonStyles.softEdgeButton}>ログイン</button>
-          </Link>
+            <Link href="/auth/login">
+              <button className={buttonStyles.softEdgeButton}>ログイン</button>
+            </Link>
           </li>
         </ul>
       </nav>
