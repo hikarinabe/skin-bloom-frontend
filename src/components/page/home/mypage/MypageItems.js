@@ -1,11 +1,10 @@
 import softEdgeButtonStyles from "@/styles/button/SoftEdgeButton.module.scss";
+import "tailwindcss/tailwind.css";
 import styles from "./MypageItems.module.scss";
 
 import CosmeticCard, {
   CosmeticLogCard,
 } from "@/components/CosmeticCard/CosmeticCard";
-// import Accordion from "@/components/ui/Accordion/Accordion";
-// import OptionButton from "@/components/ui/button/OptionButton";
 import IngredientsRank from "./IngredientsRank";
 
 import Link from "next/link";
@@ -80,29 +79,24 @@ export default function MypageItems() {
             />
           </div>
         </div>
-        <div>
-          <div className={styles.bottomSectionWrapper}>
-            <h2>あなたにおすすめのアイテム</h2>
-            <div>
-              {/* <Accordion title={"カテゴリから探す"}>
-                <div className={styles.categoryButtonsWrapper}>
-                  {category_list.map((value) => (
-                    <OptionButton optionName={value} key={value} />
-                  ))}
-                </div>
-              </Accordion> */}
-              <div className={styles.cosmeticsWrapper}>
+        <div className="sm:flex sm:justify-center">
+          <div>
+            <p className="text-xl my-2">あなたにおすすめのアイテム</p>
+              <div className="flex overflow-x-auto">
                 {response.recommend_cosmetics.map((cosmetic, index) => (
-                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} />
+                  <div className="p-2">
+                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} className="flex-none"/>
+                  </div>
                 ))}
               </div>
-            </div>
             {response.user_logs_cosmetics.length !== 0 && (
               <>
-                <h2>最近追加したアイテム</h2>
-                <div className={styles.cosmeticsWrapper}>
+                <p className="text-xl my-2">最近追加したアイテム</p>
+                <div className="flex overflow-x-auto">
                   {response.user_logs_cosmetics.map((cosmetic, index) => (
-                    <CosmeticLogCard cosmetic={cosmetic} key={cosmetic["id"]} />
+                    <div className="p-2">
+                    <CosmeticLogCard cosmetic={cosmetic} key={cosmetic["id"]} className="flex-none"/>
+                    </div>
                   ))}
                 </div>
               </>
