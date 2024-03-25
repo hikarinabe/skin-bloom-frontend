@@ -77,7 +77,7 @@ export default function MypageItems() {
           />
         </div>
 
-        <div className="sm:flex sm:justify-center">
+        <div className="md:flex md:justify-center">
           <div>
             <p className="text-xl my-2">あなたにおすすめのアイテム</p>
             <div className="flex overflow-x-auto">
