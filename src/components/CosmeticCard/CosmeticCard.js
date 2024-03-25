@@ -19,7 +19,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const companyName = to_str_company(cosmetic.company);
   const matchRate = cosmetic.match_rate;
   return (
-    <div className={styles.cosmeticCard}>
+    <div className={isMyPage ? styles.cosmeticCard : styles.cosmeticCardSearch}>
       <div className={styles.cosmeticImageWrapper}>
         <Image src={imgsrc} height={250} width={250} alt="" />
       </div>
