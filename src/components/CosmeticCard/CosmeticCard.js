@@ -1,13 +1,11 @@
 import { to_str_category, to_str_company } from "@/pkg/cosmetic_master";
-import styles from "./CosmeticCard.module.scss";
-
-import tagStyles from "@/styles/tag/tag.module.scss";
-import "tailwindcss/tailwind.css";
-
 import { tag_list } from "@/pkg/tag";
+import tagStyles from "@/styles/tag/tag.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-
+import "tailwindcss/tailwind.css";
+import StarRatingDisplay from "../StarRating/StarRatingDisplay";
+import styles from "./CosmeticCard.module.scss";
 
 export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const cosmetic_id = cosmetic.id;
@@ -75,7 +73,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   );
 }
 
-export function CosmeticLogCard({ cosmetic}) {
+export function CosmeticLogCard({ cosmetic }) {
   const cosmetic_id = cosmetic.id;
   const imgsrc = `/item_imgs/${cosmetic_id}.jpg`;
   const name = cosmetic.item_name;
@@ -90,31 +88,30 @@ export function CosmeticLogCard({ cosmetic}) {
       </div>
       <p>{categoryName}</p>
       <h3>{name}</h3>
-      <div className={styles.horizontalWrapper}>
-        <div></div>
+      <div className="flex flex-row-reverse ">
+        <div className={`${styles.matchRateWrapper}`}>
+          <StarRatingDisplay value={likeRate} />
+        </div>
       </div>
       <hr className={styles.division}></hr>
+
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>
           {good_tag.map((value) => (
-            <div className="mt-1">
-            <button className={tagStyles.tagActive} key={value}>
-              {tag_list[value - 1].name} に効果
+            <button className={`${tagStyles.tagActive} mt-1 mr-1`} key={value}>
+              ◎ {tag_list[value - 1].name}
             </button>
-            </div>
           ))}
         </div>
       </div>
 
       <div className={`flex justify-center mt-2`}>
         <div className="w-4/6 absolute bottom-3">
-        <Link
-          href={`/cosmetics/${cosmetic_id}`}
-        >
-          <button className={styles.detailButton}>
-            <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
-          </button>
-        </Link>
+          <Link href={`/cosmetics/${cosmetic_id}`}>
+            <button className={styles.detailButton}>
+              <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

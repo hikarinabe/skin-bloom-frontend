@@ -67,33 +67,41 @@ export default function MypageItems() {
           </div>
         </div>
         <div className={`${styles.rightWrapper} my-5`}>
-            <IngredientsRank
-              right={true}
-              ingredients={response.good_ingredient}
-            />
-            <IngredientsRank
-              right={false}
-              ingredients={response.bad_ingredient}
-            />
-          </div>
+          <IngredientsRank
+            right={true}
+            ingredients={response.good_ingredient}
+          />
+          <IngredientsRank
+            right={false}
+            ingredients={response.bad_ingredient}
+          />
+        </div>
 
         <div className="sm:flex sm:justify-center">
           <div>
             <p className="text-xl my-2">あなたにおすすめのアイテム</p>
-              <div className="flex overflow-x-auto">
-                {response.recommend_cosmetics.map((cosmetic, index) => (
-                  <div className="p-2">
-                  <CosmeticCard cosmetic={cosmetic} key={cosmetic["id"]} className="flex-none"/>
-                  </div>
-                ))}
-              </div>
+            <div className="flex overflow-x-auto">
+              {response.recommend_cosmetics.map((cosmetic, index) => (
+                <div className="p-2">
+                  <CosmeticCard
+                    cosmetic={cosmetic}
+                    key={cosmetic["id"]}
+                    className="flex-none"
+                  />
+                </div>
+              ))}
+            </div>
             {response.user_logs_cosmetics.length !== 0 && (
               <>
                 <p className="text-xl my-2">最近追加したアイテム</p>
                 <div className="flex overflow-x-auto">
                   {response.user_logs_cosmetics.map((cosmetic, index) => (
                     <div className="p-2">
-                    <CosmeticLogCard cosmetic={cosmetic} key={cosmetic["id"]} className="flex-none"/>
+                      <CosmeticLogCard
+                        cosmetic={cosmetic}
+                        key={cosmetic["id"]}
+                        className="flex-none"
+                      />
                     </div>
                   ))}
                 </div>
