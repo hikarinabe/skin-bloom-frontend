@@ -13,7 +13,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const name = cosmetic.name;
   const categoryName = to_str_category(cosmetic.category);
   const majorIngredients =
-    cosmetic.ingredients != null ? cosmetic.ingredients.slice(1, 3) : []; // 要素数1,2この文字列配列;
+    cosmetic.ingredients != null ? cosmetic.ingredients.slice(0, 2) : []; // 要素数1,2この文字列配列;
   const companyName = to_str_company(cosmetic.company);
   const matchRate = cosmetic.match_rate;
   return (

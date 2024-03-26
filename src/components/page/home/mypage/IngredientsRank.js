@@ -1,7 +1,6 @@
-import styles from "./IngredientsRank.module.scss";
 import Image from "next/image";
+import styles from "./IngredientsRank.module.scss";
 
-// ingredients: 要素数３の配列　例）["グリセリン", "水", "砂糖"]
 export default function IngredientsRank({
   right,
   ingredients = ["グリセリン", "水", "砂糖"],
