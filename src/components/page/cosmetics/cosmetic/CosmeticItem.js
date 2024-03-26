@@ -65,7 +65,8 @@ export default function CosmeticItems() {
   return (
     <div className={styles.cosmeticItemWrapper}>
       <div className={styles.contents}>
-      <h1 className={styles.title}>{response.name}</h1>
+        <h1 className={styles.title}>{response.name}</h1>
+
         <div className={styles.upperWrapper}>
           <div className={styles.leftWrapper}>
             <Image
@@ -80,7 +81,7 @@ export default function CosmeticItems() {
             <div className={styles.categoryIcon}>
               <p className={styles.categoryName}>{response.category}</p>
             </div>
-            
+
             <p>{response.company}</p>
             <div className={styles.horizontalWrapper}>
               <p>
