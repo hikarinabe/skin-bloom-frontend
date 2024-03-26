@@ -23,7 +23,7 @@
 .leftWrapper {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 3em;
+  // margin-left: 3em;
 }
 .buttonWrapper {
   padding-top: 3em;
@@ -39,10 +39,6 @@
   gap: 20px;
 }
 
-.bottomSectionWrapper {
-  padding: 100px;
-}
-
 .categoryButtonsWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -55,4 +51,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+}
+
+.title {
+  color: $text-color;
+  height: 40px;
+  font-weight: bold;
 }
