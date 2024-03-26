@@ -17,7 +17,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const companyName = to_str_company(cosmetic.company);
   const matchRate = cosmetic.match_rate;
   return (
-    <div className={styles.cosmeticCard}>
+    <div className={`${styles.cosmeticCard} relative`}>
       <div className={styles.cosmeticImageWrapper}>
         <Image src={imgsrc} height={250} width={250} alt="" />
       </div>
@@ -43,7 +43,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
         </div>
       </div>
 
-      <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
+      {/* <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
         <Link
           href={`/cosmetics/${cosmetic_id}`}
           className={styles.detailButtonWrapper}
@@ -51,9 +51,9 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           <button className={styles.detailButton}>
             <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
           </button>
-        </Link>
+        </Link> */}
 
-        {/* <div className={`flex justifymt-2`}>
+        <div className={`flex`}>
           <div className="w-4/6 absolute bottom-3">
             <Link href={`/cosmetics/${cosmetic_id}`}>
               <button className={styles.detailButton}>
@@ -61,7 +61,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
               </button>
             </Link>
           </div>
-      </div> */}
+      
 
         {isMyPage ? null : (
           <Link
@@ -72,14 +72,15 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           >
             <Image
               src="/icons/circular-write.svg"
-              height={32}
-              width={32}
+              height={35}
+              width={35}
               alt=""
+              className="absolute bottom-3 right-4"
             />
           </Link>
         )}
       </div>
-    </div>
+      </div>
   );
 }
 
