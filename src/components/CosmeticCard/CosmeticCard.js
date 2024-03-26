@@ -32,9 +32,9 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           </div>
         ) : null}
       </div>
-      <hr className={styles.division}></hr>
+      <hr className={`${styles.division} my-1`}></hr>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.ingredientsWrapper}>
+        <div className={`${styles.ingredientsWrapper}`}>
           {majorIngredients.map((value) => (
             <button className={tagStyles.tagWhite} key={value}>
               {value}
@@ -52,6 +52,16 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
             <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
           </button>
         </Link>
+
+        {/* <div className={`flex justifymt-2`}>
+          <div className="w-4/6 absolute bottom-3">
+            <Link href={`/cosmetics/${cosmetic_id}`}>
+              <button className={styles.detailButton}>
+                <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
+              </button>
+            </Link>
+          </div>
+      </div> */}
 
         {isMyPage ? null : (
           <Link
