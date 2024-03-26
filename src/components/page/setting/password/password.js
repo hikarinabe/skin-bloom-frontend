@@ -65,47 +65,36 @@ export default function PasswordItems() {
   return (
     <main>
       <div className={styles.sectionWrapper}>
-        <form className={styles.formWrapper} onSubmit={SubmitClick}>
-          <div className={styles.buttonsWrapper}>
-            <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
-              <button className={styles.buttonCancel}>キャンセル</button>
-            </Link>
-            <button type="submit" className={styles.buttonEnter}>
-              保存
-            </button>
-          </div>
-          <div className={styles.contents}>
-            <div className="w-75">
-              <div>
+        <div className={styles.formWrapper}>
+          <form onSubmit={SubmitClick}>
+            <div className="w-full">
+              <div className="lg:w-7/12">
                 <h4>現在のパスワード</h4>
-                <div className="input-group">
+                <div className={styles.textBox}>
                   <input
                     type="password"
-                    className={styles.textBox}
                     name="current_password"
                     value={request.current_password}
                     onChange={handleChange}
                   />
                 </div>
               </div>
-              <div>
+              <div className="lg:w-7/12">
                 <h4>新しいパスワード</h4>
-                <div className="input-group">
+                <div className={styles.textBox}>
                   <input
                     type="password"
-                    className={styles.textBox}
                     name="new_password"
                     value={request.new_password}
                     onChange={handleChange}
                   />
                 </div>
               </div>
-              <div>
+              <div className="lg:w-7/12">
                 <h4>新しいパスワード（確認）</h4>
-                <div className="input-group">
+                <div className={styles.textBox}>
                   <input
                     type="password"
-                    className={styles.textBox}
                     name="new_password2"
                     value={request.new_password2}
                     onChange={handleChange}
@@ -113,8 +102,16 @@ export default function PasswordItems() {
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+            <div className="lg:w-7/12">
+              <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
+                <button className={styles.buttonCancel}>キャンセル</button>
+              </Link>
+              <button type="submit" className={styles.buttonEnter}>
+                保存
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   );

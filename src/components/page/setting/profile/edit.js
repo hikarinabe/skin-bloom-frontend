@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import "tailwindcss/tailwind.css";
 import styles from "../Profile.module.scss";
 
 export default function EditProfileItem() {
@@ -57,42 +58,32 @@ export default function EditProfileItem() {
   return (
     <main>
       <div className={styles.sectionWrapper}>
-        <form className={styles.formWrapper} onSubmit={saveChange}>
-          <div className={styles.buttonsWrapper}>
-            <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
-              <button className={styles.buttonCancel}>キャンセル</button>
-            </Link>
-            <button type="submit" className={styles.buttonEnter}>
-              保存
-            </button>
-          </div>
-          <div className={styles.contents}>
-            <div className="w-75">
-              <div>
+        <div className={styles.formWrapper}>
+          <form onSubmit={saveChange}>
+            <div className="w-full">
+              <div className="lg:w-7/12">
                 <h4>アカウント名</h4>
-                <div className="input-group">
+                <div className={styles.textBox}>
                   <input
                     name="account_name"
-                    className={styles.textBox}
                     placeholder="account_name"
                     value={request.account_name}
                     onChange={handleChange}
                   />
                 </div>
               </div>
-              <div>
+              <div className="lg:w-7/12">
                 <h4>現在のメールアドレス</h4>
-                <div className="input-group">
+                <div className={styles.textBox}>
                   <input
                     name="email"
                     placeholder="@gmail.com"
-                    className={styles.textBox}
                     value={request.email}
                     onChange={handleChange}
                   />
                 </div>
               </div>
-              <div>
+              <div className="lg:w-7/12">
                 <h4>生年月日</h4>
                 <div className={styles.birthdayForm}>
                   <div className={styles.horizontalWrapper}>
@@ -111,7 +102,7 @@ export default function EditProfileItem() {
                         </option>
                       ))}
                     </select>
-                    <span className="input-group-text">年</span>
+                    <span>年</span>
                   </div>
                   <div className={styles.horizontalWrapper}>
                     <select
@@ -128,7 +119,7 @@ export default function EditProfileItem() {
                         ),
                       )}
                     </select>
-                    <span className="input-group-text">月</span>
+                    <span>月</span>
                   </div>
                   <div className={styles.horizontalWrapper}>
                     <select
@@ -145,12 +136,11 @@ export default function EditProfileItem() {
                         ),
                       )}
                     </select>
-
-                    <span className="input-group-text">日</span>
+                    <span>日</span>
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="lg:w-7/12">
                 <h4>性別</h4>
                 {["男性", "女性", "その他", "回答しない"].map((name, index) => (
                   <div className="form-check form-check-inline" key={index}>
@@ -169,8 +159,16 @@ export default function EditProfileItem() {
                 ))}
               </div>
             </div>
-          </div>
-        </form>
+            <div className="lg:w-7/12">
+              <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
+                <button className={styles.buttonCancel}>キャンセル</button>
+              </Link>
+              <button type="submit" className={styles.buttonEnter}>
+                保存
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   );
