@@ -65,9 +65,8 @@ export default function PasswordItems() {
   return (
     <main>
       <div className={styles.sectionWrapper}>
-        <div className={styles.formWrapper} >
+        <div className={styles.formWrapper}>
           <form onSubmit={SubmitClick}>
-
             <div className="w-full">
               <div className="lg:w-7/12">
                 <h4>現在のパスワード</h4>

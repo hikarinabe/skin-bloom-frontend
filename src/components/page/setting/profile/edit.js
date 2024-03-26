@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import "tailwindcss/tailwind.css"
+import "tailwindcss/tailwind.css";
 import styles from "../Profile.module.scss";
 
 export default function EditProfileItem() {
@@ -60,28 +60,27 @@ export default function EditProfileItem() {
       <div className={styles.sectionWrapper}>
         <div className={styles.formWrapper}>
           <form onSubmit={saveChange}>
-
             <div className="w-full">
               <div className="lg:w-7/12">
                 <h4>アカウント名</h4>
                 <div className={styles.textBox}>
-                <input
-                  name="account_name"
-                  placeholder="account_name"
-                  value={request.account_name}
-                  onChange={handleChange}
-                />
+                  <input
+                    name="account_name"
+                    placeholder="account_name"
+                    value={request.account_name}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
-              <div  className="lg:w-7/12">
+              <div className="lg:w-7/12">
                 <h4>現在のメールアドレス</h4>
                 <div className={styles.textBox}>
-                <input
-                  name="email"
-                  placeholder="@gmail.com"
-                  value={request.email}
-                  onChange={handleChange}
-                />
+                  <input
+                    name="email"
+                    placeholder="@gmail.com"
+                    value={request.email}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="lg:w-7/12">
@@ -141,7 +140,7 @@ export default function EditProfileItem() {
                   </div>
                 </div>
               </div>
-              <div  className="lg:w-7/12">
+              <div className="lg:w-7/12">
                 <h4>性別</h4>
                 {["男性", "女性", "その他", "回答しない"].map((name, index) => (
                   <div className="form-check form-check-inline" key={index}>

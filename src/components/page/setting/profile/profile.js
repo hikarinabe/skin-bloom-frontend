@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import "tailwindcss/tailwind.css"
+import "tailwindcss/tailwind.css";
 import styles from "../Profile.module.scss";
 
 // あとでエンドポイント経由ではなく直接呼び出せるように修正する。
@@ -76,23 +76,23 @@ export default function ProfileItems() {
             </div>
           </div>
           <div className="lg:w-7/12">
-              <Link
-                href={{
-                  pathname: "/setting/edit_profile",
-                  query: {
-                    account_name: request.account_name,
-                    sex: request.sex,
-                    email: request.email,
-                    birthday: request.birthday,
-                    year: request.year,
-                    month: request.month + 1,
-                    day: request.day,
-                  },
-                }}
-                className={styles.noLinkStyle}
-              >
-                <button className={styles.buttonEdit}>編集</button>
-              </Link>
+            <Link
+              href={{
+                pathname: "/setting/edit_profile",
+                query: {
+                  account_name: request.account_name,
+                  sex: request.sex,
+                  email: request.email,
+                  birthday: request.birthday,
+                  year: request.year,
+                  month: request.month + 1,
+                  day: request.day,
+                },
+              }}
+              className={styles.noLinkStyle}
+            >
+              <button className={styles.buttonEdit}>編集</button>
+            </Link>
           </div>
         </div>
       </div>
