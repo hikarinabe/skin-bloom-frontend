@@ -33,7 +33,7 @@ export default function HeaderBeforeLogin() {
           }
         >
           <li onClick={handleMenuClose} key="Search" className={styles.navItem}>
-            <Link href="/cosmetics/search">Search</Link>
+            <Link href="/search">Search</Link>
           </li>
 
           <li onClick={handleMenuClose} key="Login" className={styles.navItem}>
