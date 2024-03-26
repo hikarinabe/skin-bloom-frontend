@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import "tailwindcss/tailwind.css"
 import styles from "../Profile.module.scss";
 
 // あとでエンドポイント経由ではなく直接呼び出せるように修正する。
@@ -53,47 +54,43 @@ export default function ProfileItems() {
       <div className={styles.sectionWrapper}>
         <div className={styles.formWrapper}>
           <div className={styles.buttonsWrapper}>
-            <div className="form-check form-check-reverse" id="editor">
-              <Link
-                href={{
-                  pathname: "/setting/edit_profile",
-                  query: {
-                    account_name: request.account_name,
-                    sex: request.sex,
-                    email: request.email,
-                    birthday: request.birthday,
-                    year: request.year,
-                    month: request.month + 1,
-                    day: request.day,
-                  },
-                }}
-                className={styles.noLinkStyle}
-              >
-                <button className={styles.buttonEdit}>編集</button>
-              </Link>
-            </div>
+            <Link
+              href={{
+                pathname: "/setting/edit_profile",
+                query: {
+                  account_name: request.account_name,
+                  sex: request.sex,
+                  email: request.email,
+                  birthday: request.birthday,
+                  year: request.year,
+                  month: request.month + 1,
+                  day: request.day,
+                },
+              }}
+              className={styles.noLinkStyle}
+            >
+              <button className={styles.buttonEdit}>編集</button>
+            </Link>
           </div>
-          <div className={styles.contents}>
-            <div className="w-75" id="contents">
-              <div>
-                <h4>アカウント名</h4>
-                <div className={styles.textBox}>{request.account_name}</div>
-              </div>
-              <div>
-                <h4>現在のメールアドレス</h4>
-                <div className={styles.textBox}>{request.email}</div>
-              </div>
-              <div>
-                <h4>誕生日</h4>
-                <div
-                  className={styles.textBox}
-                >{`${request.year}年 ${request.month + 1}月 ${request.day}日`}</div>
-              </div>
-              <div>
-                <div>
-                  <h4>性別</h4>
-                  <div className={styles.textBox}>{request.sex}</div>
-                </div>
+          <div className="w-full" id="contents">
+            <div className="lg:w-7/12">
+              <h4>アカウント名</h4>
+              <div className={styles.textBox}>{request.account_name}</div>
+            </div>
+            <div className="lg:w-7/12">
+              <h4>現在のメールアドレス</h4>
+              <div className={styles.textBox}>{request.email}</div>
+            </div>
+            <div className="lg:w-7/12">
+              <h4>生年月日</h4>
+              <div
+                className={styles.textBox}
+              >{`${request.year}年 ${request.month + 1}月 ${request.day}日`}</div>
+            </div>
+            <div>
+              <div className="lg:w-7/12">
+                <h4>性別</h4>
+                <div className={styles.textBox}>{request.sex}</div>
               </div>
             </div>
           </div>
