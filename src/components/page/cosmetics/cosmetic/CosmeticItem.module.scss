@@ -6,7 +6,6 @@
   gap: 3em;
 }
 .upperWrapper {
-  margin-top: 2em;
   display: flex;
   width: 100%;
 }
@@ -16,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 1em;
 }
 .cosmeticItemWrapper {
   display: flex;
@@ -27,8 +27,9 @@
 
 .title {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
+  color: $text-color;
 }
 
 .center {
@@ -96,7 +97,7 @@
   background-color: white;
   color: $primary-color;
   display: inline-block;
-  padding: 0 0.5em;
+  padding: 0.5em;
   height: auto;
 }
 
