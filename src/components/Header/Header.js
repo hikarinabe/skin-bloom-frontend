@@ -42,7 +42,7 @@ export default function Header() {
             </Link>
           </li>
           <li onClick={handleMenuClose} key="Search" className={styles.navItem}>
-            <Link href="/cosmetics/search">Search</Link>
+            <Link href="/search">Search</Link>
           </li>
           <li
             onClick={handleMenuClose}

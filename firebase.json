@@ -36,14 +36,13 @@
       },
 
       {
+        "source": "/search",
+        "destination": "/search.html"
+      },
+      {
         "destination": "/cosmetics/[id].html",
         "regex": "^/cosmetics/([^/]+?)(?:/)?$"
       },
-      {
-        "source": "/cosmetics/search",
-        "destination": "/cosmetics/search.html"
-      },
-
       {
         "source": "/home/mypage",
         "destination": "/home/mypage.html"

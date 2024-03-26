@@ -14,7 +14,8 @@ function MyApp({ Component, pageProps }) {
       // 許可されたリンク
       router.pathname !== "/home/intro" &&
       !router.pathname.startsWith("/auth") &&
-      !router.pathname.startsWith("/cosmetics")
+      !router.pathname.startsWith("/cosmetics") &&
+      !router.pathname.startsWith("/search")
     ) {
       router.push("/auth/login");
     }
