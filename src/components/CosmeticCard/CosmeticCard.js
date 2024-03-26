@@ -17,12 +17,12 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
   const companyName = to_str_company(cosmetic.company);
   const matchRate = cosmetic.match_rate;
   return (
-    <div className={styles.cosmeticCard}>
+    <div className={`${styles.cosmeticCard} relative`}>
       <div className={styles.cosmeticImageWrapper}>
         <Image src={imgsrc} height={250} width={250} alt="" />
       </div>
-      <p>{categoryName}</p>
-      <h3>{name}</h3>
+      <p className="">{categoryName}</p>
+      <h3 className="font-bold">{name}</h3>
       <div className={styles.horizontalWrapper}>
         <div className={styles.tagsWrapper}>{companyName}</div>
         {isMyPage ? (
@@ -32,9 +32,9 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           </div>
         ) : null}
       </div>
-      <hr className={styles.division}></hr>
+      <hr className={`${styles.division} my-1`}></hr>
       <div className={styles.horizontalWrapper}>
-        <div className={styles.ingredientsWrapper}>
+        <div className={`${styles.ingredientsWrapper}`}>
           {majorIngredients.map((value) => (
             <button className={tagStyles.tagWhite} key={value}>
               {value}
@@ -43,15 +43,14 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
         </div>
       </div>
 
-      <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
-        <Link
-          href={`/cosmetics/${cosmetic_id}`}
-          className={styles.detailButtonWrapper}
-        >
-          <button className={styles.detailButton}>
-            <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
-          </button>
-        </Link>
+      <div className={`flex`}>
+        <div className="w-4/6 absolute bottom-3">
+          <Link href={`/cosmetics/${cosmetic_id}`}>
+            <button className={styles.detailButton}>
+              <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
+            </button>
+          </Link>
+        </div>
 
         {isMyPage ? null : (
           <Link
@@ -62,9 +61,10 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           >
             <Image
               src="/icons/circular-write.svg"
-              height={32}
-              width={32}
+              height={35}
+              width={35}
               alt=""
+              className="absolute bottom-3 right-4"
             />
           </Link>
         )}
