@@ -53,25 +53,6 @@ export default function ProfileItems() {
     <main>
       <div className={styles.sectionWrapper}>
         <div className={styles.formWrapper}>
-          <div className={styles.buttonsWrapper}>
-            <Link
-              href={{
-                pathname: "/setting/edit_profile",
-                query: {
-                  account_name: request.account_name,
-                  sex: request.sex,
-                  email: request.email,
-                  birthday: request.birthday,
-                  year: request.year,
-                  month: request.month + 1,
-                  day: request.day,
-                },
-              }}
-              className={styles.noLinkStyle}
-            >
-              <button className={styles.buttonEdit}>編集</button>
-            </Link>
-          </div>
           <div className="w-full" id="contents">
             <div className="lg:w-7/12">
               <h4>アカウント名</h4>
@@ -93,6 +74,25 @@ export default function ProfileItems() {
                 <div className={styles.textBox}>{request.sex}</div>
               </div>
             </div>
+          </div>
+          <div className="lg:w-7/12">
+              <Link
+                href={{
+                  pathname: "/setting/edit_profile",
+                  query: {
+                    account_name: request.account_name,
+                    sex: request.sex,
+                    email: request.email,
+                    birthday: request.birthday,
+                    year: request.year,
+                    month: request.month + 1,
+                    day: request.day,
+                  },
+                }}
+                className={styles.noLinkStyle}
+              >
+                <button className={styles.buttonEdit}>編集</button>
+              </Link>
           </div>
         </div>
       </div>

@@ -60,14 +60,7 @@ export default function EditProfileItem() {
       <div className={styles.sectionWrapper}>
         <div className={styles.formWrapper}>
           <form onSubmit={saveChange}>
-            <div className={styles.buttonsWrapper}>
-              <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
-                <button className={styles.buttonCancel}>キャンセル</button>
-              </Link>
-              <button type="submit" className={styles.buttonEnter}>
-                保存
-              </button>
-            </div>
+
             <div className="w-full">
               <div className="lg:w-7/12">
                 <h4>アカウント名</h4>
@@ -166,6 +159,14 @@ export default function EditProfileItem() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="lg:w-7/12">
+              <Link href="/setting/profile" className={`${styles.noLinkStyle}`}>
+                <button className={styles.buttonCancel}>キャンセル</button>
+              </Link>
+              <button type="submit" className={styles.buttonEnter}>
+                保存
+              </button>
             </div>
           </form>
         </div>
