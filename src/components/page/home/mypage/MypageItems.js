@@ -57,7 +57,7 @@ export default function MypageItems() {
         <div className={`${styles.sectionWrapper} flex justify-center`}>
           <div className="">
             <div className="md:text-2xl">
-            <h1 className={styles.title}>あなたにベストなスキンケア</h1>
+              <h1 className={styles.title}>あなたにベストなスキンケア</h1>
             </div>
             <div className="flex justify-center">
               <Link href="/logs">
