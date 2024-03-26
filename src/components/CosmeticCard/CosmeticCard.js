@@ -43,25 +43,14 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
         </div>
       </div>
 
-      {/* <div className={`${styles.horizontalWrapper} ${styles.marginTop}`}>
-        <Link
-          href={`/cosmetics/${cosmetic_id}`}
-          className={styles.detailButtonWrapper}
-        >
-          <button className={styles.detailButton}>
-            <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
-          </button>
-        </Link> */}
-
-        <div className={`flex`}>
-          <div className="w-4/6 absolute bottom-3">
-            <Link href={`/cosmetics/${cosmetic_id}`}>
-              <button className={styles.detailButton}>
-                <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
-              </button>
-            </Link>
-          </div>
-      
+      <div className={`flex`}>
+        <div className="w-4/6 absolute bottom-3">
+          <Link href={`/cosmetics/${cosmetic_id}`}>
+            <button className={styles.detailButton}>
+              <h3 className={styles.detailButtonText}>詳しく見る➚</h3>
+            </button>
+          </Link>
+        </div>
 
         {isMyPage ? null : (
           <Link
@@ -80,7 +69,7 @@ export default function CosmeticCard({ cosmetic, isMyPage = true }) {
           </Link>
         )}
       </div>
-      </div>
+    </div>
   );
 }
 
