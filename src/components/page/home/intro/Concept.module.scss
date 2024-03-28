@@ -21,8 +21,17 @@
 .concept {
   color: white;
   text-shadow: 2px 2px 4px $text-color;
+  font-size: 2em;
 }
 
 .subconcept {
   color: white;
+}
+
+.linkSeparator {
+  margin-bottom: .5em;
+}
+
+.accountLink {
+  text-decoration: underline; /* 下線を引く */
 }
