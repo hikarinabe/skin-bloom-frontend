@@ -1,5 +1,7 @@
 .title {
   text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .itemsWrapper {
@@ -8,7 +10,6 @@
 
 .backIcon {
   float: left;
-  margin-top: 20px;
 }
 
 .division {
@@ -22,6 +23,7 @@
   width: 100%;
   border-radius: 12px;
   border: 1px solid rgba(102, 102, 102, 0.35);
+  margin-bottom: 1em;
 }
 
 .caption {
@@ -31,4 +33,8 @@
 .snsIcon {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.link {
+  text-decoration: underline;
 }
