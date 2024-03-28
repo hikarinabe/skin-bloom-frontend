@@ -9,6 +9,12 @@
   color: $text-color;
 }
 
+@media screen and (max-width: 768px) {
+  .funcWrapper {
+    flex-direction: column; /* 子要素を縦に並べる */
+  }
+}
+
 .subtitle {
   text-align: center;
   width: 100%;

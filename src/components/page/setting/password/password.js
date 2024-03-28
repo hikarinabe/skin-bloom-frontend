@@ -70,36 +70,33 @@ export default function PasswordItems() {
             <div className="w-full">
               <div className="lg:w-7/12">
                 <h4>現在のパスワード</h4>
-                <div className={styles.textBox}>
-                  <input
-                    type="password"
-                    name="current_password"
-                    value={request.current_password}
-                    onChange={handleChange}
-                  />
-                </div>
+                <input
+                  type="password"
+                  name="current_password"
+                  value={request.current_password}
+                  onChange={handleChange}
+                  className={styles.textBox}
+                />
               </div>
               <div className="lg:w-7/12">
                 <h4>新しいパスワード</h4>
-                <div className={styles.textBox}>
-                  <input
-                    type="password"
-                    name="new_password"
-                    value={request.new_password}
-                    onChange={handleChange}
-                  />
-                </div>
+                <input
+                  type="password"
+                  name="new_password"
+                  value={request.new_password}
+                  onChange={handleChange}
+                  className={styles.textBox}
+                />
               </div>
               <div className="lg:w-7/12">
                 <h4>新しいパスワード（確認）</h4>
-                <div className={styles.textBox}>
-                  <input
-                    type="password"
-                    name="new_password2"
-                    value={request.new_password2}
-                    onChange={handleChange}
-                  />
-                </div>
+                <input
+                  type="password"
+                  name="new_password2"
+                  value={request.new_password2}
+                  onChange={handleChange}
+                  className={styles.textBox}
+                />
               </div>
             </div>
             <div className="lg:w-7/12">
