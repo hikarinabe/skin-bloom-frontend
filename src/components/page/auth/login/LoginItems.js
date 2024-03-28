@@ -115,7 +115,10 @@ export default function LoginItems() {
           </button>
         </form>
         <p className={authStyles.caption}>
-          アカウントをお持ちでない方は<Link href="/auth/signup">こちら</Link>
+          アカウントをお持ちでない方は
+          <Link href="/auth/signup" className={authStyles.link}>
+            こちら
+          </Link>
         </p>
       </div>
     </div>
