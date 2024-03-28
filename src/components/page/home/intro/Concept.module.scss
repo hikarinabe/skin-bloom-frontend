@@ -6,7 +6,7 @@
   padding-left: 4em;
   padding-right: 4em;
   background-image: url("/imgs/concept_img.jpg"); /* 画像のパスを指定 */
-  background-size: 150% auto; /* 画像を全体に広げる */
+  background-size: 150% auto cover; /* 画像を全体に広げる */
   background-position: center; /* 画像の位置を中央に配置 */
 }
 
@@ -22,10 +22,12 @@
   color: white;
   text-shadow: 2px 2px 4px $text-color;
   font-size: 2em;
+  font-weight: bold;
 }
 
 .subconcept {
   color: white;
+  font-size: 1.2em;
 }
 
 .linkSeparator {
