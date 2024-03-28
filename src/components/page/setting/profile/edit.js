@@ -80,6 +80,23 @@ export default function EditProfileItem() {
                   onChange={handleChange}
                   className={styles.textBox}
                 />
+                  <input
+                    name="account_name"
+                    placeholder="account_name"
+                    value={request.account_name}
+                    onChange={handleChange}
+                    className={styles.textBox}
+                  />
+              </div>
+              <div className="lg:w-7/12">
+                <h4>現在のメールアドレス</h4>
+                  <input
+                    name="email"
+                    placeholder="@gmail.com"
+                    value={request.email}
+                    onChange={handleChange}
+                    className={styles.textBox}
+                  />
               </div>
               <div className="lg:w-7/12">
                 <h4>生年月日</h4>

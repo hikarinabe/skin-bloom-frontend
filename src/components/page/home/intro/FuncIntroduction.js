@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function FuncIntroduction() {
   return (
     <div className={styles.sectionWrapper}>
-      <h2 className={styles.subtitle}>機能紹介</h2>
+      <h1 className={styles.subtitle}>機能紹介</h1>
       <div className={styles.funcWrapper}>
         <div className={styles.funcItem}>
           <Image src="/imgs/subscription.jpg" alt="" width={400} height={300} />
