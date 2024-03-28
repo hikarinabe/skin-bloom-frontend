@@ -11,7 +11,7 @@ export default function FuncIntroduction() {
   ];
   return (
     <div className={styles.sectionWrapper}>
-      <h1 className={styles.subtitle}>機能紹介</h1>
+      <p className={styles.subtitle}>機能紹介</p>
       {/* <div class="flex flex-col md:flex-row gap-8"> */}
         {/* <div className={styles.funcItem}>
           <Image src="/imgs/subscription.jpg" alt="" width={400} height={300} />
