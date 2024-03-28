@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
 
@@ -91,6 +91,7 @@ export default function SignupItems() {
 
   return (
     <div className={authStyles.itemsWrapper}>
+      <ToastContainer />
       <Link href="/home/intro">
         <Image
           className={authStyles.backIcon}

@@ -6,7 +6,7 @@ import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
 
@@ -105,6 +105,7 @@ export default function ProfileFormItems() {
 
   return (
     <div className={authStyles.itemsWrapper}>
+      <ToastContainer />
       <h2 className={authStyles.title}>新規登録</h2>
       <ProgressBar isSignedUp={true} />
       <div className={authStyles.forms}>

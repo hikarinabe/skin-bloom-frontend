@@ -13,7 +13,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -225,6 +225,7 @@ export default function NewLog() {
 
   return (
     <div className={styles.sectionWrapper}>
+      <ToastContainer />
       <div className={styles.form}>
         <div className={styles.formItems}>
           <div>
