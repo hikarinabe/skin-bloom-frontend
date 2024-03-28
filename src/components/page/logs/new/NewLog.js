@@ -227,17 +227,16 @@ export default function NewLog() {
     <div className={styles.sectionWrapper}>
       <div className={styles.form}>
         <div className={styles.formItems}>
-          <Link href={`/cosmetics/${cosmetic_id}`}>
-            <Image
+          <div>
+            <Link
+              href={`/cosmetics/${cosmetic_id}`}
               className={styles.backIcon}
-              src="/icons/back.svg"
-              height={30}
-              width={30}
-              alt=""
-            />
-          </Link>
-          <h2 className={styles.title}>ログ</h2>
-          <h4>商品</h4>
+            >
+              <Image src="/icons/back.svg" height={30} width={30} alt="" />
+            </Link>
+            <h2 className={styles.title}>ログ</h2>
+          </div>
+          <h4 className={styles.formItemTitle}>商品</h4>
           <div className={styles.horizontalWrapper}>
             <Image
               src={`/item_imgs/${cosmetic_id}.jpg`}
@@ -246,13 +245,15 @@ export default function NewLog() {
             />
             <p className={styles.textarea}>{cosmeticName}</p>
           </div>
-          <h4>肌に合う度合い</h4>
+          <h4 className={styles.formItemTitle}>肌に合う度合い</h4>
           <StarRating initialValue={request.rate} onRate={handleRate} />
           {chosenCriteria.map((value) => {
             return (
               <div key={value}>
                 <div className={styles.togglableTitleWrapper}>
-                  <h4>{tagIdNameHash[value]}</h4>
+                  <h4 className={styles.formItemTitle}>
+                    {tagIdNameHash[value]}
+                  </h4>
                   <Image
                     onClick={() => {
                       handleRemoveCriteria(value);
@@ -302,7 +303,7 @@ export default function NewLog() {
               ))}
             </div>
           </Accordion>
-          <h4>コメント</h4>
+          <h4 className={styles.formItemTitle}>コメント</h4>
           <textarea
             className={styles.textarea}
             onChange={handleChange}
