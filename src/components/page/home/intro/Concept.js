@@ -17,6 +17,11 @@ export default function Concept() {
               新規ユーザ登録
             </button>
           </Link>
+          <div className={styles.linkSeparator}></div>
+          アカウントをお持ちの方は
+          <Link href="/auth/login" className={styles.accountLink}>
+            こちら
+          </Link>
         </div>
       </div>
     </div>
