@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginItems() {
@@ -81,6 +81,7 @@ export default function LoginItems() {
 
   return (
     <div className={authStyles.itemsWrapper}>
+      <ToastContainer />
       <Link href="/home/intro">
         <Image
           className={authStyles.backIcon}
@@ -114,7 +115,10 @@ export default function LoginItems() {
           </button>
         </form>
         <p className={authStyles.caption}>
-          アカウントをお持ちでない方は<Link href="/auth/signup">こちら</Link>
+          アカウントをお持ちでない方は
+          <Link href="/auth/signup" className={authStyles.link}>
+            こちら
+          </Link>
         </p>
       </div>
     </div>

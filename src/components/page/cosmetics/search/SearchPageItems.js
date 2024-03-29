@@ -65,7 +65,7 @@ export default function SearchPageItems() {
       console.log(json_data);
       return json_data;
     } catch (err) {
-      alert("エラーが発生しました");
+      alert("検索ボタンを再度押してください");
       return [];
     }
   };

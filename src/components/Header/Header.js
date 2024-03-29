@@ -17,16 +17,24 @@ export default function Header() {
   };
 
   return (
-    <header className="py-6 px-4 flex justify-between items-center">
-      <Link href="/home/mypage" className={styles.noLinkStyle}>
-        <h1 className={styles.logo}>SkinBloom</h1>
-      </Link>
+    <header className="py-6 px-4 flex justify-between items-center md:m-4">
+      <div
+        className={
+          isOpen
+            ? ""
+            : "z-40 md:y-6 md:px-4 items-center md:fixed md:left-4 md:flex md:gap-8"
+        }
+      >
+        <Link href="/home/mypage" className={styles.noLinkStyle}>
+          <h1 className={styles.logo}>SkinBloom</h1>
+        </Link>
+      </div>
 
       <nav
         className={
           isOpen
-            ? "z-40 bg-blue-100 fixed top-0 right-0 bottom-0 left-0 h-screen flex flex-col"
-            : "fixed right-[-100%] md:right-4"
+            ? "z-40 bg-slate-50 bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 h-screen flex flex-col"
+            : "z-40 fixed right-[-100%] md:right-4"
         }
       >
         <ul
@@ -42,7 +50,7 @@ export default function Header() {
             </Link>
           </li>
           <li onClick={handleMenuClose} key="Search" className={styles.navItem}>
-            <Link href="/cosmetics/search">Search</Link>
+            <Link href="/search">Search</Link>
           </li>
           <li
             onClick={handleMenuClose}

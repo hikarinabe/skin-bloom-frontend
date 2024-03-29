@@ -5,20 +5,8 @@
   color: $primary-color;
 }
 
-// .header {
-//   background-color: #fff;
-//   box-sizing: border-box;
-//   display: flex;
-//   flex-direction: row;
-//   padding: 40px 37px 38px 59px;
-//   gap: 2px;
-//   max-width: 100%;
-//   text-align: left;
-//   color: $primary-color;
-//   border-bottom: 1px solid $inactive-text-color;
-// }
-
 .logo {
+  color: $primary-color;
   margin: 0;
   width: 182px;
   font-size: inherit;
@@ -30,19 +18,6 @@
   align-items: center;
   font-size: 2em;
   font-family: "Plus Jakarta Sans";
-}
-
-.rightAligned {
-  margin-left: auto; //右寄せ
-  display: flex;
-  gap: 2em;
-}
-
-.navList {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  gap: 2em;
 }
 
 .navItem {

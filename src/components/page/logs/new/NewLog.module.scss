@@ -1,12 +1,15 @@
 @import "../../../../styles/variables";
 
 .backIcon {
+  max-width: 3em;
+  flex: none;
   float: left;
-  margin-top: 20px;
 }
 
 .title {
   text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .sectionWrapper {
   background-color: $primary-color;
@@ -28,6 +31,13 @@
 
 .formItems {
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.formItemTitle {
+  font-weight: bold;
 }
 
 .buttonsWrapper {
@@ -38,6 +48,7 @@
 .textarea {
   width: 100%;
   border-radius: 12px;
+  border: 1px solid $inactive-text-color;
   padding: 10px;
   display: flex;
   align-items: center;

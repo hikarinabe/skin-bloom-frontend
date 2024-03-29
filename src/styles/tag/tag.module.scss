@@ -4,12 +4,13 @@
 .tagActive,
 .tagWhite {
   //効果あり、効果なしなどのタグに使う ユーザインタラクションはなし
-  height: 30px;
+  height: 28px;
+  font-size: 11px;
   border-radius: 5px;
   border: 1px solid $primary-color;
   background-color: white;
   color: $primary-color;
-  font-weight: bold;
+  font-weight: bolder;
   padding-left: 10px;
   padding-right: 10px;
   font-family: inherit;
