@@ -23,10 +23,17 @@
 
 .filterAndResultWrapper {
   display: flex;
+  flex-direction: row;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .filtersWrapper {
-  width: 20%;
+  width: 25%;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
 
 .filtersTitleWrapper {
@@ -36,10 +43,13 @@
 }
 
 .resultWrapper {
-  width: 80%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
 
 .textBox {
