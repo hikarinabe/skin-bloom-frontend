@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import "tailwindcss/tailwind.css";
 import styles from "../Profile.module.scss";
+import { API_KEY, USER_ENDPOINT } from "@/env";
 
 export default function EditProfileItem() {
   const router = useRouter();
@@ -27,14 +28,12 @@ export default function EditProfileItem() {
     }));
   };
 
-  const endpoint_url =
-    "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user";
+  const endpoint_url = USER_ENDPOINT;
   const saveChange = async (event) => {
     event.preventDefault();
     const requestOptions = {
       method: "PUT",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         user_id: localStorage.getItem("user_id"),
         account_name: request.account_name,

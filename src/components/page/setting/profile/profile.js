@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import "tailwindcss/tailwind.css";
 import styles from "../Profile.module.scss";
+import { API_KEY, USER_ENDPOINT } from "@/env";
 
 // あとでエンドポイント経由ではなく直接呼び出せるように修正する。
 export default function ProfileItems() {
@@ -19,10 +20,10 @@ export default function ProfileItems() {
 
   const getClients = async () => {
     const user_id = localStorage.getItem("user_id");
-    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${user_id}`;
+    const endpoint_url = `${USER_ENDPOINT}?user_id=${user_id}`;
     const requestOptions = {
       method: "GET",
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
     };
 
     try {
