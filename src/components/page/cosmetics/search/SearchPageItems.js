@@ -50,7 +50,7 @@ export default function SearchPageItems() {
     const endpoint_url = COSMETIC_INFO_ENDPOINT;
     const requestOptions = {
       method: "POST",
-      headers: { Authorization: API_KEY},
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         keyword: pageState.keyword,
         category: optionState.category,

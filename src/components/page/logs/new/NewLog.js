@@ -16,7 +16,12 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { API_KEY, COSMETIC_INFO_ENDPOINT, COSMETIC_LOG_ENDPOINT, USER_ENDPOINT } from "@/env";
+import {
+  API_KEY,
+  COSMETIC_INFO_ENDPOINT,
+  COSMETIC_LOG_ENDPOINT,
+  USER_ENDPOINT,
+} from "@/env";
 
 const showToast = (message, type = "error") => {
   toast[type](message, {
@@ -142,7 +147,7 @@ export default function NewLog() {
 
     const requestOptions = {
       method: "POST",
-      headers: { Authorization: API_KEY }, 
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         user_id: userId,
         cosmetic_id: cosmetic_id,
