@@ -9,9 +9,9 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
+import { API_KEY, USER_ENDPOINT } from "@/env";
 
-const endpoint_url =
-  "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user";
+const endpoint_url = USER_ENDPOINT;
 
 export default function ProfileFormItems() {
   const router = useRouter();
@@ -75,8 +75,7 @@ export default function ProfileFormItems() {
     event.preventDefault();
     const requestOptions = {
       method: "POST",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         user_id: request.user_id,
         account_name: request.account_name,

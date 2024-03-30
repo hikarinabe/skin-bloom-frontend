@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import styles from "./CosmeticItem.module.scss";
 
 import Link from "next/link";
+import { API_KEY, COSMETIC_INFO_ENDPOINT } from "@/env";
 
 function calculateValueFromString(str) {
   let sum = 0;
@@ -32,10 +33,10 @@ export default function CosmeticItems() {
 
   const getClients = async () => {
     if (id === undefined) return;
-    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${id}`;
+    const endpoint_url = `${COSMETIC_INFO_ENDPOINT}?cosmetic_id=${id}`;
     const requestOptions = {
       method: "GET",
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
     };
 
     try {

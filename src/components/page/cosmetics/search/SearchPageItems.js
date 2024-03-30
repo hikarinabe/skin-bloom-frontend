@@ -8,6 +8,7 @@ import OptionButton from "@/components/ui/button/OptionButton";
 
 import { category_list, company_data } from "@/pkg/cosmetic_master";
 import Image from "next/image";
+import { API_KEY, COSMETIC_INFO_ENDPOINT } from "@/env";
 
 export default function SearchPageItems() {
   const [pageState, setPageState] = useState({
@@ -46,11 +47,10 @@ export default function SearchPageItems() {
 
   const performSearch = async () => {
     setSearchResults([]);
-    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info`;
+    const endpoint_url = COSMETIC_INFO_ENDPOINT;
     const requestOptions = {
       method: "POST",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY},
       body: JSON.stringify({
         keyword: pageState.keyword,
         category: optionState.category,

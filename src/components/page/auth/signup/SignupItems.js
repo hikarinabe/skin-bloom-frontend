@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../ProgressBar";
+import { API_KEY, AUTH_ENDPOINT } from "@/env";
 
 export default function SignupItems() {
   const router = useRouter();
@@ -59,15 +60,13 @@ export default function SignupItems() {
       return;
     }
 
-    const endpoint_url =
-      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
+    const endpoint_url = AUTH_ENDPOINT;
     const formData = new FormData();
     formData.append("email", request.email);
     formData.append("password", request.password);
     const requestOptions = {
       method: "POST",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
       body: formData,
     };
 

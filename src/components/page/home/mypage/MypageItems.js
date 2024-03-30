@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "tailwindcss/tailwind.css";
 import IngredientsRank from "./IngredientsRank";
 import styles from "./MypageItems.module.scss";
+import { API_KEY } from "@/env";
 
 export default function MypageItems() {
   const router = useRouter();
@@ -22,10 +23,10 @@ export default function MypageItems() {
 
   const fetchHome = async () => {
     const user_id = localStorage.getItem("user_id");
-    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/home?user_id=${user_id}`;
+    const endpoint_url = `${HOME_ENDPOINT}?user_id=${user_id}`;
     const requestOptions = {
       method: "GET",
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
     };
 
     try {

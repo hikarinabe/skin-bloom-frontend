@@ -1,4 +1,5 @@
 import authStyles from "@/components/page/auth/auth.module.scss";
+import { API_KEY, LOGIN_ENDPOINT } from "@/env";
 import buttonStyles from "@/styles/button/PillShapedButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,12 +52,10 @@ export default function LoginItems() {
       return;
     }
 
-    const endpoint_url =
-      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/login";
+    const endpoint_url = LOGIN_ENDPOINT;
     const requestOptions = {
       method: "POST",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         email: request.email,
         password: request.password,

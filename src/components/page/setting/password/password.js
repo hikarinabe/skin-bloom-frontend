@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "../Profile.module.scss";
+import { API_KEY, AUTH_ENDPOINT } from "@/env";
 
 export default function PasswordItems() {
   const router = useRouter();
@@ -31,15 +32,13 @@ export default function PasswordItems() {
       return;
     }
 
-    const endpoint_url =
-      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/auth";
+    const endpoint_url = AUTH_ENDPOINT;
     const formData = new FormData();
     formData.append("email", request.email);
     formData.append("password", request.password);
     const requestOptions = {
       method: "PUT",
-      // TODO: とりあえずこのままコミットする。あとでサーバーのAPI keyを変えて秘匿する
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
       body: JSON.stringify({
         user_id: localStorage.getItem("user_id"),
         current_password: request.current_password,

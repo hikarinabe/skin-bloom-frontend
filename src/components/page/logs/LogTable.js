@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "./LogTable.module.scss";
 
 import StarRatingDisplay from "@/components/StarRating/StarRatingDisplay";
+import { API_KEY, COSMETIC_LIST_ENDPOINT } from "@/env";
 
 export default function LogTable() {
   const router = useRouter();
@@ -23,10 +24,10 @@ export default function LogTable() {
 
   const getClients = async () => {
     const user_id = localStorage.getItem("user_id");
-    const endpoint_url = `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_log/list?user_id=${user_id}`;
+    const endpoint_url = `${COSMETIC_LIST_ENDPOINT}?user_id=${user_id}`;
     const requestOptions = {
       method: "GET",
-      headers: { Authorization: "wJ5C9dFcEMB5" },
+      headers: { Authorization: API_KEY },
     };
 
     try {

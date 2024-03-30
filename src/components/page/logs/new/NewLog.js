@@ -16,8 +16,7 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-
-const API_KEY = "wJ5C9dFcEMB5";
+import { API_KEY, COSMETIC_INFO_ENDPOINT, COSMETIC_LOG_ENDPOINT, USER_ENDPOINT } from "@/env";
 
 const showToast = (message, type = "error") => {
   toast[type](message, {
@@ -47,7 +46,7 @@ export default function NewLog() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/user?user_id=${localStorage.getItem("user_id")}`,
+          `${USER_ENDPOINT}?user_id=${localStorage.getItem("user_id")}`,
           {
             headers: {
               Authorization: API_KEY,
@@ -75,7 +74,7 @@ export default function NewLog() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_info?cosmetic_id=${cosmetic_id}`,
+          `${COSMETIC_INFO_ENDPOINT}?cosmetic_id=${cosmetic_id}`,
           {
             headers: {
               Authorization: API_KEY,
@@ -127,8 +126,7 @@ export default function NewLog() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const endpoint_url =
-      "https://asia-northeast1-hikarinabe-741d2.cloudfunctions.net/cosmetic_log";
+    const endpoint_url = COSMETIC_LOG_ENDPOINT;
 
     const [goodCriteria, badCriteria] = Object.keys(criteriaEvaluations).reduce(
       (acc, criteria) => {
@@ -144,7 +142,7 @@ export default function NewLog() {
 
     const requestOptions = {
       method: "POST",
-      headers: { Authorization: "wJ5C9dFcEMB5" }, // TODO 秘匿
+      headers: { Authorization: API_KEY }, 
       body: JSON.stringify({
         user_id: userId,
         cosmetic_id: cosmetic_id,
