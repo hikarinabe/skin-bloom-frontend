@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "tailwindcss/tailwind.css";
 import IngredientsRank from "./IngredientsRank";
 import styles from "./MypageItems.module.scss";
-import { API_KEY } from "@/env";
+import { API_KEY, HOME_ENDPOINT } from "@/env";
 
 export default function MypageItems() {
   const router = useRouter();
